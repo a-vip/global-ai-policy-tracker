@@ -18,4 +18,4 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "open -u $FTP_USER,$FTP_PASS $FTP_HOST; ls -la"
+          lftp -c "set ssl:verify-certificate no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; ls -la; echo '---'; cd public_html || echo 'no public_html'; ls -la; echo '---'; cd tools || echo 'no tools'; ls -la"
