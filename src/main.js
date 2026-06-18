@@ -43,11 +43,11 @@ let geojsonLayer;
 async function init() {
   try {
     // Fetch Policies
-    const policyRes = await fetch('/data/policies.json');
+    const policyRes = await fetch('./data/policies.json');
     policyData = await policyRes.json();
 
     // Fetch GeoJSON map boundaries
-    const geoRes = await fetch('/data/countries.geo.json');
+    const geoRes = await fetch('./data/countries.geo.json');
     const geoData = await geoRes.json();
 
     // Add GeoJSON to Map
