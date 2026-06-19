@@ -20,16 +20,17 @@ jobs:
           const ftp = require("basic-ftp");
           async function explore() {
               const client = new ftp.Client();
+              client.ftp.verbose = true;
               try {
                   await client.access({
-                      host: "145.79.24.70",
+                      host: process.env.FTP_HOST,
                       user: process.env.FTP_USER,
                       password: process.env.FTP_PASS,
-                      secure: false
+                      secure: true
                   });
                   console.log("Connected. Scanning directories...");
                   async function scanDir(path, depth) {
-                      if (depth > 3) return;
+                      if (depth > 2) return;
                       let list = [];
                       try {
                           list = await client.list(path);
