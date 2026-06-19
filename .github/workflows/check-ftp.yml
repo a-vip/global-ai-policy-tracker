@@ -18,9 +18,9 @@ jobs:
         run: |
           cat << 'EOF' > check.js
           const ftp = require("basic-ftp");
+          const fs = require("fs");
           async function explore() {
               const client = new ftp.Client();
-              client.ftp.verbose = true;
               try {
                   await client.access({
                       host: process.env.FTP_HOST,
@@ -29,26 +29,32 @@ jobs:
                       secure: true,
                       secureOptions: { rejectUnauthorized: false }
                   });
-                  console.log("Connected. Scanning directories...");
-                  async function scanDir(path, depth) {
-                      if (depth > 2) return;
-                      let list = [];
+                  console.log("Connected.");
+                  
+                  const pathsToTry = [
+                      "public_html/index.php",
+                      "public_html/index.html",
+                      "index.php",
+                      "index.html",
+                      "domains/aviperera.com/index.php",
+                      "domains/aviperera.com/index.html",
+                      "domains/aviperera.com/public_html/index.php",
+                      "domains/aviperera.com/public_html/index.html"
+                  ];
+                  
+                  for (let p of pathsToTry) {
                       try {
-                          list = await client.list(path);
-                      } catch(e) { return; }
-                      
-                      for (let item of list) {
-                          console.log(path + "/" + item.name);
-                          if (item.isDirectory && item.name !== "." && item.name !== "..") {
-                              await scanDir(path + "/" + item.name, depth + 1);
+                          console.log("Trying to read: " + p);
+                          await client.downloadTo("temp.txt", p);
+                          const content = fs.readFileSync("temp.txt", "utf8");
+                          if (content.includes("Live Content") || content.length > 0) {
+                              console.log("==== FOUND FILE: " + p + " ====");
+                              console.log(content.substring(0, 200));
                           }
-                          if (item.name === "wp-config.php") {
-                              console.log("!!! FOUND WORDPRESS ROOT: " + path);
-                          }
+                      } catch(e) {
+                          // ignore
                       }
                   }
-                  await scanDir("./public_html/tools", 1);
-                  await scanDir("./domains/aviperera.com/public_html/tools", 1);
               } catch(err) {
                   console.error(err);
               }
