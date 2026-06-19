@@ -47,7 +47,8 @@ jobs:
                           }
                       }
                   }
-                  await scanDir(".", 1);
+                  await scanDir("./public_html/tools", 1);
+                  await scanDir("./domains/aviperera.com/public_html/tools", 1);
               } catch(err) {
                   console.error(err);
               }
