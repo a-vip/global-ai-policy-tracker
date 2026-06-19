@@ -26,10 +26,45 @@ jobs:
         run: npm run build
         
       - name: Sync files to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./domains/aviperera.com/public_html/tools/policy-tracker/
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          npm install basic-ftp
+          cat << 'EOF' > deploy.js
+          const ftp = require("basic-ftp");
+          async function deploy() {
+              const client = new ftp.Client();
+              client.ftp.verbose = true;
+              try {
+                  await client.access({
+                      host: process.env.FTP_HOST,
+                      user: process.env.FTP_USER,
+                      password: process.env.FTP_PASS,
+                      secure: true,
+                      secureOptions: { rejectUnauthorized: false }
+                  });
+                  console.log("Connected to FTP. Uploading files...");
+                  
+                  // Upload to primary domain root
+                  await client.ensureDir("/public_html/tools/policy-tracker");
+                  await client.clearWorkingDir();
+                  await client.uploadFromDir("dist");
+                  
+                  // Reset root and upload to add-on domain root just in case
+                  await client.cd("/");
+                  await client.ensureDir("/domains/aviperera.com/public_html/tools/policy-tracker");
+                  await client.clearWorkingDir();
+                  await client.uploadFromDir("dist");
+                  
+                  console.log("Deployment complete!");
+              } catch(err) {
+                  console.error(err);
+                  process.exit(1);
+              }
+              client.close();
+          }
+          deploy();
+          EOF
+          node deploy.js
