@@ -12,7 +12,6 @@ jobs:
       - run: npm install basic-ftp
       - name: List FTP Root
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
         run: |
@@ -23,22 +22,10 @@ jobs:
           set ftp:ssl-allow true
           set ssl:verify-certificate no
           set ftp:passive-mode true
-          open -u $FTP_USER,$FTP_PASS $FTP_HOST
+          open -u $FTP_USER,$FTP_PASS 157.173.209.31
           
           echo "==== ls root ===="
-          ls
-          
-          echo "==== ls public_html ===="
-          ls public_html
-          
-          echo "==== ls domains ===="
-          ls domains
-          
-          echo "==== ls domains/aviperera.com ===="
-          ls domains/aviperera.com
-          
-          echo "==== ls domains/aviperera.com/public_html ===="
-          ls domains/aviperera.com/public_html
+          ls -la
           
           echo "==== DONE ===="
           quit
