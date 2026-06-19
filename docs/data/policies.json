@@ -1,0 +1,44 @@
+{
+  "USA": {
+    "status": "Regulated",
+    "statusColor": "#f39c12",
+    "description": "The US has issued Executive Orders and DoD Directives (e.g., DoD 3000.09) requiring 'appropriate levels of human judgment' over lethal force, but hasn't fully banned LAWS.",
+    "links": [{"title": "DoD Directive 3000.09", "url": "https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodd/300009p.pdf"}]
+  },
+  "CHN": {
+    "status": "Regulated",
+    "statusColor": "#f39c12",
+    "description": "China has called for a ban on the *use* of fully autonomous weapons but not their development, while heavily investing in military AI.",
+    "links": []
+  },
+  "GBR": {
+    "status": "Regulated",
+    "statusColor": "#f39c12",
+    "description": "The UK opposes a preemptive ban on LAWS, arguing that existing International Humanitarian Law (IHL) is sufficient to regulate them.",
+    "links": []
+  },
+  "AUT": {
+    "status": "Banned",
+    "statusColor": "#e74c3c",
+    "description": "Austria introduced the 2024 UN resolution on lethal autonomous weapons and is a leading voice advocating for a legally binding global ban.",
+    "links": [{"title": "UN Resolution L.56", "url": "#"}]
+  },
+  "BRA": {
+    "status": "Banned",
+    "statusColor": "#e74c3c",
+    "description": "Brazil actively supports a legally binding instrument to prohibit autonomous weapons that lack meaningful human control.",
+    "links": []
+  },
+  "ISR": {
+    "status": "Unregulated",
+    "statusColor": "#95a5a6",
+    "description": "Israel is a major developer of autonomous systems (e.g., Harpy loitering munition) and opposes new international legal regulations on LAWS.",
+    "links": []
+  },
+  "RUS": {
+    "status": "Unregulated",
+    "statusColor": "#95a5a6",
+    "description": "Russia opposes a ban on LAWS, stating that meaningful human control is a subjective concept and current international law is adequate.",
+    "links": []
+  }
+}
