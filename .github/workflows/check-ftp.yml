@@ -25,25 +25,20 @@ jobs:
           set ftp:passive-mode true
           open -u $FTP_USER,$FTP_PASS $FTP_HOST
           
-          echo "==== root index.html ===="
-          cat index.html
-          echo "==== root index.php ===="
-          cat index.php
+          echo "==== ls root ===="
+          ls
           
-          echo "==== public_html/index.html ===="
-          cat public_html/index.html
-          echo "==== public_html/index.php ===="
-          cat public_html/index.php
+          echo "==== ls public_html ===="
+          ls public_html
           
-          echo "==== domains/aviperera.com/index.html ===="
-          cat domains/aviperera.com/index.html
-          echo "==== domains/aviperera.com/index.php ===="
-          cat domains/aviperera.com/index.php
+          echo "==== ls domains ===="
+          ls domains
           
-          echo "==== domains/aviperera.com/public_html/index.html ===="
-          cat domains/aviperera.com/public_html/index.html
-          echo "==== domains/aviperera.com/public_html/index.php ===="
-          cat domains/aviperera.com/public_html/index.php
+          echo "==== ls domains/aviperera.com ===="
+          ls domains/aviperera.com
+          
+          echo "==== ls domains/aviperera.com/public_html ===="
+          ls domains/aviperera.com/public_html
           
           echo "==== DONE ===="
           quit
