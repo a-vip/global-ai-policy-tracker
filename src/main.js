@@ -37,8 +37,10 @@ L.control.zoom({
 // Design Tokens (Matching CSS)
 const colors = {
   Banned: '#ef4444',
-  Proposed: '#8b5cf6',
-  Regulated: '#10b981',
+  Proposed: '#eab308',
+  Policy: '#a855f7',
+  Passed: '#3b82f6',
+  InEffect: '#10b981',
   Unregulated: '#64748b',
   Default: 'rgba(255,255,255,0.05)',
   Hover: '#ffffff',
@@ -83,18 +85,22 @@ async function init() {
 }
 
 function getStatusColor(statusStr) {
-  const s = statusStr.toLowerCase();
+  const s = statusStr ? statusStr.toLowerCase() : '';
   if (s.includes('ban')) return colors.Banned;
-  if (s.includes('propos') || s.includes('develop')) return colors.Proposed;
-  if (s.includes('effect') || s.includes('launch') || s.includes('regulat') || s.includes('pass')) return colors.Regulated;
+  if (s.includes('pass')) return colors.Passed;
+  if (s.includes('effect') || s.includes('enact') || s.includes('regulat') || s.includes('adopt')) return colors.InEffect;
+  if (s.includes('propos') || s.includes('develop') || s.includes('draft') || s.includes('bill')) return colors.Proposed;
+  if (s.includes('polic') || s.includes('strateg') || s.includes('framework')) return colors.Policy;
   return colors.Unregulated;
 }
 
 function getStatusClass(statusStr) {
-  const s = statusStr.toLowerCase();
+  const s = statusStr ? statusStr.toLowerCase() : '';
   if (s.includes('ban')) return 'banned';
-  if (s.includes('propos') || s.includes('develop')) return 'proposed';
-  if (s.includes('effect') || s.includes('launch') || s.includes('regulat') || s.includes('pass')) return 'enacted';
+  if (s.includes('pass')) return 'passed';
+  if (s.includes('effect') || s.includes('enact') || s.includes('regulat') || s.includes('adopt')) return 'in-effect';
+  if (s.includes('propos') || s.includes('develop') || s.includes('draft') || s.includes('bill')) return 'proposed';
+  if (s.includes('polic') || s.includes('strateg') || s.includes('framework')) return 'policy';
   return 'unregulated';
 }
 
@@ -249,15 +255,21 @@ function renderRegulationsList() {
   // Build HTML
   regulationsListEl.innerHTML = filtered.map(reg => {
     const statusClass = getStatusClass(reg.status);
-    const dateStr = reg.date ? new Date(reg.date).toLocaleDateString() : 'Unknown Date';
+    const dateStr = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).toLocaleDateString() : '';
     // Clean description HTML slightly if it's from sovereign
     let desc = reg.description || 'No description provided.';
     desc = desc.replace(/Official Source \/ Legislation:/g, '<strong>Source:</strong>');
     
+    // Add area badge if area exists
+    const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';
+    
     return `
       <div class="reg-card" ${currentSpecificReg && reg.id === currentSpecificReg.id ? 'style="border-color: #3b82f6;"' : ''}>
         <div class="reg-header">
-          <span class="reg-status ${statusClass}">${reg.status}</span>
+          <div>
+            <span class="reg-status ${statusClass}">${reg.status}</span>
+            ${areaBadge}
+          </div>
           <span class="reg-date">${dateStr}</span>
         </div>
         <h3 class="reg-title">${reg.title}</h3>
@@ -293,6 +305,21 @@ searchInput.addEventListener('input', (e) => {
 closePanelBtn.addEventListener('click', () => {
   infoPanel.classList.add('hidden');
   selectedRegion = null;
+});
+
+// Stats Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const statsBtn = document.getElementById('stats-btn');
+  const modalOverlay = document.getElementById('stats-modal');
+  const closeBtn = document.getElementById('close-modal');
+
+  if (statsBtn && modalOverlay && closeBtn) {
+    statsBtn.addEventListener('click', () => modalOverlay.classList.add('active'));
+    closeBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+    });
+  }
 });
 
 // Run

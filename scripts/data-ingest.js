@@ -40,6 +40,20 @@ async function fetchAIPolicyData() {
 // Convert ISO 2-letter to 3-letter (a small map for common ones, or we can just use 2-letter if we change main.js)
 // Actually, sovereign-dashboard uses full country names. 
 // We will unify everything with standard IDs. Let's just create a rich array and compute stats.
+function categorizeArea(title, desc) {
+  const text = ((title || '') + ' ' + (desc || '')).toLowerCase();
+  
+  if (text.includes('generative ai') || text.includes('llm') || text.includes('foundation model') || text.includes('chatgpt')) return 'Generative AI';
+  if (text.includes('data') || text.includes('privacy') || text.includes('internet') || text.includes('advertising') || text.includes('gdpr') || text.includes('cookie') || text.includes('cyber')) return 'Data, Internet, Privacy, and Advertising';
+  if (text.includes('employ') || text.includes('work') || text.includes('labor') || text.includes('hire') || text.includes('job') || text.includes('recruit')) return 'Employment';
+  if (text.includes('military') || text.includes('defense') || text.includes('weapon') || text.includes('government') || text.includes('public sector') || text.includes('agency') || text.includes('lethal')) return 'Government and Military';
+  if (text.includes('health') || text.includes('medical') || text.includes('patient') || text.includes('clinical') || text.includes('hospital')) return 'Health';
+  if (text.includes('financ') || text.includes('insur') || text.includes('bank') || text.includes('credit')) return 'Financial and Insurance';
+  if (text.includes('education') || text.includes('school') || text.includes('transport') || text.includes('vehicle')) return 'Other';
+  
+  return 'General';
+}
+
 async function ingestData() {
   console.log('Starting data ingestion...');
   const unified = [];
@@ -106,6 +120,11 @@ async function ingestData() {
   }
 
   // 3. Process and Output
+  // Assign areas
+  unified.forEach(reg => {
+    reg.area = categorizeArea(reg.title, reg.description);
+  });
+  
   console.log(`Total unified records: ${unified.length}`);
   
   // Create country summary for coloring
@@ -132,25 +151,33 @@ async function ingestData() {
     let mainStatus = 'Unregulated';
     
     // Normalize keys to lowercase for robust matching
-    let enactedCount = 0;
+    let inEffectCount = 0;
+    let passedCount = 0;
     let proposedCount = 0;
+    let policyCount = 0;
     let bannedCount = 0;
     
     Object.keys(counts).forEach(k => {
       const s = k.toLowerCase();
       if (s.includes('ban') || s.includes('moratorium')) bannedCount += counts[k];
-      else if (s.includes('effect') || s.includes('launch') || s.includes('pass') || s.includes('enact') || s.includes('regulat') || s.includes('adopt')) enactedCount += counts[k];
-      else if (s.includes('propos') || s.includes('develop') || s.includes('draft') || s.includes('bill') || s.includes('polic') || s.includes('strateg') || s.includes('framework')) proposedCount += counts[k];
-      else proposedCount += counts[k]; // Default policy to proposed
+      else if (s.includes('effect') || s.includes('enact') || s.includes('regulat') || s.includes('adopt')) inEffectCount += counts[k];
+      else if (s.includes('pass')) passedCount += counts[k];
+      else if (s.includes('propos') || s.includes('develop') || s.includes('draft') || s.includes('bill')) proposedCount += counts[k];
+      else if (s.includes('polic') || s.includes('strateg') || s.includes('framework')) policyCount += counts[k];
+      else policyCount += counts[k]; // Default unknown to policy
     });
     
-    // Assign stance based on majority or strict rules
+    // Assign stance based on precedence
     if (bannedCount > 0) {
       mainStatus = 'Banned'; // Banned takes precedence
-    } else if (enactedCount > 0) {
-      mainStatus = 'Regulated / Enacted'; // If any are enacted, it's regulated
+    } else if (inEffectCount > 0) {
+      mainStatus = 'In Effect'; 
+    } else if (passedCount > 0) {
+      mainStatus = 'Passed';
     } else if (proposedCount > 0) {
-      mainStatus = 'Proposed / In Development';
+      mainStatus = 'Proposed';
+    } else if (policyCount > 0) {
+      mainStatus = 'Policy';
     }
     
     countrySummary[c].overallStance = mainStatus;

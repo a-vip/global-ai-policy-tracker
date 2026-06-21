@@ -28,11 +28,14 @@
             <i class="fas fa-search"></i>
             <input type="text" id="search-input" placeholder="Search countries, regulations..." autocomplete="off">
           </div>
-          <div class="legend">
-            <div class="legend-item"><span class="dot regulated"></span> Regulated / Enacted</div>
-            <div class="legend-item"><span class="dot proposed"></span> Proposed / In Development</div>
+          <div class="legend" style="align-items: center;">
+            <div class="legend-item"><span class="dot in-effect"></span> In Effect</div>
+            <div class="legend-item"><span class="dot passed"></span> Passed</div>
+            <div class="legend-item"><span class="dot proposed"></span> Proposed</div>
+            <div class="legend-item"><span class="dot policy"></span> Policy</div>
             <div class="legend-item"><span class="dot banned"></span> Banned</div>
             <div class="legend-item"><span class="dot unregulated"></span> Unregulated</div>
+            <button id="stats-btn" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-left: 10px;"><i class="fas fa-chart-bar" style="margin-right: 6px;"></i> Area Statistics</button>
           </div>
         </div>
       </header>
@@ -55,8 +58,10 @@
           <div class="panel-content">
             <div class="filter-tabs">
               <button class="tab-btn active" data-filter="all">All</button>
-              <button class="tab-btn" data-filter="enacted">Enacted</button>
+              <button class="tab-btn" data-filter="in-effect">In Effect</button>
+              <button class="tab-btn" data-filter="passed">Passed</button>
               <button class="tab-btn" data-filter="proposed">Proposed</button>
+              <button class="tab-btn" data-filter="policy">Policy</button>
             </div>
             <div id="regulations-list" class="regulations-list">
               <!-- Dynamically populated -->
@@ -72,6 +77,59 @@
       <footer class="glass-footer">
         <p>Curated by <a href="https://aviperera.com" target="_blank">Avi Perera</a> &copy; 2026. Built for transparency in international AI Policy.</p>
       </footer>
+    </div>
+    
+    <!-- Statistics Modal -->
+    <div id="stats-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>AI Regulations by Impact Area</h2>
+          <button id="close-modal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="margin-bottom: 15px; color: var(--text-secondary); font-size: 0.9rem;">Asenion built this map to track AI regulations across the world (including Data and Privacy regulations impacting AI.)</p>
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th class="col-green">Green (in effect)</th>
+                <th class="col-blue">Blue (passed)</th>
+                <th class="col-yellow">Yellow (proposed)</th>
+                <th class="col-purple">Purple (policy)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>General</td><td>25</td><td>15</td><td>56</td><td>74</td>
+              </tr>
+              <tr>
+                <td>Generative AI</td><td>28</td><td>8</td><td>40</td><td>2</td>
+              </tr>
+              <tr>
+                <td>Data, Internet, Privacy, and Advertising</td><td>61</td><td>17</td><td>32</td><td>5</td>
+              </tr>
+              <tr>
+                <td>Employment</td><td>3</td><td>0</td><td>11</td><td>0</td>
+              </tr>
+              <tr>
+                <td>Government and Military</td><td>6</td><td>7</td><td>17</td><td>3</td>
+              </tr>
+              <tr>
+                <td>Health</td><td>3</td><td>2</td><td>12</td><td>1</td>
+              </tr>
+              <tr>
+                <td>Financial and Insurance</td><td>5</td><td>4</td><td>5</td><td>6</td>
+              </tr>
+              <tr>
+                <td>Other</td><td>6</td><td>2</td><td>9</td><td>0</td>
+              </tr>
+              <tr>
+                <td>Total</td><td>117</td><td>48</td><td>154</td><td>91</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- Leaflet JS -->

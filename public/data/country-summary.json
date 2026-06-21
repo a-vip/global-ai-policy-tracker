@@ -5,7 +5,7 @@
       "In effect": 1,
       "Policy": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Australia": {
     "count": 9,
@@ -13,7 +13,7 @@
       "In effect": 2,
       "Policy": 7
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Vietnam": {
     "count": 5,
@@ -22,7 +22,7 @@
       "Proposed": 2,
       "Policy": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "United Arab Emirates": {
     "count": 4,
@@ -30,7 +30,7 @@
       "In effect": 2,
       "Policy": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Malaysia": {
     "count": 5,
@@ -39,14 +39,14 @@
       "Proposed": 1,
       "Policy": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "British Columbia": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "China": {
     "count": 28,
@@ -56,14 +56,14 @@
       "Proposed": 5,
       "Policy": 14
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Virginia": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Colorado": {
     "count": 5,
@@ -71,21 +71,21 @@
       "In effect": 2,
       "Proposed": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Mississippi": {
     "count": 2,
     "statusCounts": {
       "In effect": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "New Jersey": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "California": {
     "count": 13,
@@ -94,7 +94,7 @@
       "Proposed": 1,
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Pakistan": {
     "count": 5,
@@ -103,28 +103,28 @@
       "Policy": 3,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Louisiana": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "UT": {
     "count": 3,
     "statusCounts": {
       "In effect": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "African Union Resolution on the need to undertake a Study on human and peoples’ rights and artificial intelligence (AI), robotics and other new and emerging technologies in Africa": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "South Korea": {
     "count": 6,
@@ -133,7 +133,7 @@
       "Policy": 3,
       "Enacted": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "TX": {
     "count": 5,
@@ -141,14 +141,14 @@
       "In effect": 2,
       "Proposed": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Albuquerque": {
     "count": 3,
     "statusCounts": {
       "In effect": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Taiwan": {
     "count": 2,
@@ -156,28 +156,28 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "City of Pittsburgh": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "CO": {
     "count": 2,
     "statusCounts": {
       "In effect": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Utah S.B. 149": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "EU": {
     "count": 3,
@@ -186,7 +186,7 @@
       "Policy": 1,
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "US": {
     "count": 7,
@@ -196,14 +196,14 @@
       "Passed": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "ND": {
     "count": 1,
     "statusCounts": {
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Passed"
   },
   "Argentina": {
     "count": 10,
@@ -211,7 +211,7 @@
       "Proposed": 6,
       "Policy": 4
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Mexico": {
     "count": 3,
@@ -219,7 +219,7 @@
       "Proposed": 2,
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "United States": {
     "count": 166,
@@ -238,7 +238,7 @@
       "Proposed": 1,
       "Policy": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Kazakhstan": {
     "count": 3,
@@ -246,14 +246,14 @@
       "Proposed": 2,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Proposed"
   },
   "CT Senate Bill 2 (SB 2)": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Luxembourg": {
     "count": 3,
@@ -261,7 +261,7 @@
       "Proposed": 1,
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "CA": {
     "count": 13,
@@ -269,28 +269,28 @@
       "Proposed": 10,
       "In effect": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "US S.4769": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "UK": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "DC": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "NJ": {
     "count": 7,
@@ -298,14 +298,14 @@
       "Proposed": 6,
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "IL": {
     "count": 4,
     "statusCounts": {
       "Proposed": 4
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "MD": {
     "count": 5,
@@ -314,21 +314,21 @@
       "In effect": 1,
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "NV": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "NM": {
     "count": 2,
     "statusCounts": {
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "NY": {
     "count": 11,
@@ -337,35 +337,35 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "NYC": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "NC": {
     "count": 3,
     "statusCounts": {
       "Proposed": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "PA": {
     "count": 6,
     "statusCounts": {
       "Proposed": 6
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Updated": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "India": {
     "count": 8,
@@ -374,14 +374,14 @@
       "In effect": 1,
       "Proposed": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "New York State": {
     "count": 3,
     "statusCounts": {
       "Policy": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "South Africa": {
     "count": 5,
@@ -389,35 +389,35 @@
       "Policy": 3,
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Oman": {
     "count": 3,
     "statusCounts": {
       "Policy": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Nigeria": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "France For a Meaningful Artificial Intelligence": {
     "count": 2,
     "statusCounts": {
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Slovakia Action plan for the digital transformation for 2019": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Austria": {
     "count": 2,
@@ -425,28 +425,28 @@
       "Proposed": 1,
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "New Hampshire": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Maine": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Oregon": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Peru": {
     "count": 2,
@@ -454,7 +454,7 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Denmark": {
     "count": 3,
@@ -462,21 +462,21 @@
       "In effect": 1,
       "Policy": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Utah": {
     "count": 2,
     "statusCounts": {
       "In effect": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "New York": {
     "count": 3,
     "statusCounts": {
       "In effect": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "U.S.": {
     "count": 5,
@@ -484,21 +484,21 @@
       "In effect": 1,
       "Proposed": 4
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "East Pennsylvania School District": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Washington": {
     "count": 3,
     "statusCounts": {
       "In effect": 3
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Arizona": {
     "count": 2,
@@ -506,14 +506,14 @@
       "Passed": 1,
       "Proposed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Passed"
   },
   "Pennsylvania": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Maryland": {
     "count": 2,
@@ -521,49 +521,49 @@
       "Proposed": 1,
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Idaho": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Iowa": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Hawaii": {
     "count": 2,
     "statusCounts": {
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Georgia": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Minnesota": {
     "count": 3,
     "statusCounts": {
       "Proposed": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Oklahoma": {
     "count": 3,
     "statusCounts": {
       "Proposed": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "European Union": {
     "count": 7,
@@ -572,7 +572,7 @@
       "Policy": 4,
       "Enacted": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "VT": {
     "count": 3,
@@ -580,49 +580,49 @@
       "Proposed": 2,
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Passed"
   },
   "Philippines HB 10567": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "USA": {
     "count": 2,
     "statusCounts": {
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "USA H.R.5586": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "USA H.R.3106": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "RI": {
     "count": 6,
     "statusCounts": {
       "Proposed": 6
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Saudi Arabia": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Uzbekistan": {
     "count": 2,
@@ -630,7 +630,7 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "KY": {
     "count": 2,
@@ -638,56 +638,56 @@
       "In effect": 1,
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "NE": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Bermuda": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Vermont": {
     "count": 1,
     "statusCounts": {
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Passed"
   },
   "Florida HB 3": {
     "count": 1,
     "statusCounts": {
       "Passed": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Passed"
   },
   "Connecticut": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Wisconsin": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Florida": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Canada": {
     "count": 4,
@@ -695,28 +695,28 @@
       "Proposed": 3,
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Ohio": {
     "count": 2,
     "statusCounts": {
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "CA AB 1337": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "SC": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Ontario": {
     "count": 2,
@@ -724,14 +724,14 @@
       "Proposed": 1,
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "MA": {
     "count": 3,
     "statusCounts": {
       "Proposed": 3
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "The Office of Management and Budget": {
     "count": 2,
@@ -739,7 +739,7 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Italy": {
     "count": 2,
@@ -747,7 +747,7 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Illinois": {
     "count": 3,
@@ -755,63 +755,63 @@
       "Proposed": 2,
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "WI": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "MO": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "WA": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "AZ": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Alabama": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "MI": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "ME": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Hong Kong": {
     "count": 2,
     "statusCounts": {
       "In effect": 2
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Colorado SB21-169": {
     "count": 2,
@@ -819,63 +819,63 @@
       "In effect": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "US SR 11-7": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "UK CP6/22": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "DE": {
     "count": 1,
     "statusCounts": {
       "In effect": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "ON": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Singapore": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Brussels": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "United Nations": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Nebraska": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Japan": {
     "count": 2,
@@ -883,28 +883,28 @@
       "Enacted": 1,
       "Policy": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "U.S. -Executive Order Advancing Artificial Intelligence Education for American Youth": {
     "count": 1,
     "statusCounts": {
       "Enacted": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "Arizona's 2000PR": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Arizona's P2000": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "United Kingdom": {
     "count": 4,
@@ -912,14 +912,14 @@
       "Proposed": 3,
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "University of Virginia": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Türkiye": {
     "count": 3,
@@ -927,49 +927,49 @@
       "Proposed": 1,
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "African Union": {
     "count": 2,
     "statusCounts": {
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Rhode Island Data Transparency and Privacy Protection Act": {
     "count": 1,
     "statusCounts": {
       "Enacted": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "In Effect"
   },
   "California Assembly Bill 1814": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Italy Senate Act n. 1146": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "USA's H.R.5586": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "USA's H.R.3106": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Jamaica": {
     "count": 2,
@@ -977,35 +977,35 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Rwanda": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Tunisia": {
     "count": 2,
     "statusCounts": {
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Tanzania": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Uganda": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Zambia": {
     "count": 2,
@@ -1013,28 +1013,28 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Benin": {
     "count": 2,
     "statusCounts": {
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Botswana": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Egypt": {
     "count": 2,
     "statusCounts": {
       "Policy": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Ghana": {
     "count": 2,
@@ -1042,154 +1042,154 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Ethiopia": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Morocco": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Algeria": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Mauritania": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Chad": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Niger": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Mali": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Togo": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Cote D'Ivoire": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Guinea": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Cabo Verde": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Sao Tome": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Equatorial Guinea": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Angola": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Mauritius": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Madagascar": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Zimbabwe": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Lesotho": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Eswatini": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Seychelles": {
     "count": 1,
     "statusCounts": {
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "African Union Resolution on the need to undertake a Study on human and peoples’ rights and artificial intelligence (AI), robotics and other new and emerging technologies in Africa": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Thailand": {
     "count": 2,
@@ -1197,14 +1197,14 @@
       "Policy": 1,
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Philippines": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Qatar": {
     "count": 2,
@@ -1212,21 +1212,21 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Jordan": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Lebanon": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Bangladesh": {
     "count": 2,
@@ -1234,7 +1234,7 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Serbia": {
     "count": 2,
@@ -1242,126 +1242,126 @@
       "Policy": 1,
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Slovakia": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Hungary": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Poland": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Ukraine": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Czech Republic": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Germany": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Russia": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Lithuania": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Estonia": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Norway": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Spain": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Portugal": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Belgium": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Netherlands": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Ireland": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Sweden": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Uruguay": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Brazil": {
     "count": 3,
@@ -1369,7 +1369,7 @@
       "Policy": 1,
       "Proposed": 2
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Colombia": {
     "count": 2,
@@ -1377,27 +1377,27 @@
       "Policy": 1,
       "Proposed": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   },
   "Liechtenstein": {
     "count": 1,
     "statusCounts": {
       "Policy": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Policy"
   },
   "Dominican Republic": {
     "count": 1,
     "statusCounts": {
       "launched": 1
     },
-    "overallStance": "Regulated / Enacted"
+    "overallStance": "Policy"
   },
   "Iran": {
     "count": 1,
     "statusCounts": {
       "development": 1
     },
-    "overallStance": "Proposed / In Development"
+    "overallStance": "Proposed"
   }
 }
