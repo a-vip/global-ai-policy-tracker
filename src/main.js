@@ -160,9 +160,6 @@ function highlightFeature(e) {
     opacity: 1,
     fillOpacity: 0.8
   });
-  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    layer.bringToFront();
-  }
 }
 
 function resetHighlight(e) {
@@ -245,8 +242,8 @@ function renderRegulationsList() {
   }
   
   // If a specific marker was clicked, bring it to the top
-  if (highlightedReg) {
-    filtered.sort((a, b) => a.id === highlightedReg.id ? -1 : b.id === highlightedReg.id ? 1 : 0);
+  if (currentSpecificReg) {
+    filtered.sort((a, b) => a.id === currentSpecificReg.id ? -1 : b.id === currentSpecificReg.id ? 1 : 0);
   }
   
   // Build HTML
@@ -258,7 +255,7 @@ function renderRegulationsList() {
     desc = desc.replace(/Official Source \/ Legislation:/g, '<strong>Source:</strong>');
     
     return `
-      <div class="reg-card" ${highlightedReg && reg.id === highlightedReg.id ? 'style="border-color: #3b82f6;"' : ''}>
+      <div class="reg-card" ${currentSpecificReg && reg.id === currentSpecificReg.id ? 'style="border-color: #3b82f6;"' : ''}>
         <div class="reg-header">
           <span class="reg-status ${statusClass}">${reg.status}</span>
           <span class="reg-date">${dateStr}</span>

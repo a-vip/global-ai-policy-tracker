@@ -1,0 +1,427 @@
+As of June 5, 2026, updates include:
+
+California- Executive Order N-6-26
+Singapore - Model AI Governance framework for Agentic AI
+As of May 31, 2026, updates include:
+
+United State of America - H.R. 9497 Artificial Intelligence Advancement and Reliability Act ( “AI Advancement and Reliability Act”)
+Colorado - SB 189 Automated Decision-Making Technology
+Connecticut - SB5 An act concerning online safety
+Minnesota - HF 1606 Prohibiting access to nudification technology
+Australia - Policy on Use of Generative Artificial Intelligence in the ARC's grants programs
+United State of America - H.R 8516 American Leadership in AI Act
+As of April 30, 2026, updates include:
+
+Pennsylvania - SB 1090 An act providing for disclosures and safeguards relating to the use of artificial intelligence (AI) and imposing certain duties on the Attorney General
+Maine - LD 1727 An Act to Ensure Transparency in Consumer Transactions Involving Artificial Intelligence
+New Hampshire - HB 143 Criminalizing and creating a private right of action for the facilitation, encouragement, offer, solicitation, or recommendation of certain acts or actions through a responsive generative communication to a child.
+New York - S‑3008C An Act to amend the Executive Law and other laws, in relation to enacting into law major components of legislation necessary to implement the State transportation, economic development and environmental conservation budget for the 2025‑2026 state fiscal year
+Washington - HB 2225 An Act Relating to regulation of artificial intelligence companion chatbots; adding a new chapter to Title 19 RCW; and providing an effective date
+United State of America - Artificial Intelligence (AI) Data Center Moratorium Act
+Washington - HB 1170 AN ACT Relating to informing users when content is developed or modified by artificial intelligence
+Washington - SB 5105 AN ACT Relating to offenses involving fabricated depictions of 2 minors
+California - N-5-26 Executive Order
+South Africa - No. 54477 Draft South Africa National Artificial Intelligence (AI) Policy
+China - (Trial) Measures for Science and Technology Ethics Reviews
+As of March 31, 2026, updates include:
+
+Alabama - SB 63 Health care plans; to regulate the use of artificial intelligence in determinations of coverage
+Ohio - HB 524 Impose penalties for AI models suggesting harming self or another
+Colorado - HB26-1195 Concerning restrictions on the use of artificial intelligence relating to psychotherapy services.
+Colorado - HB26-1139 Concerning the use of artificial intelligence in health care
+Minnesota - S.F. No. 1857 Minor Access to  Chatbots
+Minnesota - S.F. No. 1886 Disclosure of artificial intelligence
+Australia - No. 76, 2021 Online safety codes introduce real-world protections for children online
+Indonesia - Joint Decree of Seven Ministers on Guidelines for the Use and Learning of Digital Technology and Artificial Intelligence in Formal, Non-formal, and Informal Education
+United State of America - National Policy Framework for Artificial Intelligence
+Arizona - AZ HB 2311 Artificial intelligence service; disclosures; requirements
+Arizona - SB 300 Companion Chatbots
+Georgia -SB 540 Online Internet Safety; certain disclosures related to conversational AI services; require
+Hawaii - SB 3001 Artificial Intelligence Disclosure and Safety Act
+Hawaii - SB 1782 Relating to Artificial Intelligence for the Protection of Minors
+Iowa - S.F. 2417 An Act relating to the regulation of conversational artificial intelligence services for minors, including disclosure, content restrictions, and enforcement provisions.
+Idaho - SB 1297 Adds to existing law to establish the Conversational AI Safety Act.
+Maryland - HB 952 Consumer Protection - Companion Chatbots - Regulation
+Oregon - SB 1546 Relating to artificial intelligence companions.
+As of February 31, 2026, updates include:
+
+Uzbekistan - Law No. ЗРУ-1115 On introducing additions and amendments to certain legislative acts of the Republic of Uzbekistan in connection with the regulation of relations arising from the use of artificial intelligence
+Wisconsin -AB 965 Artificial intelligence systems that simulate humanlike relationships with children and providing a penalty.
+California - SB 574 Generative artificial intelligence: attorneys and arbitrators
+As of January 31, 2026, updates include:
+
+China - 《人工智能拟人化互动服务管理暂行办法（征求意见稿）》(Interim Measures for the Management of AI Anthropomorphic Interactive Services – Draft for Public Comment)
+New York - Bill A6453 Responsible AI Safety and Education Act  (RAISE Act)
+Oklahoma - HB 3544 Technology; artificial intelligence; chatbots; companions; minors; safety; civil penalties; effective date
+Oklahoma -HB 3545 Technology; artificial intelligence; state agencies; prohibited uses; permitted uses; Office of Management and Enterprise Services; report; effective date.
+Oklahoma - HB 3546 Technology; personhood; artificial intelligence; effective date
+Florida - SB 482 Artificial Intelligence Bill of Rights
+South Korea - Act No. 20676 Framework Act on the Development of Artificial Intelligence and Establishment of Trust
+China - Interim Measures for the Administration of Human‑Like Interactive Services Based on Artificial Intelligence
+As of December 31, 2025, updates include:
+
+Vietnam - Law on Artificial Intelligence (Vietnamese: Luật Trí tuệ nhân tạo)
+Taiwan - Artificial Intelligence Basic Act
+As of November 31, 2025, updates include:
+
+United Arab Emirates - Federal Decree-Law No. 25 of 2018 on Projects of a Future Nature
+United States of America -  S. 3193 Algorithm Accountability Act
+As of October 31, 2025, updates include:
+
+Vietnam - Draft AI Law
+California - SB-243 Companion Chatbots
+Chile - Law Regulating Artificial Intelligence System
+California - Judicial Branch Administration: Rule and Standard for Use of Generative Artificial Intelligence in Court-Related Work
+Louisiana - JML 25-103 Artificial Intelligence Acceptable Use Policy
+United State of America - S. 2937 Aligning Incentives for Leadership, Excellence, and Advancement in Development (AI LEAD) Act
+Mexico -  Initiative with draft decree amending and adding various provisions of the Federal Cinematography Law; the Federal Copyright Law; and the Federal Labor Law, regarding protective measures for dubbing actors in Mexico against the use of artificial intelligence or emerging technologies in dubbing processes
+Pakistan - National Artificial Intelligence (AI) Policy 2025
+California -SB-524 Law enforcement agencies: artificial intelligence
+Australia - Joint statement on building trustworthy data governance frameworks to encourage development of innovative and privacy-protective AI
+California - AB-412 Generative artificial intelligence: training data: copyrighted materials
+California - SB 53 Artificial intelligence models: large developers. Transparency in Frontier Artificial Intelligence Act (TFAIA)
+Brussels - EU Apply AI Strategy
+California - AB 853 California AI Transparency Act
+New Mexico- Resolution R-24-81 Directing the City Administration To Create An Artificial Intelligence Policy Working Group, Requiring Development Of A City Of Albuquerque Artificial Intelligence Policy, Providing An Appropriation To The Department Of Technology And Innovation
+California - AB-2355 Political Reform Act of 1974: political advertisements: artificial intelligence
+Colorado - SB 24-205 Artificial Intelligence Systems: Consumer Protections
+United States of America - S. 4569 Tools to Address Known Exploitation by Immobilizing Technological Deepfakes on Websites and Networks Act (TAKE IT DOWN Act)
+California - Executive Order N-12-23
+California - AB-1836 Use of likeness: digital replica
+Maryland - HB-603 Consumer Protection – Online Products and Services – Data of Children (Maryland Kids Code)
+New Jersey - Guidance on Algorithmic Discrimination and the New Jersey Law Against Discrimination (LAD)
+Mississippi - Executive Order No. 1584
+Colorado - 3 CCR 702‑10 Unfair Discrimination — Rules Regulating the Use of External Consumer Data and Information Sources (ECDIS) and Predictive Models in Insurance
+Utah -S.B. 226 Artificial Intelligence Consumer Protection Amendments
+Utah - H.B. 452 Artificial Intelligence Amendments
+Virginia - Executive Order 30: Implementation of Standards for the Safe Use of Artificial Intelligence Across the Commonwealth
+Argentina - Bill 2505‑D‑2023 Proyecto de Ley: Investigación, Desarrollo y Uso de la Inteligencia Artificial. Régimen
+Argentina - Law 25.467 Ley de Ciencia, Tecnología e Innovación — Régimen Legal del Sistema Nacional de Ciencia, Tecnología e Innovación
+China - Regulations on the In-depth Synthesis Management of Internet Information Services
+China - GB/T45654—2025 Basic Safety / Security Requirements for Generative Artificial Intelligence Service
+China - Order No. 9 Internet Information Service Algorithm Recommendation Management Regulations
+China - Secretariat No. 124 [2023] of TC260 Basic Requirements for Security of Generative Artificial Intelligence Services
+China - JR/T 0221‑2021 Evaluation Specification of Artificial Intelligence Algorithm in Financial Application
+China - 2021 No. 47 Guiding Principles for the Classification and Definition of Artificial Intelligence Medical Software Products
+California - Rule 10.430 Generative artificial intelligence use policies
+Denmark - Law no. 467 Law on supplementary provisions to the AI Regulation
+Canada - Bill 31 – 2025 Energy Statutes Amendment Act, 2025
+United States of America - S. 2714 Children Harmed by AI Technology Act (or “CHAT Act”)
+California - AB 853 California AI Transparency Act
+United State of America - S. 3062 GUIDELINES for User Age‑verification and Responsible Dialogue Act (GUARD Act)
+Vermont - S.B. 69An act relating to an age-appropriate design code
+Illinois - H.B. 1806 Wellness and Oversight for Psychological Resources Act
+Malaysia - Act 866 AI‑generated content” label under Online Safety Act
+California - SB 53 Transparency in Frontier Artificial Intelligence Act (TFAIA)
+United States of America - S. 2177 No Adversarial AI Act (NA AI Act)
+United States of America - Children’s Online Privacy Protection Rule (COPPA Rule)
+Malaysia - National Guidelines on AI Governance and Ethics (AIGE)
+Peru - Supreme Decree No. 115‑2025‑PCM — “Regulation of Law No. 31814 (Law that promotes the use of Artificial Intelligence for the country’s economic and social development)
+United Arab Emirates - Regulation 10 "Personal Data Processed Through Autonomous and Semi‑Autonomous Systems” under the regulatory regime of Dubai International Financial Centre (DIFC)
+China - Measures for Identifying Artificial Intelligence-Generated and Synthetic Content
+Canada - Bill C‑27 An Act to enact the Consumer Privacy Protection Act (CPPA), the Personal Information and Data Protection Tribunal Act (PIDPTA), and the Artificial Intelligence and Data Act (AIDA)
+China - Decision of the Standing Committee of the National People’s Congress on Amending the Cybersecurity Law
+United States of America - S. 3108 AI-Related Job Impacts Clarity Act
+European Union - Framework Convention on Artificial Intelligence, Human Rights, Democracy and the Rule of Law
+United Nations - A_78_L.49 Seizing the opportunities of safe, secure and trustworthy artificial intelligence systems for sustainable development
+New York - Interim Policy on the Use of Artificial Intelligence
+Ohio - To enact section 9.89 of the Revised Code to limit further regulation of certain computational systems, require risk‑management policies for AI‑controlled critical infrastructure, and to name this act the Ohio Right to Compute Act
+Illinois - H. B. 1002 Military Service – TECH Amends the Veterans’ Employment Act
+As of September 30, 2025, updates include:
+
+Nebraska - Age Appropriate Design Code
+Vermont - Age Appropriate Design Code
+As of August 31, 2025, updates include:
+
+Pakistan - National Artificial Intelligence Policy
+As of July 31, 2025, updates include:
+
+China - 2025 World artificial intelligence (AI) Conference and High-Level Meeting on Global AI Governance published Global AI Governance Action Plan
+USA - S.4951 - Unleashing AI Innovation in Financial Services Act - Proposed
+USA - DOD Instruction 5400.19 Public Affairs Use of Artificial Intelligence - In Effect
+PA - Regulation of the Use of Artificial Intelligence in Healthcare - Proposed
+As of June 30, 2025, updates include:
+
+CA - Employment Regulations Regarding Automated-Decision Systems - Needs final vote
+USA - S.2177 - No Adversarial AI Act - Proposed
+CA - SB 420 California AI Transparency Act- Proposed
+As of May 31, 2025, updates include:
+
+NC - HB 934 AI Regulatory Reform Act - Proposed
+Japan - Act on Promotion of Research and Development and Utilization of Artificial Intelligence-Related Technologies - Passed
+CA - A.B. 1337 The IPA Reform Act - Passed the Assembly
+As of April 31, 2025, updates include:
+
+TX - HB 149 Texas Responsible Artificial Intelligence Governance Act (TRAIGA) - Passed
+U.S. -Executive Order Advancing Artificial Intelligence Education for American Youth - In Effect
+TX - Clear Creek ISD (School District) Policies Updated for AI:
+CQ — Technology Resources
+EIA — Academic Achievement: Grading/Progress Reports to Parents
+Kazakhstan - AI Law Revision - Proposed
+CA - SB-53 CalCompute: foundation models: whistleblowers - Passed
+South Korea - Korea AI Act - Passed
+EU - The AI Continent Action Plan
+As of March 31, 2025, updates include:
+
+U.S. - H.R.1121 - No DeepSeek on Government Devices Act
+U.S. - S.4569 - TAKE IT DOWN Act
+Vermont - S.23 - An act Relating to the use of Synthetic Media in Elections
+Utah - H.B. 452 Artificial Intelligence Amendments (Mental Health Chatbots)
+Utah - S.B. 332 Extending the Repeal Date of the Artificial Intelligence Policy Act
+Utah - S.B. 226 Artificial Intelligence Consumer Protection Amendments
+As of February 28, 2025, updates include:
+
+Maryland - Senate Bill 362 - Forged Digital Likenesses
+New Mexico - HB 60 - Artificial Intelligence Act
+As of January 31, 2025, updates include:
+
+South Korean AI Law
+Texas Responsible Artificial Intelligence Governance Act HB 1709
+U.S. - S.5616 - Preserving American Dominance in Artificial Intelligence Act of 2024
+U.S. - H.R.2670 - National Defense Authorization Act for Fiscal Year 2024
+Ontario - An Act to enact the Enhancing Digital Security and Trust Act, 2024 and to make amendments to the Freedom of Information and Protection of Privacy Act respecting privacy protection measures
+Luxembourg EU AI Act Harmonization Legislation
+Connecticut - S.B. No. 2 Session Year 2025 An Act Concerning Artificial Intelligence
+Mississippi - Executive Order 1584
+New Jersey - 'Guidance on Algorithmic Discrimination and the New Jersey Law Against Discrimination'
+As of December 31, 2024, updates include:
+
+Spanish Royal Decree for IP in AI [revoked]
+Michigan Senate Bill 1082 of 2024
+As of November 30, 2024, updates include:
+
+The Montana Consumer Data Privacy Act (MTCDPA) is in effect.
+Maryland's Age–Appropriate Design Code Act is in effect.
+New York State - Department of Financial Services (DFS) Directive on Cybersecurity Risks Arising from Artificial Intelligence
+Delaware Court Order on AI Use by Judges
+Albuquerque - Artificial Intelligence Policy Resolution
+EU Product Liability Regulations
+Texas Responsible AI Governance Act (“TRAIGA”) proposed
+Hong Kong Policy Statement on Responsible Application of Artificial Intelligence in the Financial Market
+US - S.2770 - Protect Elections from Deceptive AI Act
+EU - General-Purpose AI Code of Practice
+Arizona's 2000PR - Use of Generative Artificial Intelligence (Gen AI)
+Arizona's P2000 - Generative Artificial Intelligence (Gen AI)
+India's Developer's Playbook for Responsible AI in India
+Kentucky's amendment to its election law for deepfakes
+California's Privacy Protection Agency Ch. 3 Data Broker Registration (proposed amendments)
+Update to Ireland’s National AI Strategy
+As of October 21, 2024, updates include:
+
+Albuquerque -  R-24-81 'Directing The City Administration To Create An Artificial Intelligence Policy Working Group, Requiring Development Of A City Of Albuquerque Artificial Intelligence Policy, Providing An Appropriation To The Department Of Technology And Innovation'
+The Office of Management and Budget - Advancing the Responsible Acquisition of Artificial Intelligence in Government
+New York State - Cybersecurity Risks Arising from Artificial Intelligence and Strategies to Combat Related Risks
+As of September 21, 2024, updates include:
+
+Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law
+California AB 2839: Elections: deceptive media in advertisement (passed)
+AB 2355: Political Reform Act of 1974: political advertisements: artificial intelligence (passed)
+AB 1836: Use of likeness: digital replica (passed)
+UK Public Authority Algorithmic and Automated Decision-Making Systems Bill (proposed)
+University of Virginia - Generative Artificial Intelligence guidelines
+California Sonoma County Administrative Policy 9-6: Information Technology Artificial Intelligence (AI) Policy (Proposed)
+Sri Lanka’s National Strategy on AI
+Saudi Arabia's Deepfake Guidelines (v.1)
+US - Dept. of Commerce Bureau of Industry & Security - Establishment of Reporting Requirements for the Development of Advanced Artificial Intelligence Models and Computing Clusters (proposed)
+US - H.R. 9671, Department of Energy Artificial Intelligence Act of 2024 (passed)
+US - H.R. 9720, AI Incident Reporting and Security Enhancement Act (passed)
+US - Department of Justice Whistleblower protection in revised corporate compliance guidance
+China - Measures for Labeling of AI-Generated Synthetic Content (proposed)
+As of August 21, 2024, updates include:
+
+City of Pittsburgh Generative AI Usage Standards
+California SB-1047 Safe and Secure Innovation for Frontier Artificial Intelligence Models Act. (3rd reading passed)
+Türkiye Artificial Intelligence Law (proposed)
+Whitehouse "Guidance for 2024 Agency Artificial Intelligence Reporting per EO 14110"
+Hong Kong Monetary Authority "Consumer Protection in respect of Use of Generative Artificial Intelligence"
+Proposed US Senate ‘‘Content Origin Protection and Integrity from Edited and Deepfaked (COPIED)" Media Act of 2024
+New York State Insurance Circular Letter No. 7
+Proposed US Senate ‘‘Validation and Evaluation for Trustworthy (VET) Artificial Intelligence Act’’
+Nigeria National AI Strategy
+Oman AI National AI Plan
+Utah Senate Bill 149 (Artificial Intelligence Policy Act.)
+African Union Continental AI Strategy
+Phillipines House Bill 10567 on Deepfake Accountability and Transparency
+South Africa National AI Policy
+Australia Policy for the Responsible use of AI in Government
+East Penn School District Generative AI Policy
+As of July 5, 2024, updates include:
+
+Rhode Island Data Transparency and Privacy Protection Act - Enacted
+California Assembly Bill 1814 - Facial Recognition
+Italy Senate Act n. 1146 - General principles for use of AI and models
+Hong Kong AI Model Privacy Framework
+As of June 5, 2024, updates include:
+
+Colorado - SB 24-205 Concerning Consumer Protections in Interactions with AI System
+As of May 5, 2024, updates include:
+
+China - Model Artificial Intelligence Law (MAIL) v.2.0
+As of April 23, 2024, updates include:
+
+California's SB-896 Artificial Intelligence Accountability Act.
+US Senate Artificial Intelligence Consumer Opt-In, Notification Standards, and Ethical Norms for Training (AI CONSENT) Act.
+Florida's An act relating to online protections for minors.
+California's AB-1824 California Consumer Privacy Act of 2018: opt-out right: mergers.
+California's AB-2013 Artificial intelligence: training data transparency.
+California's SB-942 California AI Transparency Act.
+California's AB-1791 Digital content provenance.
+California's SB-1047 Safe and Secure Innovation for Frontier Artificial Intelligence Systems Act.
+California's AB-2930 Automated decision tools.
+California's Assembly Bill 3204 Data digesters.
+California's AB-2811 Attorneys: court filings: artificial intelligence.
+California's AB-3139 Data privacy: vehicle manufacturers: remote vehicle technology.
+California's SB-976 Social Media Youth Addiction Law.
+California's AB-1949 California Consumer Privacy Act of 2020: collection of personal information of a consumer less than 18 years of age.
+California's AB-3048 California Consumer Privacy Act of 2018: opt-out preference signal.
+US OMB's Memo Advancing Governance, Innovation and Risk Management for Agency Use of AI
+Kentucky House Bill 15
+As of March 18, 2024, updates include:
+
+AUDA-NEPAD Artificial Intelligence Roadmap for Africa: Contributing Towards a Continental AU Strategy on AI 2024-2033
+India's Ministry of Economics and Information Technology's requirement for 'significant platforms' to seek permission before deployment. UPDATE: the Ministry has changed its stance.
+Connecticut Senate Bill 2: An Act Concerning Artificial Intelligence
+Turkiye's DPA has approved amendments to its Personal Data Protection Law (IAPP)
+USA's H.R.5586 - DEEPFAKES Accountability Act
+USA's H.R.3106 - Preventing Deepfakes of Intimate Images Act
+US FDA Artificial Intelligence/Machine Learning (AI/ML)-Based Software as a Medical Device (SaMD) Action Plan
+Bermuda's PIPA and Argentina's PIPA
+As of February 7, 2024, updates include:
+
+The Proposed 2023 Digital India Act
+New Jersey's Consumer Data Protection Bill has passed
+Colorado SB21-169 - Protecting Consumers from Unfair Discrimination in Insurance Practices
+Quebec draft regulation for the Protection of Personal Information
+Colorado draft bill HB24-1058 Protect Privacy of Biological Data
+US House draft No Artificial Intelligence Fake Replicas And Unauthorized Duplications (No AI FRAUD) Act
+VA 2024 Executive Order Implementation of Standards for the Safe Use of Artificial Intelligence Across the Commonwealth
+As of January 3, 2024, updates include:
+
+Draft regulations for the California Consumer Privacy Act that regulate automated decision-making systems.
+EU Data Act adopted and comes into force 20 months from November 27, 2023.
+The proposed US AI Foundation Model Transparency Act would require AI companies to disclose their models' data sources, limitations, compliance with federal standards, and measures taken to prevent the dissemination of harmful information in various sectors.
+Jamaica's Data Protection Act took effect in December, 2023.
+India's draft Guidelines for Prevention and Regulation of Dark Patterns.
+Quebec's draft Regulation on the Anonymization of Personal Information.
+Kenya's proposed Robotics and Artificial Intelligence Society Bill 2023.
+The Kenya National Digital Master Plan.
+Kenya's Data Protection Act.
+Mauritius' Artificial Intelligence Strategy 2018.
+Nigeria's 2023 Data Protection Act.
+Rwanda's 2022 National AI Policy.
+Tunisia's 2018 National AI Strategy.
+Tunisia's Personal Data Protection Act.
+Tanzania's Personal Data Protection Act.
+Uganda's Data Protection and Privacy Act.
+Zambia's Data Protection Act.
+African Union Convention on Cyber Security and Personal Data Protection.
+Benin's 2023 National Artificial Intelligence Strategy.
+Botswana's Data Protection Act.
+Egypt's 2023 Charter for Responsible AI.
+Egypt's 2020 National AI Strategy.
+Ghana's Data Protection Act.
+Ethiopia's draft Data Protection Act.
+South Africa's Protection of Personal Information Act.
+Morocco's Personal Information Protection Law.
+Algeria's Protection of Individuals in the Processing of Personal Data Law.
+Mauritania's Personal Information Protection Act.
+Chad's Personal Information Protection Law.
+Niger's Personal Information Protection Law.
+Mali's Personal Information Protection Law.
+Togo's Personal Information Protect Law.
+Benin's Personal Information Protection Law.
+Cote D'Ivoire Data Protection Law.
+Guinea Personal Information Protection Act.
+Cabo Verde Data Protection Act.
+Sao Tome Personal Information Protection Law.
+Republic of the Congo Data Protection Law.
+Equatorial Guinea Personal Information Protection Law.
+Angola Personal Information Protection Law.
+Mauritius Data Protection Act.
+Madagascar Personal Information Protection Law.
+Zimbabwe Personal Information Protection Law.
+Lesotho Data Protection Act.
+Eswatini Data Protection Act.
+Seychelles Data Protection Bill.
+African Union Resolution on the need to undertake a Study on human and peoples’ rights and artificial intelligence (AI), robotics and other new and emerging technologies in Africa - ACHPR/Res. 473 (EXT.OS/ XXXI) 2021.
+China State Council 2017 Notice on the Issuance of the Next Generation Artificial Intelligence Development Plan.
+South Korea 2019 National Strategy for Artificial Intelligence.
+Japan's 2022 AI Strategy.
+Thailand 2022 AI Strategy and Action Plan.
+Vietnam's 2021 National Strategy On R&D and Application of Artificial Intelligence.
+Malaysia's 2022 National Artificial Intelligence Roadmap.
+Philippines Artificial Intelligence Roadmap.
+Indonesia's National Artificial Intelligence Strategy.
+Australia's 2021 AI Action Plan.
+Oman's Executive Program for Artificial Intelligence and Advanced Technologies.
+Qatar National Artificial Intelligence Strategy.
+Jordan's Artificial Intelligence Strategy and Implementation Plan.
+Lebanon's 2019 National Artificial Intelligence Strategy in Lebanese Industry.
+Türkiye's 2021 National AI Strategy.
+Bangladesh's National Strategy for Artificial Intelligence.
+India's National Strategy for Artificial Intelligence.
+Serbia's Strategy for the Development of Artificial Intelligence for the period 2020-2025.
+Slovakia's Action plan for the digital transformation for 2019 – 2022.
+Hungary's Artificial Intelligence Strategy.
+Austria's Artificial Intelligence Mission 2030.
+Italy Strategic Programme on Artificial Intelligence.
+Poland's 2020 Policy for the Development of Artificial Intelligence Strategy.
+Ukraine National Strategy for the Development of Artificial Intelligence 2021-2030.
+Czech Republic's National Artificial Intelligence Strategy.
+Germany's Artificial Intelligence Strategy for the Federal Government.
+Russia Decree of the President of the Russian Federation of 10.10.2019. № 490 On the development of artificial intelligence.
+Lithuania's Artificial Intelligence Strategy.
+Estonia's National Artificial Intelligence Strategy.
+Finland’s Age of Artificial Intelligence.
+Norwegian National Strategy for Artificial Intelligence.
+Denmark's National Strategy for Artificial Intelligence.
+Spain's National Artificial Intelligence Strategy.
+Portuguese National Initiative on Digital Skills.
+Luxembourg Artificial Intelligence : a strategic vision
+Belgium's National convergence plan for the development of artificial intelligence.
+Netherlands Strategic Action Plan for AI (2019).
+Ireland A National Artificial Intelligence Strategy.
+Sweden National approach to artificial intelligence.
+France For a Meaningful Artificial Intelligence - Towards a French and European Strategy.
+Uruguay's Artificial Intelligence Strategy for the Digital Government.
+Argentina's National Artificial Intelligence Plan.
+Chile's National Artificial Intelligence Policy.
+Brazil's National Artificial Intelligence Strategy.
+Colombia's National Policy for Digital Transformation and Artificial Intelligence.
+Pan-Canadian Artificial Intelligence Strategy.
+USA 2023 An Implementation Plan for a National Artificial Intelligence Research Resource.
+Mexico's National Agenda for Artificial Intelligence.
+Argentina's proposed modification of National Law 25.467.
+Argentina's approval of the "Guidelines for Trustworthy Artificial Intelligence".
+Brazil's Draft of the Bill Projects Numbers 5.051 of 2019, 21 of 2020, and 87, of 2021.
+Brazil's Bill No. 2238 / 2023, "On the Use of Artificial Intelligence."
+Chile's Bulletin 15869-19 from the Chamber of Deputies.
+Colombia Bill 059 / 2023 Senate.
+As of December 1, 2023, updates include:
+
+A proposed US bill to A regulate law enforcement's use of facial recognition technology.
+Liechtenstein's Data Protection Authority's comments on AI-Powered Chatbots.
+The Colorado Governance and Risk Management Framework Requirements for Life Insurer's Use of External Consumer Data and Information Sources, Algorithms, and Predictive Models is active.
+Thailand has drafted regulations on cross-border data transfers.
+The EU's proposed Cyber Resilience Act.
+The Political Declaration on Responsible Military Use of Artificial Intelligence and Autonomy signed in the Hague by the US and 30 countries.
+The UK's Standards of Age Appropriate Design.
+The pending California Age-Appropriate Design Code Act.
+Proposed amendment to the Ontario Working for Workers Act for AI in hiring.
+Proposed Wisconsin bill for Disclosures Regarding Content Generated by Artificial Intelligence in Political advertisements.
+The 2022 Windhoek Statement on Artificial Intelligence in Southern Africa.
+The proposed 2023 U.S. Artificial Intelligence Research, Innovation, and Accountability Act.
+The proposed UK Artificial Intelligence (Regulation) Bill.
+As of November 1, 2023, updates include:
+
+The Canadian Privacy Regulator's recommendations for improved youth and employee privacy laws.
+A proposed bill from Illinois known as the "Adult Content Age Verification Act, Senate Bill 2950".
+The U.S. Consumer Financial Protection Bureau Director's consideration to regulate consumer payment platforms to prevent surveillance.
+Argentina's Draft Law on the Protection of Personal Data.
+An update to California's Delete Act: it has been signed into law.
+India's Digital Personal Data Protection Act.
+Updates to New Hampshire's and Maine's privacy law drafting.
+Australia's Compliance and Enforcement Policy for the Consumer Data Right.
+The U.S. Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence.
+The U.K. Online Safety Bill.
+The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023.

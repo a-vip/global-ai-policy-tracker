@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 // Paths
 const LOCAL_REGULATIONS_PATH = 'C:/AI_Workspace/Obsidian/Avi/sovereign-dashboard/ai-regulations-local.json';
+const ASENION_UPDATES_PATH = path.join(__dirname, '../public/data/asenion-updates.json');
 const OUTPUT_REGULATIONS_PATH = path.join(__dirname, '../public/data/unified-regulations.json');
 const OUTPUT_SUMMARY_PATH = path.join(__dirname, '../public/data/country-summary.json');
 
@@ -71,6 +72,17 @@ async function ingestData() {
     console.warn(`Local regulations file not found at ${LOCAL_REGULATIONS_PATH}`);
   }
 
+  // 1.5 Read Asenion Updates
+  if (fs.existsSync(ASENION_UPDATES_PATH)) {
+    try {
+      const asenionData = JSON.parse(fs.readFileSync(ASENION_UPDATES_PATH, 'utf8'));
+      console.log(`Loaded ${asenionData.length} records from Asenion updates.`);
+      unified.push(...asenionData);
+    } catch (e) {
+      console.error('Error reading Asenion updates:', e);
+    }
+  }
+
   // 2. Fetch AI Policy Tracker Data
   try {
     const aiPolicyData = await fetchAIPolicyData();
@@ -119,11 +131,27 @@ async function ingestData() {
     const counts = countrySummary[c].statusCounts;
     let mainStatus = 'Unregulated';
     
-    // Simplistic heuristic for map coloring
-    if (counts['Banned'] || counts['Passed']) mainStatus = 'Regulated';
-    if (counts['In effect'] || counts['launched']) mainStatus = 'Regulated';
-    if (counts['Proposed'] || counts['development']) mainStatus = 'Proposed';
-    if (counts['Banned'] && counts['Banned'] > 0) mainStatus = 'Banned'; // Override if explicitly banned
+    // Normalize keys to lowercase for robust matching
+    let enactedCount = 0;
+    let proposedCount = 0;
+    let bannedCount = 0;
+    
+    Object.keys(counts).forEach(k => {
+      const s = k.toLowerCase();
+      if (s.includes('ban') || s.includes('moratorium')) bannedCount += counts[k];
+      else if (s.includes('effect') || s.includes('launch') || s.includes('pass') || s.includes('enact') || s.includes('regulat') || s.includes('adopt')) enactedCount += counts[k];
+      else if (s.includes('propos') || s.includes('develop') || s.includes('draft') || s.includes('bill') || s.includes('polic') || s.includes('strateg') || s.includes('framework')) proposedCount += counts[k];
+      else proposedCount += counts[k]; // Default policy to proposed
+    });
+    
+    // Assign stance based on majority or strict rules
+    if (bannedCount > 0) {
+      mainStatus = 'Banned'; // Banned takes precedence
+    } else if (enactedCount > 0) {
+      mainStatus = 'Regulated / Enacted'; // If any are enacted, it's regulated
+    } else if (proposedCount > 0) {
+      mainStatus = 'Proposed / In Development';
+    }
     
     countrySummary[c].overallStance = mainStatus;
   });
