@@ -1,0 +1,457 @@
+Indonesia - Joint Decree of Seven Ministers on Guidelines for the Use and Learning of Digital Technology and Artificial Intelligence in Formal, Non-formal, and Informal Education: -0.789275, 113.921327
+Australia - Joint statement on building trustworthy data governance frameworks to encourage development of innovative and privacy-protective AI: -25.274398, 133.775136
+Vietnam - Law on Artificial Intelligence (Vietnamese: Luật Trí tuệ nhân tạo): 14.058324, 108.1893084
+United Arab Emirates - Federal Decree-Law No. 25 of 2018 on Projects of a Future Nature: 23.424076, 53.847818
+Malaysia - National Guidelines on AI Governance and Ethics (AIGE): 4.210484, 101.975766
+British Columbia - Bill 31 - 2025 Energy Statutes Amendment Act, 2025: 53.7266683, -127.6476206
+China - Order No. 9 Internet Information Service Algorithm Recommendation Management Regulations: 35.86166, 104.195397
+China - Order No. 12 Regulations on the In-depth Synthesis Management of Internet Information Services: 35.86166, 104.195397
+Virginia - Executive Order 30 Implementing Safe and Responsible Use of Artificial Intelligence Across the Commonwealth: 37.4315734, -78.6568942
+Colorado - 3 CCR 702‑10 Unfair Discrimination - Rules Regulating the Use of External Consumer Data and Information Sources (ECDIS) and Predictive Models in Insurance: 39.5500507, -105.7820674
+Mississippi - Executive Order No. 1584: 32.3546679, -89.3985283
+New Jersey - Guidance on Algorithmic Discrimination and the New Jersey Law Against Discrimination (LAD): 40.0583238, -74.4056612
+California - AB 853 California AI Transparency Act: 36.778261, -119.4179324
+Pakistan - National Artificial Intelligence (AI) Policy 2025: 30.375321, 69.345116
+Louisiana - JML 25-103 Artificial Intelligence Acceptable Use Policy: 30.5190775, -91.5208624
+UT - S.B. 332 Extending the Repeal Date of the Artificial Intelligence Policy Act: 40.7606608, -111.8939487
+Global - Japan AI Promotion Act: 37.1635501, 139.7153125
+Global - Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law: 50.8287212, 4.187665
+Global - US OMB's Memo on Agency AI Use: 38.9071923, -77.0368707
+Global - United Nations A/78/L.49: 40.7493281, -73.9679241
+Global - MeitY's Significant Platform Requirement: 25.2085399, 79.8239134
+Global - VA 2024 Executive Order Implementation of Standards for the Safe Use of Artificial Intelligence Across the Commonwealth: 37.4315734, -78.6568942
+Global - Argentina approval of the "Guidelines for Trustworthy Artificial Intelligence": -31.3825494, -64.2565695
+African Union Resolution on the need to undertake a Study on human and peoples’ rights and artificial intelligence (AI), robotics and other new and emerging technologies in Africa - ACHPR/Res. 473 (EXT.OS/ XXXI) 2021: 8.4490444, 37.5162586
+Global - USA Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence: 38.9477733, -77.0794445
+Global - USA Executive Order on Addressing United States Investments in Certain National Security Technologies and Products in Countries of Concern: 38.9125334, -77.0437366
+Global - Uzbekistan Resolution for Conditions to Accelerate Introduction of AI Technologies: 41.377491, 64.585262
+Global - Colombia Law for the Promotion of AI Technology and Entrepreneurship: 4.570868, -74.297333
+South Korea - Korea AI Act: 37.5590224, 126.9518896
+TX - HB 149 Texas Responsible Artificial Intelligence Governance Act (TRAIGA): 31.9685988, -99.9018131
+Albuquerque - Artificial Intelligence Policy Resolution: 35.0843859, -106.650422
+Taiwan - Artificial Intelligence Basic Act: 23.69781, 120.960515
+City of Pittsburgh - Generative AI Usage Standards: 40.4406248, -79.9958864
+CO - SB 24-205 Concerning Consumer Protections in Interactions with AI System: 39.5500507, -105.7820674
+Utah S.B. 149 - Artificial Intelligence Amendments: 40.7606608, -111.8939487
+EU - Apply AI Strategy: 50.8477029, 4.3572001
+US - H.R. 9720, AI Incident Reporting and Security Enhancement Act: 39.1401632, -77.2184546
+China - Model Artificial Intelligence Law (MAIL) v.2.0: 39.904211, 116.407395
+Global - EU AI Act: 51.165691, 10.451526
+Global - HI SR123/SCR179: 21.3879065, -157.8952283
+ND - HB 1361: 46.8167702, -100.8014237
+Global - Connecticut Act Concerning Artificial Intelligence, Automated Decision-Making and Personal Data Privacy: 41.7384118, -72.7945635
+Argentina - Amendment to National Law 25.467: -38.416097, -63.616672
+Argentina - Bill 2505‑D‑2023 Legal framework for the regulation of the development and use of Artificial Intelligence: -38.416097, -63.616672
+California - AB 412 Generative Artificial Intelligence: training data: copyrighted materials: 36.778261, -119.4179324
+Mexico - Initiative with draft decree amending and adding various provisions of the Federal Cinematography Law; the Federal Copyright Law; and the Federal Labor Law, regarding protective measures for dubbing actors in Mexico against the use of artificial intelligence or emerging technologies in dubbing processes: 23.634501, -102.552784
+United States - S. 2937 Aligning Incentives for Leadership, Excellence, and Advancement in Development (AI LEAD) Act: 38.7945952, -106.5348379
+Chile - Law Regulating Artificial Intelligence Systems: -35.675147, -71.542969
+Vietnam - Draft AI Law: 21.0277644, 105.8341598
+Kazakhstan - AI Law Revision: 48.019573, 66.923684
+CT Senate Bill 2 (SB 2) - An Act Concerning Artificial Intelligence: 41.7483099, -72.7889942
+Luxembourg - EU AI Act Harmonization Legislation: 49.815273, 6.129583
+CA - Sonoma County Administrative Policy 9-6: Information Technology Artificial Intelligence (AI) Policy: 38.5779555, -122.9888319
+Global - Türkiye Artificial Intelligence Law: 39.9333635, 32.8597419
+US S.4769 - VET Artificial Intelligence Act: 38.9904908, -77.0725888
+Global - CA AB-2930 Automated decision tools: 36.0723944, -119.9997968
+Global - CA AB-1791 Digital content provenance: 35.8763308, -120.8573774
+Global - CA SB-1047 Safe and Secure Innovation for Frontier Artificial Intelligence Systems Act: 37.0675138, -120.8898971
+Global - CA AB-2013 Artificial intelligence: training data transparency: 36.5496938, -120.4288657
+Global - India Proposed Digital India Act: 28.3206191, 77.1854616
+Global - Colombia Bill 059 / 2023 Senate: 6.2604272, -75.5061209
+Global - Chile Bulletin 15869-19 from the Chamber of Deputies: -26.2717382, -69.9678723
+Global - Brazil Bill No. 2238 / 2023, "On the Use of Artificial Intelligence.": -9.5925276, -52.3674285
+Global - Brazil Draft of the Bill Projects Numbers 5.051 of 2019, 21 of 2020, and 87, of 2021: -9.6791782, -48.271178
+Global - Argentina Proposed Modification of National Law 25.467: -35.4306279, -65.0121793
+Global - Kenya Robotics and Artificial Intelligence Society Bill, 2023: -1.4211215, 37.1185765
+UK - Artificial Intelligence (Regulation) Bill: 53.4807593, -2.2426305
+Global - USA Artificial Intelligence Research, Innovation, and Accountability Act: 38.9568643, -76.7405796
+Global - EU Cyber Resilience Act: 51.226466, 4.3482902
+Global - Tunisian IP Policy for AI: 33.886917, 9.537499
+Global - Canadian Artificial Intelligence and Data Act: 50.7003412, -92.7047592
+Global - Brazil Legal Framework of Artificial Intelligence: -14.235004, -51.92528
+Global - California Automated Decision Tools: 39.1349598, -122.1797655
+DC - Stop Discrimination by Algorithms Act: 38.9499079, -76.9942991
+NJ - S1402: 40.2205824, -74.759717
+Global - New York Digital Fairness Act: 40.7127753, -74.0059728
+CA - S721: 38.9080526, -121.1147898
+CA - AB1282: 38.5770904, -122.0044093
+IL - H3563: 39.7683965, -89.6384749
+MD - H1068: 38.9717728, -76.491668
+MD - H1034: 38.9807138, -76.5014526
+NV - S165: 39.1222649, -119.7598503
+NJ - A168: 40.2279219, -74.7475291
+NJ - A5150: 40.2336881, -74.7633217
+NM - HM75/SM63: 35.6733109, -105.9522182
+NY - A4969/S6402: 40.6950806, -73.8466703
+NYC - A7501: 40.6648929, -73.8700178
+NY - A7838: 40.7554297, -73.8549072
+NC - S460: 35.7606492, -78.5942329
+PA - HB49: 40.2835368, -76.8975154
+PA - HR170/SR143: 40.2679522, -76.8743411
+TX - H3633: 30.2985763, -97.6901879
+Pakistan - National Artificial Intelligence Policy: 33.699619, 73.036187
+Updated - Ireland A National Artificial Intelligence Strategy: 53.3442776, -6.3261035
+India - The Developer's Playbook for Responsible AI in India: 28.556062, 77.1538951
+New York State - Cybersecurity Risks Arising from Artificial Intelligence and Strategies to Combat Related Risks: 43.2994285, -74.2179326
+Global - Sri Lanka’s National Strategy on AI: 6.9270786, 79.861243
+South Africa - National Artificial Intelligence Policy Framework: -30.559482, 22.937506
+Oman - National Artificial Intelligence Policy: 21.4735329, 55.975413
+Nigeria - National AI Strategy: 9.081999, 8.675277
+Global - AUDA-NEPAD Artificial Intelligence Roadmap for Africa: Contributing Towards a Continental AU Strategy on AI 2024-2033: 4.0025719, 33.8818359
+Global - Mexico National Agenda for Artificial Intelligence: 23.7351104, -99.1492992
+Global - Canada Pan-Canadian Artificial Intelligence Strategy: 51.6558284, -82.6180548
+Global - Colombia National Policy for Digital Transformation and Artificial Intelligence: 7.4114142, -73.0705479
+Global - Brazil's National Artificial Intelligence Strategy: -15.7630839, -47.8662752
+Global - Chile's National Artificial Intelligence Policy: -33.4083048, -70.8461127
+Global - Argentina National Artificial Intelligence Plan: -34.6594457, -58.5367123
+Global - Uruguay Artificial Intelligence Strategy for the Digital Government: -32.5218325, -56.2661717
+France For a Meaningful Artificial Intelligence - Towards a French and European Strategy: 48.8576662, 2.3792878
+Global - Sweden National approach to artificial intelligence: 59.8770696, 10.8068038
+Global - Netherlands Strategic Action Plan for AI: 52.3767122, 4.8725384
+Global - Belgium National convergence plan for the development of artificial intelligence.: 50.7877709, 4.4056195
+Global - Luxembourg Artificial Intelligence : a strategic vision: 49.6155582, 6.123431
+Global - Portugal National Initiative on Digital Skills: 38.7457254, -9.1555181
+Global - Spain National Artificial Intelligence Strategy: 40.4200394, -3.7198146
+Global - Denmark's National Strategy for Artificial Intelligence: 55.6967719, 12.4981611
+Global - Norwegian National Strategy for Artificial Intelligence: 59.3169253, 18.0792158
+Global - Finland’s Age of Artificial Intelligence: 61.3408606, 24.9958946
+Global - Estonia National Artificial Intelligence Strategy: 59.4232763, 24.7730341
+Global - Lithuania Artificial Intelligence Strategy: 55.3618294, 24.0808954
+Global - Poland Policy for the Development of Artificial Intelligence Strategy: 52.222631, 20.9168329
+Global - Russia Decree of the President of the Russian Federation of 10.10.2019. № 490 On the development of artificial intelligence: 63.0458979, 87.9630164
+Global - Czech Republic National Artificial Intelligence Strategy: 49.7688702, 14.9582048
+Global - Ukraine National Strategy for the Development of Artificial Intelligence 2021-2030: 50.4581746, 30.5229109
+Global - Italy Strategic Programme on Artificial Intelligence: 41.8939108, 12.5967561
+Global - Austria Artificial Intelligence Mission 2030: 48.1959125, 16.0790277
+Global - Hungary Artificial Intelligence Strategy: 47.4583411, 19.0892816
+Slovakia Action plan for the digital transformation for 2019 - 2022: 48.5443189, 19.2793097
+Global - Serbia Strategy for the Development of Artificial Intelligence in the Republic of Serbia for the period 2020-2025: 44.7860929, 20.4595815
+Global - Bulgaria Concept for the Development of Artificial Intelligence in Bulgaria until 2030: 42.6811133, 23.3422079
+Global - Turkiye National AI Strategy: 39.8875564, 32.8040435
+Global - India National Strategy for Artificial Intelligence: 27.7887138, 78.0297878
+Global - Bangladesh National Strategy for Artificial Intelligence: 24.5102621, 90.1463777
+Global - Cyprus AI Strategy: 34.9760178, 33.1783291
+Global - Qatar National Artificial Intelligence Strategy: 25.2390249, 51.3586339
+Global - Australia AI Action Plan: -23.4867127, 136.7995602
+Global - Malaysia National Artificial Intelligence Roadmap: 4.3938941, 102.1216825
+Global - Indonesia's National Artificial Intelligence Strategy: -6.2294658, 106.7112899
+Global - Vietnam National Strategy On R&D and Application of Artificial Intelligence: 14.1993385, 108.3466297
+Global - Thailand National AI Strategy and Action Plan: 14.9696, 101.5098987
+Global - South Korea National Strategy for Artificial Intelligence: 37.2742758, 127.7920183
+Global - Philippines Artificial Intelligence Roadmap: 14.603356, 120.9935165
+Global - Russian Conceptual Framework for the Regulation of Artificial Intelligence and Robotics till 2023: 59.4795737, 91.7815451
+Global - China State Council Notice on the Issuance of the Next Generation Artificial Intelligence Development Plan: 36.9228732, 98.7350418
+Global - Egypt National Artificial Intelligence Strategy: 27.0674132, 28.2695854
+Global - Egyptian Charter for Responsible AI: 28.5885298, 30.1242677
+Global - Benin National Artificial Intelligence Strategy 2023: 10.384761, 2.3518181
+Global - Tunisia's National AI Strategy: 35.6691857, 9.8365606
+Global - Rwanda National AI Policy 2022: -1.8821944, 29.8958727
+Global - The Kenya National Digital Master Plan: -0.2951289, 35.8908937
+Global - Liechtenstein Data Protection Authority on AI-Powered Chatbots: 47.1410392, 9.520935
+Global - Windhoek Statement on Artificial Intelligence in Southern Africa: -22.5608807, 17.0657549
+Global - UAE National Strategy for Artificial Intelligence: 23.424076, 53.847818
+Global - Israeli Policy for Regulation and Ethics in the Field of Artificial Intelligence: 31.046051, 34.851612
+Global - Japanese Intellectual Property Promotion Blueprint: 36.204824, 138.252924
+Global - The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023: 51.9976597, -0.7406863
+Global - Mauritius Artificial Intelligence Strategy 2018: -20.1763252, 57.5006268
+Global - Lebanon National Artificial Intelligence Strategy in Lebanese Industry: 34.0253655, 35.9506233
+EU - The AI Continent Action Plan: 50.8558308, 4.3366008
+NM - HB 60 - Artificial Intelligence Act: 34.9727305, -105.0323635
+Austria - Policy on Use of Generative Artificial Intelligence in the ARC's grants programs: 47.516231, 14.550072
+California - Executive Order N-5-26: 36.778261, -119.4179324
+New Hampshire - HB 143 Criminalizing and creating a private right of action for the facilitation, encouragement, offer, solicitation, or recommendation of certain acts or actions through a responsive generative communication to a child.: 43.1938516, -71.5723953
+Maine - LD 1727 An Act to Ensure Transparency in Consumer Transactions Involving Artificial Intelligence: 45.253783, -69.4454689
+Oregon - SB 1546 Relating to artificial intelligence companions.: 43.8041334, -120.5542012
+CA - SB 243 Companion Chatbot Safety Act: 36.778261, -119.4179324
+Peru - Supreme Decree No. 115‑2025‑PCM Regulation of Law No. 31814 (Law that promotes the use of Artificial Intelligence for the country’s economic and social development): -9.189967, -75.015152
+China - GB/T45654—2025 Basic Safety / Security Requirements for Generative Artificial Intelligence Service: 35.86166, 104.195397
+California - SB 53 An act relating to artificial intelligence. Transparency in Frontier Artificial Intelligence Act (TFAIA): 36.778261, -119.4179324
+California - SB-243 Companion chatbots: 36.778261, -119.4179324
+South Korea - Act No. 20676 Framework Act on the Development of Artificial Intelligence and Establishment of Trust: 35.907757, 127.766922
+California - AB 853 California AI Transparency Act: 36.778261, -119.4179324
+Denmark - Law no. 467 Law on supplementary provisions to the AI Regulation: 56.26392, 9.501785
+California - Rule 10.430 Generative artificial intelligence use policies: 36.778261, -119.4179324
+China - Secretariat No. 124 [2023] of TC260 Basic Requirements for Security of Generative Artificial Intelligence Services: 35.86166, 104.195397
+Utah - H.B. 452 Artificial Intelligence Amendments: 40.7606608, -111.8939487
+Utah - S.B. 226 Artificial Intelligence Consumer Protection Amendments: 40.7606608, -111.8939487
+California - AB 1836 Use of likeness: digital replica: 36.778261, -119.4179324
+California - Executive Order N‑12‑23: 36.778261, -119.4179324
+California - AB 2355Political Reform Act of 1974: political advertisements: artificial intelligence: 36.778261, -119.4179324
+Albuquerque - R-24-81Resolution R-24-81 Directing the City Administration To Create An Artificial Intelligence Policy Working Group, Requiring Development Of A City Of Albuquerque Artificial Intelligence Policy, Providing An Appropriation To The Department Of Technology And Innovation: 35.0843859, -106.650422
+New York - Interim Policy on the Use of Artificial Intelligence: 43.2994285, -74.2179326
+California - Judicial Branch Administration: Rule and Standard for Use of Generative Artificial Intelligence in Court-Related Work: 36.778261, -119.4179324
+U.S. - S.4569 - TAKE IT DOWN Act: 38.9071923, -77.0368707
+Global - China Measures for the Management of Generative Artificial Intelligence Services: 35.86166, 104.195397
+China - Measures for Labeling of AI-Generated Synthetic Content: 39.904211, 116.407395
+US - Whitehouse "Guidance for 2024 Agency Artificial Intelligence Reporting per EO 14110": 38.8847499, -77.0354956
+East Pennsylvania School District - Use Generative Artificial Intelligence in Education: 41.2033216, -77.1945247
+CA - GenAI Guidelines for Public Sector Procurement, Uses and Training: 36.778261, -119.4179324
+Global - CA Executive Order N-12-23 on Generative AI: 38.6057186, -121.4943998
+Washington - SB 5105 AN ACT Relating to offenses involving fabricated depictions of 2 minors: 38.9072873, -77.0369274
+Global - CA SB-942 California AI Transparency Act: 34.9531438, -119.494053
+Washington - HB 1170 AN ACT Relating to informing users when content is developed or modified by artificial intelligence: 38.9072873, -77.0369274
+New York - Bill A6453 Responsible AI Safety and Education Act (RAISE Act): 40.7127753, -74.0059728
+Arizona - SB 300 Companion Chatbots: 34.0489281, -111.0937311
+California - SB-574 Generative artificial intelligence: attorneys and arbitrators: 36.778261, -119.4179324
+United States - H.R. 9497 Artificial Intelligence Advancement and Reliability Act ( “AI Advancement and Reliability Act”): 38.7945952, -106.5348379
+China - (Trial) Measures for Science and Technology Ethics Reviews: 35.86166, 104.195397
+South Africa - No. 54477 Draft South Africa National Artificial Intelligence (AI) Policy: -30.559482, 22.937506
+United States - Artificial Intelligence (AI) Data Center Moratorium Act: 38.7945952, -106.5348379
+Pennsylvania - SB 1090 An act providing for disclosures and safeguards relating to the use of artificial intelligence (AI) and imposing certain duties on the Attorney General: 41.2033216, -77.1945247
+Maryland - HB 952 Consumer Protection - Companion Chatbots - Regulation: 39.0457549, -76.6412712
+Idaho - SB 1297 Adds to existing law to establish the Conversational AI Safety Act.: 44.0682019, -114.7420408
+Iowa - S.F. 2417 An Act relating to the regulation of conversational artificial intelligence services for minors, including disclosure, content restrictions, and enforcement provisions: 41.8780025, -93.097702
+Hawaii - SB 1782 Relating to Artificial Intelligence for the Protection of Minors.: 19.8986819, -155.6658568
+Hawaii - SB 3001 Artificial Intelligence Disclosure and Safety Act: 19.8986819, -155.6658568
+Georgia - SB 540 Online Internet Safety; certain disclosures related to conversational AI services; require: 32.1574351, -82.907123
+Arizona - AZ HB 2311 Artificial intelligence service; disclosures; requirements: 34.0489281, -111.0937311
+United States - National Policy Framework for Artificial Intelligence: 38.7945952, -106.5348379
+Minnesota - S.F. No. 1857 Minor Access to Chatbots: 46.729553, -94.6858998
+China - Interim Measures for the Administration of Human‑Like Interactive Services Based on Artificial Intelligence: 35.86166, 104.195397
+Oklahoma - HB 3546 Technology; personhood; artificial intelligence; effective date: 35.0077519, -97.092877
+European Union - Framework Convention on Artificial Intelligence, Human Rights, Democracy and the Rule of Law: 54.8086502, 25.2182138
+Malaysia - Act 866 AI‑generated content” label under Online Safety Act: 4.210484, 101.975766
+United States - S. 3062 GUIDELINES for User Age‑verification and Responsible Dialogue Act (GUARD Act): 38.7945952, -106.5348379
+United States - S. 2714 Children Harmed by AI Technology Act (or “CHAT Act”): 38.7945952, -106.5348379
+CA - SB 420 Artificial Intelligence Transparency Act: 36.778261, -119.4179324
+NC - HB 934 AI Regulatory Reform Act: 35.7595731, -79.0192997
+VT - S.23 - An act Relating to the use of Synthetic Media in Elections: 44.5588028, -72.5778415
+MD - Senate Bill 362 - Forged Digital Likenesses: 39.0457549, -76.6412712
+Global - UK Public Authority Algorithmic and Automated Decision-Making Systems Bill: 51.5072178, -0.1275862
+Philippines HB 10567 - Deepfakes Act: 12.879721, 121.774017
+Global - US SB-1047 Safe and Secure Innovation for Frontier Artificial Intelligence Models Act.: 38.9782099, -76.9805606
+USA - Content Origin Protection and Integrity from Edited and Deepfaked Media Act (COPIED ACT): 39.0096943, -77.1110297
+Global - AB-2811 Attorneys: court filings: artificial intelligence: 36.0580923, -119.2534012
+Global - CA SB-896 Artificial Intelligence Accountability Act.: 36.778261, -119.4179324
+USA H.R.5586 - DEEPFAKES Accountability Act: 38.9839902, -77.0379754
+USA H.R.3106 - Preventing Deepfakes of Intimate Images Act: 38.9537721, -77.0364382
+Global - US No Artificial Intelligence Fake Replicas And Unauthorized Duplications (No AI FRAUD) Act: 38.9029192, -76.9709524
+Global - US AI Foundation Model Transparency Act: 38.8423269, -77.1668068
+Global - Massachusetts Act drafted with the help of ChatGPT to regulate generative artificial intelligence models like ChatGPT: 42.3616044, -71.0932125
+NY - S6859/A216A: 40.6055143, -73.9949925
+NY - A7106/S7592: 40.6065461, -73.9524064
+NY - A7634/S7422: 40.6315602, -73.9071018
+PA - H1063: 40.2641536, -76.8630114
+RI - HB6286: 41.8233495, -71.3953248
+Saudi Arabia - Deepfake Guidelines (v.1): 24.7135517, 46.6752957
+Washington - HB 2225 An Act Relating to regulation of artificial intelligence companion chatbots; adding a new chapter to Title 19 RCW; and providing an effective date.: 47.7510741, -120.7401386
+New York - S‑3008C An Act to amend the Executive Law and other laws, in relation to enacting into law major components of legislation necessary to implement the State transportation, economic development and environmental conservation budget for the 2025‑2026 state fiscal year.”: 43.2994285, -74.2179326
+Australia - No. 76, 2021 Online safety codes introduce real-world protections for children online: -25.274398, 133.775136
+Global - China Decision of the Standing Committee of the National People’s Congress on Amending the Cybersecurity Law of the People’s Republic of China: 35.86166, 104.195397
+Uzbekistan - Law No. ЗРУ-1115 On introducing additions and amendments to certain legislative acts of the Republic of Uzbekistan in connection with the regulation of relations arising from the use of artificial intelligence: 41.377491, 64.585262
+China - Measures for Identifying Artificial Intelligence‑Generated and Synthetic Content: 35.86166, 104.195397
+United Arab Emirates - Regulation 10  (“Personal Data Processed Through Autonomous and Semi‑Autonomous Systems”) under the Dubai International Financial Centre Authority (DIFC): 23.424076, 53.847818
+United States - Children’s Online Privacy Protection Rule (COPPA Rule): 38.7945952, -106.5348379
+Maryland - H.B. 603 Consumer Protection - Online Products and Services - Data of Children (Maryland Kids Code): 39.0457549, -76.6412712
+MD - Age–Appropriate Design Code Act: 39.0457549, -76.6412712
+Global - Montana Consumer Data Privacy Act: 46.5948054, -112.0583278
+Global - EU Data Act: 51.165691, 10.451526
+Global - Argentina PIPA: -38.416097, -63.616672
+Global - Seychelles Data Protection Bill: -4.6884641, 55.4786735
+Global - Eswatini Data Protection Act: -26.5300096, 31.4750129
+Global - Lesotho Data Protection Act: -29.4495973, 28.3548957
+Global - Zimbabwe Data Protection Act: -17.8845726, 30.9802689
+Global - Madagascar Personal Information Protection Law: -19.1779205, 47.1910015
+Global - Mauritius Data Protection Act: -20.3438782, 57.5644193
+Global - Angola Personal Information Protection Law: -11.4381084, 17.5465779
+Global - Equatorial Guinea Personal Information Protection Law: 1.5367251, 10.6032185
+Global - Republic of the Congo Data Protection Law: 0.2844212, 16.1402524
+Global - Gabon Personal Information Protection Law: -0.3857408, 11.9324887
+Global - Sao Tome Personal Information Protection Law: 0.2432036, 6.6072677
+Global - Cabo Verde Data Protection Act: 15.0757845, -23.6441132
+Global - Senegal Data Protection Law: 14.5945815, -14.3451847
+Global - Guinea Personal Information Protection Act: 10.77972, -10.9833683
+Global - Cote D'Ivoire Data Protection Law: 7.2647695, -5.6220402
+Global - Benin Personal Data Protection Act: 9.8247689, 2.377304
+Global - Togo Personal Information Protect Law: 8.7831876, 1.0634574
+Global - Burkina Faso Personal Information Protection Act: 12.7869767, -1.3750973
+Global - Mali Personal Information Protection Law: 16.4965376, -2.6599448
+Global - Niger Personal Information Protection Law: 18.0073409, 9.7765787
+Global - Chad Personal Information Protection Law: 16.0324868, 18.3459146
+Global - Egypt Personal Information Protection Law: 26.5947143, 29.7245989
+Global - Mauritania Personal Information Protection Act: 20.5569155, -10.8339391
+Global - Algeria Protection of Individuals in the Processing of Personal Data Law: 33.4515818, 2.9091836
+Global - Morocco Personal Information Protection Law: 32.7521423, -5.5942344
+Global - South Africa Protection of Personal Information Act: -33.179518, 19.3588724
+Global - Ghana Data Protection Act: 7.868198, -1.2589434
+Global - Botswana's Data Protection Act: -24.4472095, 25.8612468
+Global - African Union Convention on Cyber Security and Personal Data Protection: 7.8438269, 37.937828
+Global - Zambia Data Protection Act: -14.3469647, 27.411819
+Global - Uganda Data Protection and Privacy Act: 0.9474474, 32.4435573
+Global - Tanzania Personal Data Protection Act: -7.0742763, 38.6057107
+Global - Tunisia Personnel Data Protection Act: 35.1679608, 9.0236123
+Global - Rwanda Protection of Personal Data and Privacy Act: -2.1107051, 29.8422646
+Global - Nigeria Data Protection Act: 9.1636411, 7.2323922
+Global - Kenya Data Protection Act: 0.1960013, 37.5356503
+Global - Jamaica Data Protection Act: 18.1549494, -76.9599903
+Global - UK Standards of age appropriate design: 52.486243, -1.890401
+Global - UK Online Safety Bill: 51.5072178, -0.1275862
+India - Digital Personal Data Protection Act (DPDPA): 27.7336167, 76.8334518
+Global - California Delete Act: 37.9577016, -121.2907796
+Global - Saudi Personal Data Protection Law (PDPL): 24.7135517, 46.6752957
+Global - New Zealand Privacy Act: -40.900557, 174.885971
+Global - Switzerland New Federal Act on Data Protection: 46.818188, 8.227512
+Global - California Privacy Rights Act: 38.6154181, -121.4942414
+Global - Colorado Privacy Act: 39.7389058, -104.989736
+Global - Connecticut Data Privacy Act: 41.7514668, -72.6283974
+Global - Utah Consumer Privacy Act: 40.5923549, -111.5834469
+Global - Virginia Consumer Data Privacy Act: 37.5494346, -77.4442883
+Global - Québec Law 25: 46.8130816, -71.2074596
+KY - House Bill 15: 37.8393332, -84.2700179
+Global - Rhode Island Data Transparency and Privacy Protection Act: 41.8216866, -71.4100876
+Colorado - SB 24-205 Artificial Intelligence Systems: Consumer Protections: 39.5500507, -105.7820674
+Global - EU Data Governance Act: 49.3148531, 12.0875183
+NE - Age Appropriate Design Code: 41.4925374, -99.9018131
+Global - Turkish Amendments to Personal Data Protection Law: 39.9539216, 33.1012404
+Bermuda - Personal Information Privacy Act: 32.3078, -64.7505
+Global - NJ Consumer Data Protection Bill: 40.0583238, -74.4056612
+Vermont - S.B. 69 An act relating to an age-appropriate design code: 44.5588028, -72.5778415
+VT - Age Appropriate Design Code: 44.5588028, -72.5778415
+Florida HB 3 - An act relating to online protections for minors: 27.6648274, -81.5157535
+Global - The California Age-Appropriate Design Code Act.: 34.0549076, -118.242643
+Global - Delaware Personal Data Privacy Act: 39.151782, -75.5216214
+Global - Indiana Data Privacy Act: 39.7789539, -86.1553227
+Global - Oregon Consumer Privacy Act: 44.944841, -123.0296027
+Global - Tennessee Information Protection Act: 36.1626638, -86.7843482
+Global - Texas Data Privacy and Security Act: 30.3785417, -97.6881073
+Minnesota - HF 1606 Prohibiting Access to Nudification Technology: 46.729553, -94.6858998
+Connecticut - SB 5An act concerning online safety: 41.6032207, -73.087749
+Colorado - SB 189 Automated decision-making technology: 39.5500507, -105.7820674
+Minnesota - S.F. No. 1886 Disclosure of artificial intelligence: 46.729553, -94.6858998
+Wisconsin - AB 965 Artificial intelligence systems that simulate humanlike relationships with children and providing a penalty.: 43.7844397, -88.7878678
+Florida - SB 482 Artificial Intelligence Bill of Rights: 27.6648274, -81.5157535
+Oklahoma - HB 3545 Technology; artificial intelligence; state agencies; prohibited uses; permitted uses; Office of Management and Enterprise Services; report; effective date.: 35.0077519, -97.092877
+Oklahoma - HB 3544 Technology; artificial intelligence; chatbots; companions; minors; safety; civil penalties; effective date.: 35.0077519, -97.092877
+China - 《人工智能拟人化互动服务管理暂行办法（征求意见稿）》(Interim Measures for the Management of AI Anthropomorphic Interactive Services - Draft for Public Comment): 35.86166, 104.195397
+United States - S. 3193 Algorithm Accountability Act: 38.7945952, -106.5348379
+Canada - Bill C‑27 An Act to enact the Consumer Privacy Protection Act (CPPA), the Personal Information and Data Protection Tribunal Act (PIDPTA), and the Artificial Intelligence and Data Act (AIDA): 56.130366, -106.346771
+Ohio - HB 392 To enact section 9.89 of the Revised Code to limit further regulation of certain computational systems, require risk‑management policies for AI‑controlled critical infrastructure, and to name this act the Ohio Right to Compute Act (Enact the Ohio Right to Compute Act): 40.4172871, -82.907123
+CA AB 1337 - The IPA Reform Act: 36.778261, -119.4179324
+CA - SB-1047 Safe and Secure Innovation for Frontier Artificial Intelligence Models Act. (3rd reading): 38.1220829, -119.8122717
+Global - CA AB-3048 California Consumer Privacy Act of 2018: opt-out preference signal: 35.5395452, -119.2189231
+Global - CA AB-1949 California Consumer Privacy Act of 2020: collection of personal information of a consumer less than 18 years of age: 34.7893124, -120.2523142
+Global - CA SB-976 Social Media Youth Addiction Law: 37.6713719, -120.7418823
+Global - CA AB-3139 Data privacy: vehicle manufacturers: remote vehicle technology: 37.0942709, -120.0166059
+Global - CA Assembly Bill 3204 Data digesters: 37.2773462, -121.7024465
+Global - CA AB-1824 California Consumer Privacy Act of 2018: opt-out right: mergers: 35.5575907, -120.2748434
+Global - Artificial Intelligence Consumer Opt-In, Notification Standards, and Ethical Norms for Training (AI CONSENT) Act: 38.9071923, -77.0368707
+Global - Quebec Protection of Personal Information Act: 46.8130816, -71.2074596
+Global - Ethiopia Data Protection Act: 11.6044982, 37.8618711
+Global - Thailand Cross-Border Data Transfer: 13.7563309, 100.5017651
+US - Bill to Regulate Law Enforcement's Use of Facial Recognition Technology: 39.0262427, -76.9287267
+Global - Hawaii Consumer Data Protection Act: 21.3022102, -157.877365
+Global - Illinois Data Privacy and Protection Act: 39.7957026, -89.6625074
+Global - Maine Data Privacy and Protection Act: 44.3101328, -69.7774298
+Global - Massachusetts Data Privacy Protection Act (MDPPA), Massachusetts Information Privacy Protection Act (MIPSA), and the Internet Bill of Rights (H.1555): 42.3593214, -71.0600817
+Global - Minnesota Consumer Data Privacy Act: 44.9541888, -93.0896145
+Global - New Hampshire Consumer Data Privacy Act: 43.202131, -71.5382585
+Global - New York Privacy Act: 40.735666, -73.9427994
+Global - Pennsylvania Consumer Data Protection Act: 40.2721434, -76.8863575
+Global - Washington People’s Privacy Act: 47.0232566, -122.90415
+SC - SB404: 33.9881876, -81.0629674
+Global - California Automated Decision Making Regulations: 37.7749295, -122.4194155
+Global - India Guidelines for Prevention and Regulation of Dark Patterns: 28.6266707, 77.1985928
+Global - Quebec Regulation on the Anonymization of Personal Information: 47.0433802, -71.5785336
+Global - Hong Kong AI Model Privacy Framework: 22.3027879, 114.1676445
+South Korea - Personal Information Protection Commission Regulatory Pilot: 35.907757, 127.766922
+Australia - Compliance and Enforcement Policy for the Consumer Data Right: -28.0751666, 136.2964376
+Global - Canadian Privacy Regulator Urging Improved Youth and Employee Privacy Laws: 49.9417194608426, -85.4428609636826
+Global - Mexican Recommendations for the Processing of Personal Data: 23.634501, -102.552784
+NJ - 'Guidance on Algorithmic Discrimination and the New Jersey Law Against Discrimination': 40.0583238, -74.4056612
+NY - LL 144 - Automated Employment Decision Tools: 40.6875391, -73.9991082
+Global - United States S. 3108 AI-Related Job Impacts Clarity Act: 38.7945952, -106.5348379
+TX - HB 1709: 31.9685988, -99.9018131
+Ontario - Amendment to Working for Workers Act for AI in Hiring: 43.653226, -79.3831843
+IL - HB 3773: 39.7788191, -89.6240555
+MA - An Act Preventing a Dystopian Work Environment: 42.3629998, -71.0660898
+NJ - A4909: 40.2114068, -74.7557687
+NY - S5641/A567: 40.6523875, -73.9510444
+NY - A7858: 40.676339, -73.9167131
+VT - H114: 44.2600593, -72.5753869
+US - S. 2419: 38.8700481, -77.0080303
+Mississippi - Executive Order 1584: 32.3546679, -89.3985283
+The Office of Management and Budget - Advancing the Responsible Acquisition of Artificial Intelligence in Government: 38.8995138, -77.0390113
+Global - Australian IP Amendment Act: -25.274398, 133.775136
+Global - Moscow Experimental Regulation for Facilitating Development and Implementation of Artificial Intelligence Technologies: 55.755826, 37.6173
+Albuquerque - R-24-81 'Directing The City Administration To Create An Artificial Intelligence Policy Working Group, Requiring Development Of A City Of Albuquerque Artificial Intelligence Policy, Providing An Appropriation To The Department Of Technology And Innovation': 35.0843859, -106.650422
+Italy - Senate Act n. 1146: 41.87194, 12.56738
+California - Law enforcement agencies: artificial intelligence: 36.778261, -119.4179324
+KY - SB 131 AN ACT relating to elections and declaring an emergency.: 38.0983946, -84.687213
+US - Department of Energy and Environment - US - H.R. 9671, Department of Energy Artificial Intelligence Act of 2024: 38.9060302, -77.0063624
+Global - Arizona Ballot Processing and Electronic Adjudication Limit: 33.4575394, -112.0740365
+Global - Texas Artificial Intelligence Advisory Council: 30.2464019, -97.7375701
+United States - H.R. 8516 American Leadership in AI Act: 38.7945952, -106.5348379
+United States - S. 2177 No Adversarial AI Act (NA AI Act): 38.7945952, -106.5348379
+Illinois - H. B. 1002 Military Service - TECH Amends the Veterans’ Employment Act: 40.6331249, -89.3985283
+USA - S.2177 - No Adversarial AI Act: 38.9071923, -77.0368707
+U.S. - H.R.1121 - No DeepSeek on Government Devices Act: 38.9071923, -77.0368707
+U.S. - H.R.2670 - National Defense Authorization Act for Fiscal Year 2024: 38.9328323, -77.0032269
+U.S. - S.5616 - Preserving American Dominance in Artificial Intelligence Act of 2024: 38.9071923, -77.0368707
+CA - AB1814 - Facial Recognition (Law Enforcement): 36.5319008, -119.8462541
+WI - Disclosures Regarding Content Generated by Artificial Intelligence in Political Advertisements: 43.7844397, -88.7878678
+CA - A302: 36.5114178, -121.4471973
+CA - S398: 38.4011862, -122.6297552
+Global - California AI-ware Act: 39.0514859, -123.1647582
+MA - H64/S33: 42.3720035, -71.0382808
+MO - H311: 38.5962915, -92.2081917
+NJ - SB3876: 40.2308051, -74.7796299
+NY - A5309: 40.773105, -73.9496661
+RI - S117: 41.8324311, -71.414551
+RI - H6423: 41.8358843, -71.4016764
+WA - S5356: 47.0328434, -122.892112
+CA - Privacy Protection Agency Ch. 3 Data Broker Registration: 38.911977, -120.39574
+AZ - 2000PR - Use of Generative Artificial Intelligence (Gen AI): 32.7558935, -111.6709584
+Global - International Political Declaration on Responsible Military Use of Artificial Intelligence and Autonomy: 52.0704978, 4.3006999
+Global - Mexican Principles and Impact Analysis Guide for the Development and Use of Systems Based on Artificial Intelligence in the Federal Public Administration: 20.0200181, -100.226928
+Illinois - H.B. 1806 Wellness and Oversight for Psychological Resources Act: 40.6331249, -89.3985283
+China - 2021 No. 47 Guiding Principles for the Classification and Definition of Artificial Intelligence Medical Software Products: 35.86166, 104.195397
+UT - H.B. 452 Artificial Intelligence Amendments (Mental Health Chatbots): 40.9678932, -111.6196001
+Alabama - SB 63 Health care plans; to regulate the use of artificial intelligence in determinations of coverage: 32.3182314, -86.902298
+Global - GA HB203: 33.7555991, -84.3849364
+Colorado - HB26-1139 Concerning the use of artificial intelligence in health care.: 39.5500507, -105.7820674
+Colorado - HB26-1195 Concerning restrictions on the use of artificial intelligence relating to psychotherapy services.: 39.5500507, -105.7820674
+Ohio - HB 524 Impose penalties for AI models suggesting harming self or another: 40.4172871, -82.907123
+PA - Regulation of the Use of Artificial Intelligence in Healthcare: 41.2033216, -77.1945247
+MI - SB 1082: 44.3148443, -85.6023643
+Global - Russian National Standard in the Field of AI in Clinical Medicine: 62.165035, 97.5998446
+CA - AB1502: 39.0130689, -122.5717978
+IL - HB1002: 39.7653621, -89.661821
+IL - HB3338: 39.7814575, -89.6817338
+ME - SB656a: 44.3243789, -69.8004323
+MA - HB1974: 42.3326832, -71.0602537
+RI - HB6285: 41.8253962, -71.4200441
+TX - HB4695: 30.29502, -97.7458077
+Global - US FDA Artificial Intelligence/Machine Learning (AI/ML)-Based Software as a Medical Device (SaMD) Action Plan: 38.9860027, -76.8709319
+China - 2025 World artificial intelligence (AI) Conference and High-Level Meeting on Global AI Governance published Global AI Governance Action Plan: 35.86166, 104.195397
+Global - Minnesota: 46.729553, -94.6858998
+China - JR/T 0221‑2021 Evaluation Specification of Artificial Intelligence Algorithm in Financial Application: 35.86166, 104.195397
+Hong Kong - Policy Statement on Responsible Application of Artificial Intelligence in the Financial Market: 22.3193039, 114.1693611
+Hong Kong - Hong Kong Monetary Authority "Consumer Protection in respect of Use of Generative Artificial Intelligence": 22.3059645, 114.184124
+Colorado SB21-169 - Protecting Consumers from Unfair Discrimination in Insurance Practices: 39.5500507, -105.7820674
+Global - Russian Technical Committee on Standardization "Artificial Intelligence": 59.4313408, 83.900905
+CO - 10-1-1 Governance and Risk Management Framework Requirements for Life Insurers' Use of External Consumer Data and Information Sources, Algorithms, and Predictive Models: 39.5500507, -105.7820674
+NJ - A537: 40.2176988, -74.7379161
+NY - AB843: 40.6461378, -74.0073593
+RI - H5734: 41.8181046, -71.4176408
+Argentina - Draft Law on the Protection of Personal Data: -38.416097, -63.616672
+NY - Insurance Circular Letter No. 7: 43.2994285, -74.2179326
+US SR 11-7 - Model Risk Management: 37.09024, -95.712891
+UK CP6/22 - Model risk management principles for banks: 55.378051, -3.435973
+US - Potential Financial Anti-Surveillance Regulations: 39.9145633, -78.1822597
+TX - Clear Creek ISD AI Policy Updates: 29.5038503, -95.0938246
+US - Executive Order Advancing Artificial Intelligence Education for American Youth: 38.9071923, -77.0368707
+UT - S.B. 226 Artificial Intelligence Consumer Protection Amendments: 40.7523497, -112.2125495
+DE - Court Order on AI Use by Judges: 38.9108325, -75.5276699
+Global - EU Digital Services Act (DSA): 50.1109221, 8.6821267
+Global - Russian Regulation for Conducting an Experiment in the Test Use of Highly Automated Vehicles on Public Roads: 58.1379516, 98.6482767
+CA - SB-53 CalCompute: foundation models: whistleblowers: 37.5195417, -121.0200065
+EU - Product Liability Regulations: 54.5259614, 15.2551187
+MD - HB622: 38.9955187, -76.4784513
+ON - An Act to enact the Enhancing Digital Security and Trust Act, 2024: 50.0520026, -88.7342381
+U.S. - Department of Justice Whistleblower protection in revised corporate compliance guidance: 38.8938426, -77.0249919
+Global - EU Regulations to Prevent and Combat Child Sexual Abuse: 50.8507854, 4.360281
+Global - Illinois Anti-Click Gambling Data Analytics Collection Act: 39.7914821, -89.6233688
+Illinois - The Adult Content Age Verification Act, Senate Bill 2950: 40.6331249, -89.3985283
+RI - S0146: 41.8147785, -71.4088862
+PA - HB1380: 40.2762033, -76.8956271

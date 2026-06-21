@@ -20,12 +20,12 @@ const map = L.map('map', {
     [90, 180]
   ],
   maxBoundsViscosity: 1.0,
-  zoomControl: false
+  zoomControl: false,
+  attributionControl: false
 });
 
 // CartoDB Dark Matter Base Map
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 20
 }).addTo(map);
@@ -52,6 +52,7 @@ let geojsonLayer;
 let markersLayer = L.layerGroup().addTo(map);
 let currentFilter = 'all';
 let selectedRegion = null;
+let currentSpecificReg = null;
 
 // Initialize App
 async function init() {
@@ -109,9 +110,9 @@ function getFeatureStyle(feature) {
 
   return {
     fillColor: fillColor,
-    weight: 1,
-    opacity: 0.8,
-    color: colors.Border,
+    weight: 0,
+    opacity: 0,
+    color: 'transparent',
     fillOpacity: 0.5
   };
 }
@@ -132,7 +133,7 @@ function renderMarkers() {
       
       const marker = L.marker([reg.lat, reg.lon], { icon }).bindTooltip(reg.title);
       marker.on('click', () => {
-        showPanelForRegion(reg.country, reg);
+        showPanelForRegion(reg.country || 'Unknown', reg);
       });
       markersLayer.addLayer(marker);
     }
@@ -155,7 +156,8 @@ function highlightFeature(e) {
   const layer = e.target;
   layer.setStyle({
     weight: 2,
-    color: colors.Hover,
+    color: '#ffffff',
+    opacity: 1,
     fillOpacity: 0.8
   });
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -169,32 +171,59 @@ function resetHighlight(e) {
 
 function showPanelForRegion(regionName, specificReg = null) {
   selectedRegion = regionName;
+  currentSpecificReg = specificReg;
   
   // Populate Header
-  panelTitleEl.textContent = regionName;
+  panelTitleEl.textContent = specificReg ? specificReg.title : regionName;
   
   const summary = countrySummary[regionName];
-  if (summary) {
+  if (summary && !specificReg) {
     overallStatusEl.textContent = summary.overallStance;
     overallStatusEl.style.backgroundColor = getStatusColor(summary.overallStance);
     overallStatusEl.style.color = '#fff';
+    overallStatusEl.style.display = 'inline-block';
+  } else if (specificReg) {
+    overallStatusEl.textContent = specificReg.status;
+    overallStatusEl.style.backgroundColor = getStatusColor(specificReg.status);
+    overallStatusEl.style.color = '#fff';
+    overallStatusEl.style.display = 'inline-block';
   } else {
     overallStatusEl.textContent = 'Unregulated / Unknown';
     overallStatusEl.style.backgroundColor = colors.Unregulated;
     overallStatusEl.style.color = '#fff';
+    overallStatusEl.style.display = 'inline-block';
   }
 
   // Show Panel
   infoPanel.classList.remove('hidden');
   
   // Render list
-  renderRegulationsList(specificReg);
+  renderRegulationsList();
 }
 
-function renderRegulationsList(highlightedReg = null) {
+function renderRegulationsList() {
   if (!selectedRegion) return;
   
-  let filtered = regulationsData.filter(r => r.country === selectedRegion || r.jurisdiction === selectedRegion);
+  let filtered = [];
+  
+  if (currentSpecificReg) {
+    filtered = [currentSpecificReg];
+  } else {
+    const normRegion = selectedRegion.toLowerCase();
+    const aliases = [normRegion];
+    if (normRegion === 'united kingdom' || normRegion === 'uk') aliases.push('united kingdom', 'uk', 'global - uk');
+    if (normRegion === 'united states' || normRegion === 'united states of america' || normRegion === 'us' || normRegion === 'usa') aliases.push('united states', 'usa', 'us', 'u.s.');
+    if (normRegion === 'united arab emirates' || normRegion === 'uae') aliases.push('united arab emirates', 'uae');
+    if (normRegion === 'south korea' || normRegion === 'korea') aliases.push('south korea', 'korea');
+    if (normRegion === 'european union' || normRegion === 'eu') aliases.push('european union', 'eu');
+    
+    filtered = regulationsData.filter(r => {
+      const c = (r.country || '').toLowerCase();
+      const t = (r.title || '').toLowerCase();
+      // Match by country field directly to an alias, OR check if the title contains the country name/alias
+      return aliases.some(a => c === a || c.includes(a) || t.startsWith(a + ' ') || t.includes(' - ' + a));
+    });
+  }
   
   // Apply tab filter
   if (currentFilter === 'enacted') {
