@@ -1,0 +1,883 @@
+{
+  "Indonesia": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Australia": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 2,
+      "Policy": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Vietnam": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 1,
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "United Arab Emirates": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 2
+    },
+    "overallStance": "Regulated"
+  },
+  "Malaysia": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 1,
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "British Columbia": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "China": {
+    "count": 13,
+    "statusCounts": {
+      "In effect": 8,
+      "Passed": 1,
+      "Proposed": 3,
+      "Policy": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Virginia": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Colorado": {
+    "count": 5,
+    "statusCounts": {
+      "In effect": 2,
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "Mississippi": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 2
+    },
+    "overallStance": "Regulated"
+  },
+  "New Jersey": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "California": {
+    "count": 13,
+    "statusCounts": {
+      "In effect": 11,
+      "Proposed": 1,
+      "Passed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Pakistan": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 1,
+      "Policy": 1,
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Louisiana": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "UT": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 3
+    },
+    "overallStance": "Regulated"
+  },
+  "African Union Resolution on the need to undertake a Study on human and peoples’ rights and artificial intelligence (AI), robotics and other new and emerging technologies in Africa": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "South Korea": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 2,
+      "Policy": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "TX": {
+    "count": 5,
+    "statusCounts": {
+      "In effect": 2,
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "Albuquerque": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 3
+    },
+    "overallStance": "Regulated"
+  },
+  "Taiwan": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "City of Pittsburgh": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "CO": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 2
+    },
+    "overallStance": "Regulated"
+  },
+  "Utah S.B. 149": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "EU": {
+    "count": 3,
+    "statusCounts": {
+      "Passed": 1,
+      "Policy": 1,
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "US": {
+    "count": 7,
+    "statusCounts": {
+      "Proposed": 3,
+      "In effect": 2,
+      "Passed": 1,
+      "Policy": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "ND": {
+    "count": 1,
+    "statusCounts": {
+      "Passed": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Argentina": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "Mexico": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "United States": {
+    "count": 10,
+    "statusCounts": {
+      "Proposed": 9,
+      "In effect": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Chile": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Kazakhstan": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 1,
+      "launched": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "CT Senate Bill 2 (SB 2)": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Luxembourg": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "CA": {
+    "count": 13,
+    "statusCounts": {
+      "Proposed": 10,
+      "In effect": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "US S.4769": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "UK": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "DC": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "NJ": {
+    "count": 7,
+    "statusCounts": {
+      "Proposed": 6,
+      "In effect": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "IL": {
+    "count": 4,
+    "statusCounts": {
+      "Proposed": 4
+    },
+    "overallStance": "Proposed"
+  },
+  "MD": {
+    "count": 5,
+    "statusCounts": {
+      "Proposed": 3,
+      "In effect": 1,
+      "Passed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "NV": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "NM": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 2
+    },
+    "overallStance": "Proposed"
+  },
+  "NY": {
+    "count": 11,
+    "statusCounts": {
+      "Proposed": 9,
+      "In effect": 1,
+      "Policy": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "NYC": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "NC": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 2
+    },
+    "overallStance": "Proposed"
+  },
+  "PA": {
+    "count": 5,
+    "statusCounts": {
+      "Proposed": 5
+    },
+    "overallStance": "Proposed"
+  },
+  "Updated": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "India": {
+    "count": 2,
+    "statusCounts": {
+      "Policy": 1,
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "New York State": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "South Africa": {
+    "count": 2,
+    "statusCounts": {
+      "Policy": 1,
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Oman": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "Nigeria": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "France For a Meaningful Artificial Intelligence": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "Slovakia Action plan for the digital transformation for 2019": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "Austria": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "New Hampshire": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Maine": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Oregon": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Peru": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Denmark": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Utah": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 2
+    },
+    "overallStance": "Regulated"
+  },
+  "New York": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 3
+    },
+    "overallStance": "Regulated"
+  },
+  "U.S.": {
+    "count": 5,
+    "statusCounts": {
+      "In effect": 1,
+      "Proposed": 4
+    },
+    "overallStance": "Proposed"
+  },
+  "East Pennsylvania School District": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Washington": {
+    "count": 3,
+    "statusCounts": {
+      "In effect": 3
+    },
+    "overallStance": "Regulated"
+  },
+  "Arizona": {
+    "count": 2,
+    "statusCounts": {
+      "Passed": 1,
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Pennsylvania": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Maryland": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 1,
+      "In effect": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Idaho": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Iowa": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Hawaii": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 2
+    },
+    "overallStance": "Proposed"
+  },
+  "Georgia": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Minnesota": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "Oklahoma": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "European Union": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "VT": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 2,
+      "Passed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Philippines HB 10567": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "USA": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 2
+    },
+    "overallStance": "Proposed"
+  },
+  "USA H.R.5586": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "USA H.R.3106": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "RI": {
+    "count": 6,
+    "statusCounts": {
+      "Proposed": 6
+    },
+    "overallStance": "Proposed"
+  },
+  "Saudi Arabia": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "Uzbekistan": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "KY": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 1,
+      "Passed": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "NE": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Bermuda": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Vermont": {
+    "count": 1,
+    "statusCounts": {
+      "Passed": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Florida HB 3": {
+    "count": 1,
+    "statusCounts": {
+      "Passed": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Connecticut": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Wisconsin": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Florida": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Canada": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Ohio": {
+    "count": 2,
+    "statusCounts": {
+      "Proposed": 2
+    },
+    "overallStance": "Proposed"
+  },
+  "CA AB 1337": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "SC": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Ontario": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "MA": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 3
+    },
+    "overallStance": "Proposed"
+  },
+  "The Office of Management and Budget": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Italy": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Illinois": {
+    "count": 3,
+    "statusCounts": {
+      "Proposed": 2,
+      "In effect": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "WI": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "MO": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "WA": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "AZ": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "Alabama": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "MI": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "ME": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Hong Kong": {
+    "count": 2,
+    "statusCounts": {
+      "In effect": 2
+    },
+    "overallStance": "Regulated"
+  },
+  "Colorado SB21-169": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "US SR 11-7": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "UK CP6/22": {
+    "count": 1,
+    "statusCounts": {
+      "Policy": 1
+    },
+    "overallStance": "Unregulated"
+  },
+  "DE": {
+    "count": 1,
+    "statusCounts": {
+      "In effect": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "ON": {
+    "count": 1,
+    "statusCounts": {
+      "Proposed": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Jamaica": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Dominican Republic": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Zambia": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Serbia": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Iran": {
+    "count": 1,
+    "statusCounts": {
+      "development": 1
+    },
+    "overallStance": "Proposed"
+  },
+  "Ghana": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Bangladesh": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  },
+  "Qatar": {
+    "count": 1,
+    "statusCounts": {
+      "launched": 1
+    },
+    "overallStance": "Regulated"
+  }
+}

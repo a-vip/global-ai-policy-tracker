@@ -1,3 +1,7 @@
 export default {
-  base: '/tools/policy-tracker/',
+  base: '/global-ai-policy-tracker/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  }
 }
