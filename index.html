@@ -87,47 +87,27 @@
           <button id="close-modal" class="modal-close">&times;</button>
         </div>
         <div class="modal-body">
-          <p style="margin-bottom: 15px; color: var(--text-secondary); font-size: 0.9rem;">Asenion built this map to track AI regulations across the world (including Data and Privacy regulations impacting AI.)</p>
-          <table class="stats-table">
-            <thead>
-              <tr>
-                <th>Area</th>
-                <th class="col-green">Green (in effect)</th>
-                <th class="col-blue">Blue (passed)</th>
-                <th class="col-yellow">Yellow (proposed)</th>
-                <th class="col-purple">Purple (policy)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>General</td><td>25</td><td>15</td><td>56</td><td>74</td>
-              </tr>
-              <tr>
-                <td>Generative AI</td><td>28</td><td>8</td><td>40</td><td>2</td>
-              </tr>
-              <tr>
-                <td>Data, Internet, Privacy, and Advertising</td><td>61</td><td>17</td><td>32</td><td>5</td>
-              </tr>
-              <tr>
-                <td>Employment</td><td>3</td><td>0</td><td>11</td><td>0</td>
-              </tr>
-              <tr>
-                <td>Government and Military</td><td>6</td><td>7</td><td>17</td><td>3</td>
-              </tr>
-              <tr>
-                <td>Health</td><td>3</td><td>2</td><td>12</td><td>1</td>
-              </tr>
-              <tr>
-                <td>Financial and Insurance</td><td>5</td><td>4</td><td>5</td><td>6</td>
-              </tr>
-              <tr>
-                <td>Other</td><td>6</td><td>2</td><td>9</td><td>0</td>
-              </tr>
-              <tr>
-                <td>Total</td><td>117</td><td>48</td><td>154</td><td>91</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="stats-chart-container" style="height: 300px; margin-bottom: 24px;">
+            <canvas id="stats-chart"></canvas>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="stats-table" id="dynamic-stats-table">
+              <thead>
+                <tr>
+                  <th data-sort="area" style="cursor: pointer;">Area <i class="fas fa-sort"></i></th>
+                  <th data-sort="inEffect" class="col-green" style="cursor: pointer;">In Effect <i class="fas fa-sort"></i></th>
+                  <th data-sort="passed" class="col-blue" style="cursor: pointer;">Passed <i class="fas fa-sort"></i></th>
+                  <th data-sort="proposed" class="col-yellow" style="cursor: pointer;">Proposed <i class="fas fa-sort"></i></th>
+                  <th data-sort="policy" class="col-purple" style="cursor: pointer;">Policy <i class="fas fa-sort"></i></th>
+                  <th data-sort="banned" style="background: var(--color-banned); color: #fff; cursor: pointer;">Banned <i class="fas fa-sort"></i></th>
+                  <th data-sort="total" style="background: rgba(255,255,255,0.1); cursor: pointer;">Total <i class="fas fa-sort"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

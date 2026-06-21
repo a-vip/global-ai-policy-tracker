@@ -1,4 +1,5 @@
 import './style.css';
+import Chart from 'chart.js/auto';
 
 // DOM Elements
 const infoPanel = document.getElementById('info-panel');
@@ -56,6 +57,12 @@ let currentFilter = 'all';
 let selectedRegion = null;
 let currentSpecificReg = null;
 
+// Stats Data
+let areaStats = {};
+let currentSortColumn = 'total';
+let currentSortOrder = -1;
+let statsChartInstance = null;
+
 // Initialize App
 async function init() {
   try {
@@ -78,6 +85,10 @@ async function init() {
 
     // Add Regulation Markers
     renderMarkers();
+
+    // Compute stats and setup modal
+    computeAreaStats();
+    renderStatsModal();
 
   } catch (err) {
     console.error("Failed to load map data:", err);
@@ -308,18 +319,159 @@ closePanelBtn.addEventListener('click', () => {
 });
 
 // Stats Modal Logic
+function computeAreaStats() {
+  areaStats = {};
+  regulationsData.forEach(reg => {
+    const a = reg.area || 'General';
+    if (!areaStats[a]) {
+      areaStats[a] = { area: a, inEffect: 0, passed: 0, proposed: 0, policy: 0, banned: 0, unregulated: 0, total: 0 };
+    }
+    const s = getStatusClass(reg.status);
+    if (s === 'in-effect' || s === 'enacted') areaStats[a].inEffect++;
+    else if (s === 'passed') areaStats[a].passed++;
+    else if (s === 'proposed') areaStats[a].proposed++;
+    else if (s === 'policy') areaStats[a].policy++;
+    else if (s === 'banned') areaStats[a].banned++;
+    else areaStats[a].unregulated++;
+    
+    areaStats[a].total++;
+  });
+}
+
+function renderStatsModal() {
+  const statsArray = Object.values(areaStats);
+  
+  // Sort
+  statsArray.sort((a, b) => {
+    const valA = a[currentSortColumn];
+    const valB = b[currentSortColumn];
+    if (typeof valA === 'string') {
+      return valA.localeCompare(valB) * currentSortOrder;
+    }
+    return (valA - valB) * currentSortOrder;
+  });
+  
+  // Render Table
+  const tbody = document.querySelector('#dynamic-stats-table tbody');
+  if (tbody) {
+    let html = '';
+    let totals = { area: 'Total', inEffect: 0, passed: 0, proposed: 0, policy: 0, banned: 0, total: 0 };
+    
+    statsArray.forEach(row => {
+      totals.inEffect += row.inEffect;
+      totals.passed += row.passed;
+      totals.proposed += row.proposed;
+      totals.policy += row.policy;
+      totals.banned += row.banned;
+      totals.total += row.total;
+      
+      html += `
+        <tr>
+          <td>${row.area}</td>
+          <td>${row.inEffect}</td>
+          <td>${row.passed}</td>
+          <td>${row.proposed}</td>
+          <td>${row.policy}</td>
+          <td>${row.banned}</td>
+          <td style="font-weight: 700;">${row.total}</td>
+        </tr>
+      `;
+    });
+    
+    html += `
+      <tr style="background: rgba(255,255,255,0.05); font-weight: 700; color: #fff;">
+        <td>Total</td>
+        <td>${totals.inEffect}</td>
+        <td>${totals.passed}</td>
+        <td>${totals.proposed}</td>
+        <td>${totals.policy}</td>
+        <td>${totals.banned}</td>
+        <td>${totals.total}</td>
+      </tr>
+    `;
+    tbody.innerHTML = html;
+  }
+  
+  // Update Sort Icons
+  document.querySelectorAll('#dynamic-stats-table th[data-sort]').forEach(th => {
+    const icon = th.querySelector('i');
+    if (icon) {
+      icon.className = 'fas fa-sort';
+      if (th.dataset.sort === currentSortColumn) {
+        icon.className = currentSortOrder === 1 ? 'fas fa-sort-up' : 'fas fa-sort-down';
+      }
+    }
+  });
+  
+  renderStatsChart(statsArray);
+}
+
+function renderStatsChart(statsArray) {
+  const ctx = document.getElementById('stats-chart');
+  if (!ctx) return;
+  
+  if (statsChartInstance) {
+    statsChartInstance.destroy();
+  }
+  
+  const labels = statsArray.map(s => s.area);
+  
+  statsChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'In Effect', data: statsArray.map(s => s.inEffect), backgroundColor: colors.InEffect },
+        { label: 'Passed', data: statsArray.map(s => s.passed), backgroundColor: colors.Passed },
+        { label: 'Proposed', data: statsArray.map(s => s.proposed), backgroundColor: colors.Proposed },
+        { label: 'Policy', data: statsArray.map(s => s.policy), backgroundColor: colors.Policy },
+        { label: 'Banned', data: statsArray.map(s => s.banned), backgroundColor: colors.Banned }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+        y: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } }
+      },
+      plugins: {
+        legend: { labels: { color: '#fff' } }
+      }
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const statsBtn = document.getElementById('stats-btn');
   const modalOverlay = document.getElementById('stats-modal');
   const closeBtn = document.getElementById('close-modal');
 
   if (statsBtn && modalOverlay && closeBtn) {
-    statsBtn.addEventListener('click', () => modalOverlay.classList.add('active'));
+    statsBtn.addEventListener('click', () => {
+      // Re-render incase data changed (though static for now)
+      renderStatsModal();
+      modalOverlay.classList.add('active');
+    });
     closeBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) modalOverlay.classList.remove('active');
     });
   }
+  
+  // Table sorting
+  document.querySelectorAll('#dynamic-stats-table th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (currentSortColumn === col) {
+        currentSortOrder *= -1;
+      } else {
+        currentSortColumn = col;
+        currentSortOrder = -1; // Default to descending when switching columns
+      }
+      renderStatsModal();
+    });
+  });
 });
 
 // Run
