@@ -214,7 +214,6 @@ main {
   height: 16px;
   background: var(--color-regulated);
   border-radius: 50%;
-  position: relative;
   box-shadow: 0 0 10px var(--color-regulated);
 }
 .pulse-marker::after {
