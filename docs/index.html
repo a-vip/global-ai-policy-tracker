@@ -10,9 +10,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/global-ai-policy-tracker/assets/index-BBQ4tMkm.js"></script>
-    <link rel="stylesheet" crossorigin href="/global-ai-policy-tracker/assets/index-D7mnZG3D.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" crossorigin src="/global-ai-policy-tracker/assets/index-CXgFObSX.js"></script>
+    <link rel="stylesheet" crossorigin href="/global-ai-policy-tracker/assets/index-DUFGH4_S.css">
   </head>
   <body>
     
@@ -20,12 +22,20 @@
       <header class="glass-header">
         <div class="logo">
           <h1>Global AI Policy Tracker</h1>
-          <span class="subtitle">Autonomous Weapons Legislation Database</span>
+          <span class="subtitle">Comprehensive AI Legislation Database</span>
         </div>
-        <div class="legend">
-          <div class="legend-item"><span class="dot banned"></span> Banned / Proposing Ban</div>
-          <div class="legend-item"><span class="dot regulated"></span> Regulated / Restricted</div>
-          <div class="legend-item"><span class="dot unregulated"></span> Unregulated / Opposes Ban</div>
+        
+        <div class="header-controls">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search countries, regulations..." autocomplete="off">
+          </div>
+          <div class="legend">
+            <div class="legend-item"><span class="dot regulated"></span> Regulated / Enacted</div>
+            <div class="legend-item"><span class="dot proposed"></span> Proposed / In Development</div>
+            <div class="legend-item"><span class="dot banned"></span> Banned</div>
+            <div class="legend-item"><span class="dot unregulated"></span> Unregulated</div>
+          </div>
         </div>
       </header>
 
@@ -34,11 +44,29 @@
         
         <aside id="info-panel" class="glass-panel hidden">
           <button id="close-panel" class="close-btn">&times;</button>
+          <div class="panel-header">
+            <h2 id="panel-title">Select a Region</h2>
+            <div id="overall-status" class="badge">Status</div>
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-value" id="stat-total">0</span>
+                <span class="stat-label">Regulations</span>
+              </div>
+            </div>
+          </div>
           <div class="panel-content">
-            <h2 id="country-name">Select a Country</h2>
-            <div id="policy-status" class="badge">Status</div>
-            <p id="policy-desc">Click on a highlighted country to view its current stance on Lethal Autonomous Weapon Systems (LAWS) and domestic AI legislation.</p>
-            <div id="policy-links" class="links-container"></div>
+            <div class="filter-tabs">
+              <button class="tab-btn active" data-filter="all">All</button>
+              <button class="tab-btn" data-filter="enacted">Enacted</button>
+              <button class="tab-btn" data-filter="proposed">Proposed</button>
+            </div>
+            <div id="regulations-list" class="regulations-list">
+              <!-- Dynamically populated -->
+              <div class="empty-state">
+                <i class="fas fa-globe-americas"></i>
+                <p>Click on a highlighted country or marker to view AI legislation and policies.</p>
+              </div>
+            </div>
           </div>
         </aside>
       </main>

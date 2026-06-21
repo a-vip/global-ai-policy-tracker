@@ -35,9 +35,9 @@ jobs:
           sudo apt-get install -y lftp
           
           echo "Uploading to public_html/tools/policy-tracker..."
-          lftp -c "set ftp:ssl-allow true; set ssl:verify-certificate no; set ftp:passive-mode true; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -R dist/ ./public_html/tools/policy-tracker/ --ignore-time --parallel=1"
+          lftp -c "set ftp:ssl-allow true; set ssl:verify-certificate no; set ftp:passive-mode true; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -R docs/ ./public_html/tools/policy-tracker/ --ignore-time --parallel=1"
           
           echo "Uploading to domains/aviperera.com/public_html/tools/policy-tracker..."
-          lftp -c "set ftp:ssl-allow true; set ssl:verify-certificate no; set ftp:passive-mode true; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -R dist/ ./domains/aviperera.com/public_html/tools/policy-tracker/ --ignore-time --parallel=1"
+          lftp -c "set ftp:ssl-allow true; set ssl:verify-certificate no; set ftp:passive-mode true; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -R docs/ ./domains/aviperera.com/public_html/tools/policy-tracker/ --ignore-time --parallel=1"
           
           echo "Deployment complete!"
