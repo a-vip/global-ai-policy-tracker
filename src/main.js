@@ -342,27 +342,93 @@ function renderStatsModal(renderChart = true) {
   const globalTotalEl = document.getElementById('global-total-stat');
   if (globalTotalEl) globalTotalEl.textContent = totalRegulations;
   
+  // Calculate totals for Enactment Rate and Treaties
+  let totalEnacted = 0;
+  let globalTreaties = 0;
+
   let topRegion = '-';
-  let maxRegs = 0;
   const regionCounts = {};
+  
   regulationsData.forEach(r => {
-    const c = r.country || 'Unknown';
-    if (c === 'Unknown') return;
-    regionCounts[c] = (regionCounts[c] || 0) + 1;
-    if (regionCounts[c] > maxRegs) {
-      maxRegs = regionCounts[c];
-      topRegion = c;
+    // Check enactment
+    const s = getStatusClass(r.status);
+    if (s === 'in-effect' || s === 'enacted' || s === 'passed') {
+      totalEnacted++;
     }
+    
+    const c = r.country || 'Unknown';
+    if (c === 'Global' || c === 'EU' || c.includes('African Union')) {
+      globalTreaties++;
+    }
+    
+    // Skip non-sovereign or unknown for Top Regions
+    if (c === 'Unknown' || c === 'Global' || c === 'EU') return;
+    
+    regionCounts[c] = (regionCounts[c] || 0) + 1;
   });
   
-  const topRegionEl = document.getElementById('global-top-region');
-  if (topRegionEl) {
-    topRegionEl.innerHTML = `${topRegion} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${maxRegs})</span>`;
+  // Sort regions for leaderboard and top region
+  const sortedRegions = Object.keys(regionCounts).sort((a, b) => regionCounts[b] - regionCounts[a]);
+  
+  if (sortedRegions.length > 0) {
+    topRegion = sortedRegions[0];
+    const topRegionEl = document.getElementById('global-top-region');
+    if (topRegionEl) {
+      topRegionEl.innerHTML = `${topRegion} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${regionCounts[topRegion]})</span>`;
+    }
   }
   
-  const coverage = Object.keys(regionCounts).length;
+  // Coverage
+  const coverage = sortedRegions.length;
   const coverageEl = document.getElementById('global-coverage-stat');
   if (coverageEl) coverageEl.textContent = coverage;
+
+  // Enactment Rate
+  const enactmentRate = totalRegulations > 0 ? Math.round((totalEnacted / totalRegulations) * 100) : 0;
+  const enactmentEl = document.getElementById('global-enactment-rate');
+  if (enactmentEl) enactmentEl.textContent = `${enactmentRate}%`;
+
+  // Treaties Count
+  const treatiesEl = document.getElementById('global-treaties-stat');
+  if (treatiesEl) treatiesEl.textContent = globalTreaties;
+
+  // Most Regulated Sector (excluding 'General' if possible, or just the top one)
+  let topSector = 'General';
+  let topSectorCount = 0;
+  statsArray.forEach(s => {
+    // We can exclude 'General' if we want to highlight a specific industry, but let's just take the absolute top
+    if (s.total > topSectorCount && s.area !== 'Other') {
+      topSectorCount = s.total;
+      topSector = s.area;
+    }
+  });
+  const topSectorEl = document.getElementById('global-top-sector');
+  if (topSectorEl) topSectorEl.innerHTML = `${topSector} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${topSectorCount})</span>`;
+
+  // Render Leaderboard
+  const leaderboardEl = document.getElementById('jurisdiction-leaderboard');
+  if (leaderboardEl) {
+    let leaderboardHtml = '';
+    const top5 = sortedRegions.slice(0, 5);
+    top5.forEach((region, index) => {
+      const count = regionCounts[region];
+      const widthPercentage = Math.max(10, (count / regionCounts[sortedRegions[0]]) * 100);
+      
+      leaderboardHtml += `
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+            <span><span style="color: var(--text-muted); margin-right: 8px;">#${index + 1}</span> ${region}</span>
+            <span style="font-weight: 600;">${count}</span>
+          </div>
+          <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+            <div style="width: ${widthPercentage}%; height: 100%; background: var(--accent-gradient); border-radius: 4px;"></div>
+          </div>
+        </div>
+      `;
+    });
+    leaderboardEl.innerHTML = leaderboardHtml;
+  }
+  
   
   // Sort
   statsArray.sort((a, b) => {

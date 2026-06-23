@@ -91,21 +91,47 @@
           <h2>AI Regulations Statistics</h2>
           <button id="close-modal" class="modal-close">&times;</button>
         </div>
-        <div class="modal-body">
-          <div class="premium-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <div class="modal-body" style="padding-bottom: 40px;">
+          
+          <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Global Overview</h3>
+          <div class="premium-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px;">
             <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
               <span class="stat-value" id="global-total-stat">0</span>
-              <span class="stat-label">Total Regulations</span>
-            </div>
-            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
-              <span class="stat-value" id="global-top-region" style="font-size: 1.2rem; display: flex; align-items: center;">-</span>
-              <span class="stat-label">Top Active Region</span>
+              <span class="stat-label">Total Tracked Policies</span>
             </div>
             <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
               <span class="stat-value" id="global-coverage-stat">0</span>
-              <span class="stat-label">Global Coverage</span>
+              <span class="stat-label">Unique Jurisdictions</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-enactment-rate" style="color: var(--color-in-effect);">0%</span>
+              <span class="stat-label">Enactment Rate</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-top-region" style="font-size: 1.1rem; display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</span>
+              <span class="stat-label">Top Sovereign Region</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-top-sector" style="font-size: 1.1rem; display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--color-policy);">General</span>
+              <span class="stat-label">Most Regulated Sector</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-treaties-stat">0</span>
+              <span class="stat-label">Supranational Treaties</span>
             </div>
           </div>
+
+          <div style="display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px;">
+            <!-- Leaderboard -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px;">
+              <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff;">Top 5 Active Jurisdictions</h3>
+              <div id="jurisdiction-leaderboard" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Filled dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px;">Policy Breakdown by Impact Area</h3>
           <div class="stats-chart-container" style="height: 300px; margin-bottom: 24px;">
             <canvas id="stats-chart"></canvas>
           </div>
