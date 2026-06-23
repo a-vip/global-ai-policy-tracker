@@ -1,6 +1,4 @@
 import './style.css';
-import Chart from 'chart.js/auto';
-
 // DOM Elements
 const infoPanel = document.getElementById('info-panel');
 const closePanelBtn = document.getElementById('close-panel');
@@ -88,7 +86,7 @@ async function init() {
 
     // Compute stats and setup modal
     computeAreaStats();
-    renderStatsModal();
+    renderStatsModal(false);
 
   } catch (err) {
     console.error("Failed to load map data:", err);
@@ -336,8 +334,35 @@ function computeAreaStats() {
   });
 }
 
-function renderStatsModal() {
+function renderStatsModal(renderChart = true) {
   const statsArray = Object.values(areaStats);
+  
+  // Update Premium Stats
+  const totalRegulations = regulationsData.length;
+  const globalTotalEl = document.getElementById('global-total-stat');
+  if (globalTotalEl) globalTotalEl.textContent = totalRegulations;
+  
+  let topRegion = '-';
+  let maxRegs = 0;
+  const regionCounts = {};
+  regulationsData.forEach(r => {
+    const c = r.country || 'Unknown';
+    if (c === 'Unknown') return;
+    regionCounts[c] = (regionCounts[c] || 0) + 1;
+    if (regionCounts[c] > maxRegs) {
+      maxRegs = regionCounts[c];
+      topRegion = c;
+    }
+  });
+  
+  const topRegionEl = document.getElementById('global-top-region');
+  if (topRegionEl) {
+    topRegionEl.innerHTML = `${topRegion} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${maxRegs})</span>`;
+  }
+  
+  const coverage = Object.keys(regionCounts).length;
+  const coverageEl = document.getElementById('global-coverage-stat');
+  if (coverageEl) coverageEl.textContent = coverage;
   
   // Sort
   statsArray.sort((a, b) => {
@@ -401,12 +426,16 @@ function renderStatsModal() {
     }
   });
   
-  renderStatsChart(statsArray);
+  if (renderChart) {
+    renderStatsChart(statsArray);
+  }
 }
 
-function renderStatsChart(statsArray) {
+async function renderStatsChart(statsArray) {
   const ctx = document.getElementById('stats-chart');
   if (!ctx) return;
+  
+  const { default: Chart } = await import('chart.js/auto');
   
   if (statsChartInstance) {
     statsChartInstance.destroy();
@@ -447,8 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (statsBtn && modalOverlay && closeBtn) {
     statsBtn.addEventListener('click', () => {
-      // Re-render incase data changed (though static for now)
-      renderStatsModal();
+      // Re-render and load chart
+      renderStatsModal(true);
       modalOverlay.classList.add('active');
     });
     closeBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
@@ -467,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSortColumn = col;
         currentSortOrder = -1; // Default to descending when switching columns
       }
-      renderStatsModal();
+      renderStatsModal(modalOverlay.classList.contains('active'));
     });
   });
 });

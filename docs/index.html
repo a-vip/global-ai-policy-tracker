@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="module" crossorigin src="/global-ai-policy-tracker/assets/index-1eh1dyxt.js"></script>
-    <link rel="stylesheet" crossorigin href="/global-ai-policy-tracker/assets/index-KV68WqOm.css">
+    <script type="module" crossorigin src="/global-ai-policy-tracker/assets/index-8E33BUPC.js"></script>
+    <link rel="stylesheet" crossorigin href="/global-ai-policy-tracker/assets/index-bBvMQbng.css">
   </head>
   <body>
     
@@ -42,7 +42,7 @@
             <div class="legend-item"><span class="dot policy"></span> Policy</div>
             <div class="legend-item"><span class="dot banned"></span> Banned</div>
             <div class="legend-item"><span class="dot unregulated"></span> Unregulated</div>
-            <button id="stats-btn" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-left: 10px;"><i class="fas fa-chart-bar" style="margin-right: 6px;"></i> Area Statistics</button>
+            <button id="stats-btn" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-left: 10px; transition: all 0.2s;"><i class="fas fa-chart-bar" style="margin-right: 6px;"></i> Statistics</button>
           </div>
         </div>
       </header>
@@ -90,10 +90,24 @@
     <div id="stats-modal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>AI Regulations by Impact Area</h2>
+          <h2>AI Regulations Statistics</h2>
           <button id="close-modal" class="modal-close">&times;</button>
         </div>
         <div class="modal-body">
+          <div class="premium-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-total-stat">0</span>
+              <span class="stat-label">Total Regulations</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-top-region" style="font-size: 1.2rem; display: flex; align-items: center;">-</span>
+              <span class="stat-label">Top Active Region</span>
+            </div>
+            <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+              <span class="stat-value" id="global-coverage-stat">0</span>
+              <span class="stat-label">Global Coverage</span>
+            </div>
+          </div>
           <div class="stats-chart-container" style="height: 300px; margin-bottom: 24px;">
             <canvas id="stats-chart"></canvas>
           </div>
