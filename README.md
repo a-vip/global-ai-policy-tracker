@@ -1,22 +1,6 @@
 # Global AI Policy Tracker 🌍🤖
 
-A comprehensive, real-time geographic visualization of global AI legislation, Lethal Autonomous Weapon Systems (LAWS) regulations, and sovereign algorithmic policies. Curated for the open-source community to provide maximum transparency on the state of global autonomous regulations.
-
-**Live Tracker:** [aviperera.com/global-ai-policy-tracker](https://aviperera.com/global-ai-policy-tracker/)
-
----
-
-## 🚀 Features
-
-- **Interactive 2D Geospatial Map:** Powered by Leaflet and CartoDB Dark Matter tiles for a sleek, performant mapping experience.
-- **Dynamic Policy Database:** Integrates hundreds of global regulations regarding Artificial Intelligence and Autonomous Weapons.
-- **Micro-Targeted Coordinates:** Specific regulations and localized policies are mapped with absolute coordinate precision using interactive, pulsing markers.
-- **Sovereign Assessment:** Interactive choropleth layer that shades countries based on their overall stance towards AI:
-  - 🔴 **Banned:** Strict prohibition on specific AI use cases.
-  - 🟢 **Regulated / Enacted:** Active laws currently in effect to govern AI.
-  - 🟣 **Proposed:** Legislation in development or under review.
-  - ⚪ **Unregulated:** No specific AI regulatory framework detected.
-- **Comprehensive Side-Panel Viewer:** Click on any geographic marker or nation state to open a detailed dossier containing the laws, the dates they were proposed/enacted, and direct links to the official sources.
+A comprehensive, real-time geographic visualization of global AI legislation, Lethal Autonomous Weapon Systems (LAWS) regulations, and sovereign algorithmic policies. Curated for the open-source community to provide maximum transparency on the stat![alt text](image.png)nation state to open a detailed dossier containing the laws, the dates they were proposed/enacted, and direct links to the official sources.
 - **Search & Filter Engine:** Instantly search for nations or filter the map's state to only display specific regulatory statuses.
 - **Premium UI:** Custom-built with advanced CSS glassmorphism and micro-animations, designed to be deeply immersive and highly responsive.
 

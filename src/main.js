@@ -240,10 +240,8 @@ function renderRegulationsList() {
   }
   
   // Apply tab filter
-  if (currentFilter === 'enacted') {
-    filtered = filtered.filter(r => getStatusClass(r.status) === 'enacted');
-  } else if (currentFilter === 'proposed') {
-    filtered = filtered.filter(r => getStatusClass(r.status) === 'proposed');
+  if (currentFilter !== 'all') {
+    filtered = filtered.filter(r => getStatusClass(r.status) === currentFilter);
   }
   
   // Update stats
