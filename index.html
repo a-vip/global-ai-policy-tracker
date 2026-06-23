@@ -108,8 +108,8 @@
               <span class="stat-label">Enactment Rate</span>
             </div>
             <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
-              <span class="stat-value" id="global-top-region" style="font-size: 1.1rem; display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</span>
-              <span class="stat-label">Top Sovereign Region</span>
+              <span class="stat-value" id="global-active-sectors">0</span>
+              <span class="stat-label">Active Policy Sectors</span>
             </div>
             <div class="stat-box" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
               <span class="stat-value" id="global-top-sector" style="font-size: 1.1rem; display: flex; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--color-policy);">General</span>
@@ -121,11 +121,19 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px;">
-            <!-- Leaderboard -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px;">
+            <!-- International Frameworks -->
             <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px;">
-              <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff;">Top 5 Active Jurisdictions</h3>
-              <div id="jurisdiction-leaderboard" style="display: flex; flex-direction: column; gap: 12px;">
+              <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px;"><i class="fas fa-globe"></i> Major International Frameworks</h3>
+              <div id="international-frameworks-list" style="display: flex; flex-direction: column; gap: 12px; max-height: 250px; overflow-y: auto; padding-right: 8px;">
+                <!-- Filled dynamically -->
+              </div>
+            </div>
+
+            <!-- Sector Spotlights -->
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px;">
+              <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 8px;"><i class="fas fa-bullseye"></i> Critical Sector Spotlights</h3>
+              <div id="sector-spotlights-list" style="display: flex; flex-direction: column; gap: 12px; max-height: 250px; overflow-y: auto; padding-right: 8px;">
                 <!-- Filled dynamically -->
               </div>
             </div>

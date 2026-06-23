@@ -346,8 +346,9 @@ function renderStatsModal(renderChart = true) {
   let totalEnacted = 0;
   let globalTreaties = 0;
 
-  let topRegion = '-';
   const regionCounts = {};
+  const internationalPolicies = [];
+  const sectorSpotlights = [];
   
   regulationsData.forEach(r => {
     // Check enactment
@@ -359,26 +360,27 @@ function renderStatsModal(renderChart = true) {
     const c = r.country || 'Unknown';
     if (c === 'Global' || c === 'EU' || c.includes('African Union')) {
       globalTreaties++;
+      internationalPolicies.push(r);
     }
     
-    // Skip non-sovereign or unknown for Top Regions
+    // Check for critical sectors
+    if (r.area === 'Government and Military' || r.area === 'Generative AI' || r.area === 'Technology and Infrastructure') {
+      sectorSpotlights.push(r);
+    }
+    
+    // Skip non-sovereign or unknown for Top Regions (still needed for coverage)
     if (c === 'Unknown' || c === 'Global' || c === 'EU') return;
     
     regionCounts[c] = (regionCounts[c] || 0) + 1;
   });
   
-  // Sort regions for leaderboard and top region
-  const sortedRegions = Object.keys(regionCounts).sort((a, b) => regionCounts[b] - regionCounts[a]);
-  
-  if (sortedRegions.length > 0) {
-    topRegion = sortedRegions[0];
-    const topRegionEl = document.getElementById('global-top-region');
-    if (topRegionEl) {
-      topRegionEl.innerHTML = `${topRegion} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${regionCounts[topRegion]})</span>`;
-    }
-  }
+  // Active Policy Sectors
+  const activeSectorsCount = Object.keys(areaStats).length;
+  const activeSectorsEl = document.getElementById('global-active-sectors');
+  if (activeSectorsEl) activeSectorsEl.textContent = activeSectorsCount;
   
   // Coverage
+  const sortedRegions = Object.keys(regionCounts);
   const coverage = sortedRegions.length;
   const coverageEl = document.getElementById('global-coverage-stat');
   if (coverageEl) coverageEl.textContent = coverage;
@@ -392,11 +394,10 @@ function renderStatsModal(renderChart = true) {
   const treatiesEl = document.getElementById('global-treaties-stat');
   if (treatiesEl) treatiesEl.textContent = globalTreaties;
 
-  // Most Regulated Sector (excluding 'General' if possible, or just the top one)
+  // Most Regulated Sector
   let topSector = 'General';
   let topSectorCount = 0;
   statsArray.forEach(s => {
-    // We can exclude 'General' if we want to highlight a specific industry, but let's just take the absolute top
     if (s.total > topSectorCount && s.area !== 'Other') {
       topSectorCount = s.total;
       topSector = s.area;
@@ -405,28 +406,44 @@ function renderStatsModal(renderChart = true) {
   const topSectorEl = document.getElementById('global-top-sector');
   if (topSectorEl) topSectorEl.innerHTML = `${topSector} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${topSectorCount})</span>`;
 
-  // Render Leaderboard
-  const leaderboardEl = document.getElementById('jurisdiction-leaderboard');
-  if (leaderboardEl) {
-    let leaderboardHtml = '';
-    const top5 = sortedRegions.slice(0, 5);
-    top5.forEach((region, index) => {
-      const count = regionCounts[region];
-      const widthPercentage = Math.max(10, (count / regionCounts[sortedRegions[0]]) * 100);
-      
-      leaderboardHtml += `
-        <div style="display: flex; flex-direction: column; gap: 4px;">
-          <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-            <span><span style="color: var(--text-muted); margin-right: 8px;">#${index + 1}</span> ${region}</span>
-            <span style="font-weight: 600;">${count}</span>
-          </div>
-          <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
-            <div style="width: ${widthPercentage}%; height: 100%; background: var(--accent-gradient); border-radius: 4px;"></div>
-          </div>
+  // Helper function to render a mini card
+  const renderMiniCard = (policy) => {
+    const sClass = getStatusClass(policy.status);
+    return `
+      <div style="padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.85rem; line-height: 1.4;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+          <strong style="color: #fff;">${policy.title}</strong>
+          <span class="status-indicator ${sClass}" style="flex-shrink: 0; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">${policy.status}</span>
         </div>
-      `;
+        <div style="color: var(--text-muted); font-size: 0.8rem; display: flex; align-items: center; gap: 6px;">
+          <i class="fas ${policy.area === 'Government and Military' ? 'fa-shield-alt' : policy.area === 'Generative AI' ? 'fa-brain' : 'fa-landmark'}"></i> ${policy.area}
+        </div>
+      </div>
+    `;
+  };
+
+  // Render International Frameworks
+  const intlFrameworksEl = document.getElementById('international-frameworks-list');
+  if (intlFrameworksEl) {
+    // Sort so "in-effect" / "passed" are on top, then by title
+    internationalPolicies.sort((a, b) => {
+      const aVal = (getStatusClass(a.status) === 'in-effect' || getStatusClass(a.status) === 'passed') ? 1 : 0;
+      const bVal = (getStatusClass(b.status) === 'in-effect' || getStatusClass(b.status) === 'passed') ? 1 : 0;
+      return bVal - aVal;
     });
-    leaderboardEl.innerHTML = leaderboardHtml;
+    intlFrameworksEl.innerHTML = internationalPolicies.slice(0, 10).map(renderMiniCard).join('');
+  }
+
+  // Render Sector Spotlights
+  const sectorSpotlightsEl = document.getElementById('sector-spotlights-list');
+  if (sectorSpotlightsEl) {
+    // Sort so "in-effect" / "passed" are on top
+    sectorSpotlights.sort((a, b) => {
+      const aVal = (getStatusClass(a.status) === 'in-effect' || getStatusClass(a.status) === 'passed') ? 1 : 0;
+      const bVal = (getStatusClass(b.status) === 'in-effect' || getStatusClass(b.status) === 'passed') ? 1 : 0;
+      return bVal - aVal;
+    });
+    sectorSpotlightsEl.innerHTML = sectorSpotlights.slice(0, 10).map(renderMiniCard).join('');
   }
   
   
