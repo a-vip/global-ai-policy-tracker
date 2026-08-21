@@ -266,6 +266,8 @@ function renderRegulationsList() {
     // Clean description HTML slightly if it's from sovereign
     let desc = reg.description || 'No description provided.';
     desc = desc.replace(/Official Source \/ Legislation:/g, '<strong>Source:</strong>');
+    // Convert bare URLs into clickable links that open in a new tab
+    desc = desc.replace(/(https?:\/\/[^\s<)"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
     
     // Add area badge if area exists
     const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';

@@ -463,6 +463,18 @@ main {
   border: 1px solid var(--glass-border);
 }
 
+/* Source links inside regulation cards */
+.reg-desc a {
+  color: var(--color-passed);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+.reg-desc a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
 /* Statistics Modal */
 .modal-overlay {
   position: fixed;

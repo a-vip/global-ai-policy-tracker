@@ -2,7 +2,7 @@
       <div class="empty-state">
         <i class="fas fa-file-signature"></i>
         <p>No ${v===`all`?``:v} regulations found for this region.</p>
-      </div>`;return}b&&e.sort((e,t)=>e.id===b.id?-1:+(t.id===b.id)),l.innerHTML=e.map(e=>{let t=D(e.status),n=e.date&&e.date!==`Unknown Date`?new Date(e.date).toLocaleDateString():``,r=e.description||`No description provided.`;r=r.replace(/Official Source \/ Legislation:/g,`<strong>Source:</strong>`);let i=e.area&&e.area!==`General`?`<span class="reg-area">${e.area}</span>`:``;return`
+      </div>`;return}b&&e.sort((e,t)=>e.id===b.id?-1:+(t.id===b.id)),l.innerHTML=e.map(e=>{let t=D(e.status),n=e.date&&e.date!==`Unknown Date`?new Date(e.date).toLocaleDateString():``,r=e.description||`No description provided.`;r=r.replace(/Official Source \/ Legislation:/g,`<strong>Source:</strong>`),r=r.replace(/(https?:\/\/[^\s<)"']+)/g,`<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>`);let i=e.area&&e.area!==`General`?`<span class="reg-area">${e.area}</span>`:``;return`
       <div class="reg-card" ${b&&e.id===b.id?`style="border-color: #3b82f6;"`:``}>
         <div class="reg-header">
           <div>
