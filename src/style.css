@@ -475,6 +475,102 @@ main {
   text-decoration: underline;
 }
 
+/* Dedicated Source Box */
+.reg-source-box {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.source-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #93c5fd;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.source-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #38bdf8 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  word-break: break-all;
+  transition: all 0.2s ease;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.source-link:hover {
+  color: #ffffff !important;
+  background: rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.5);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.source-link.search-btn {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: rgba(168, 85, 247, 0.2);
+  color: #c084fc !important;
+}
+
+.source-link.search-btn:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #ffffff !important;
+}
+
+/* Expandable Description */
+.reg-desc-content {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.reg-desc-content.is-collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.expand-desc-btn {
+  background: transparent;
+  border: none;
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0 0 0;
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.expand-desc-btn:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
 /* Statistics Modal */
 .modal-overlay {
   position: fixed;
@@ -571,10 +667,6 @@ main {
   font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* Footer */

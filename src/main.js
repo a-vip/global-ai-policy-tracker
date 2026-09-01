@@ -23,8 +23,8 @@ const map = L.map('map', {
   attributionControl: false
 });
 
-// CartoDB Dark Matter Base Map
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+// CartoDB Dark Matter Base Map with Basemaps API Key
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_2lpu_1_f2c6edda75611222b49c9464', {
   subdomains: 'abcd',
   maxZoom: 20
 }).addTo(map);
@@ -261,31 +261,142 @@ function renderRegulationsList() {
   
   // Build HTML
   regulationsListEl.innerHTML = filtered.map(reg => {
-    const statusClass = getStatusClass(reg.status);
-    const dateStr = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).toLocaleDateString() : '';
-    // Clean description HTML slightly if it's from sovereign
-    let desc = reg.description || 'No description provided.';
-    desc = desc.replace(/Official Source \/ Legislation:/g, '<strong>Source:</strong>');
-    // Convert bare URLs into clickable links that open in a new tab
-    desc = desc.replace(/(https?:\/\/[^\s<)"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
-    
-    // Add area badge if area exists
-    const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';
-    
-    return `
-      <div class="reg-card" ${currentSpecificReg && reg.id === currentSpecificReg.id ? 'style="border-color: #3b82f6;"' : ''}>
-        <div class="reg-header">
-          <div>
-            <span class="reg-status ${statusClass}">${reg.status}</span>
-            ${areaBadge}
-          </div>
-          <span class="reg-date">${dateStr}</span>
-        </div>
-        <h3 class="reg-title">${reg.title}</h3>
-        <div class="reg-desc">${desc}</div>
+    return formatRegulationCard(reg, currentSpecificReg && reg.id === currentSpecificReg.id);
+  }).join('');
+}
+
+function formatRegulationCard(reg, isHighlighted = false) {
+  const statusClass = getStatusClass(reg.status);
+  const dateStr = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).toLocaleDateString() : '';
+  
+  let rawDesc = reg.description || 'No description provided.';
+  
+  // HTML entity decode
+  rawDesc = rawDesc
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#039;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&');
+
+  // Check for sovereign boilerplate tracking text
+  let cleanDesc = rawDesc;
+  const boilerplateIdx = cleanDesc.indexOf('\n\nThis maps the AI regulation tracking');
+  if (boilerplateIdx !== -1) {
+    cleanDesc = cleanDesc.substring(0, boilerplateIdx).trim();
+  }
+
+  // Extract direct URL
+  let directUrl = null;
+  const urlMatch = cleanDesc.match(/https?:\/\/[^\s<)"']+/i);
+  if (urlMatch) {
+    directUrl = urlMatch[0];
+  } else {
+    const domainMatch = cleanDesc.match(/(?:www\.|[a-zA-Z0-9-]+\.(?:europa\.eu|gov|org|edu|com|net|cn|uk|ca|au|int))[^\s<)"']+/i);
+    if (domainMatch && !domainMatch[0].toLowerCase().startsWith('asenion')) {
+      directUrl = 'https://' + domainMatch[0];
+    }
+  }
+
+  // Clean description text
+  cleanDesc = cleanDesc.replace(/Official Source \/ Legislation:\s*/gi, '').trim();
+  if (directUrl) {
+    cleanDesc = cleanDesc.replace(/https?:\/\/[^\s<)"']+/gi, '').trim();
+  }
+  cleanDesc = cleanDesc.replace(/^Source:\s*Asenion Global AI Regulation Tracker Updates/gi, '').trim();
+  
+  if (!cleanDesc) {
+    cleanDesc = `Tracked AI regulatory initiative and official policy documentation for ${reg.country || 'Global'}.`;
+  }
+
+  // Format any embedded links
+  cleanDesc = cleanDesc.replace(/(https?:\/\/[^\s<)"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+
+  // Search query fallback URL
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent((reg.country && reg.country !== 'Global' && reg.country !== 'Unknown' ? reg.country + ' ' : '') + reg.title + ' AI legislation official source')}`;
+
+  let sourceHtml = '';
+  if (directUrl) {
+    let displayUrl = directUrl.replace(/^https?:\/\/(www\.)?/, '');
+    if (displayUrl.length > 36) {
+      displayUrl = displayUrl.substring(0, 33) + '...';
+    }
+
+    sourceHtml = `
+      <div class="reg-source-box">
+        <span class="source-label"><i class="fas fa-link"></i> Source:</span>
+        <a href="${directUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="${directUrl}">
+          <span>${displayUrl}</span> <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     `;
-  }).join('');
+  } else if (reg.sourceType === 'asenion') {
+    sourceHtml = `
+      <div class="reg-source-box">
+        <span class="source-label"><i class="fas fa-database"></i> Source:</span>
+        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="Open verified legislation and official documents">
+          <span>Official Legislation & Documents</span> <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    `;
+  } else if (reg.sourceType === 'aipolicytracker') {
+    sourceHtml = `
+      <div class="reg-source-box">
+        <span class="source-label"><i class="fas fa-globe"></i> Source:</span>
+        <a href="https://aipolicytracker.org" target="_blank" rel="noopener noreferrer" class="source-link" title="AI Policy Tracker">
+          <span>AI Policy Tracker</span> <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link search-btn" title="Search Official Government Legislation">
+          <span>Official Law</span> <i class="fas fa-search"></i>
+        </a>
+      </div>
+    `;
+  } else {
+    sourceHtml = `
+      <div class="reg-source-box">
+        <span class="source-label"><i class="fas fa-book-open"></i> Source:</span>
+        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="Open verified official source">
+          <span>Direct Legislation Source</span> <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    `;
+  }
+
+  const isLong = cleanDesc.length > 180;
+  const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';
+
+  return `
+    <div class="reg-card" ${isHighlighted ? 'style="border-color: #3b82f6;"' : ''}>
+      <div class="reg-header">
+        <div>
+          <span class="reg-status ${statusClass}">${reg.status}</span>
+          ${areaBadge}
+        </div>
+        <span class="reg-date">${dateStr}</span>
+      </div>
+      <h3 class="reg-title">${reg.title}</h3>
+      <div class="reg-desc">
+        <div class="reg-desc-content ${isLong ? 'is-collapsed' : ''}">${cleanDesc}</div>
+        ${isLong ? `<button class="expand-desc-btn" type="button">Read full summary <i class="fas fa-chevron-down"></i></button>` : ''}
+      </div>
+      ${sourceHtml}
+    </div>
+  `;
+}
+
+// Delegation for description expand toggle
+if (regulationsListEl) {
+  regulationsListEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.expand-desc-btn');
+    if (btn) {
+      e.stopPropagation();
+      const content = btn.previousElementSibling;
+      if (content && content.classList.contains('reg-desc-content')) {
+        const isCollapsed = content.classList.toggle('is-collapsed');
+        btn.innerHTML = isCollapsed ? 'Read full summary <i class="fas fa-chevron-down"></i>' : 'Show less <i class="fas fa-chevron-up"></i>';
+      }
+    }
+  });
 }
 
 // Tab Filter Logic
