@@ -91,6 +91,51 @@ function showToast(message, icon = 'fa-check-circle', duration = 2800) {
   }, duration);
 }
 
+// Bulletproof Clipboard Copy (Supports cross-origin iframes, Safari, mobile)
+async function copyToClipboard(text) {
+  if (!text) return false;
+
+  // 1. Try modern clipboard API if permitted
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      console.warn('Modern clipboard write failed, using textarea fallback:', err);
+    }
+  }
+
+  // 2. Reliable cross-browser textarea fallback
+  try {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.width = '2em';
+    textArea.style.height = '2em';
+    textArea.style.padding = '0';
+    textArea.style.border = 'none';
+    textArea.style.outline = 'none';
+    textArea.style.boxShadow = 'none';
+    textArea.style.background = 'transparent';
+    textArea.style.opacity = '0';
+    textArea.setAttribute('readonly', '');
+    
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    textArea.setSelectionRange(0, 99999);
+    
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    return successful;
+  } catch (err) {
+    console.error('Fallback copy failed:', err);
+    return false;
+  }
+}
+
 // Helper: Escape HTML string
 function escapeHtml(str) {
   if (!str) return '';
@@ -107,6 +152,22 @@ function highlightQuery(text, query) {
   if (!text || !query) return escapeHtml(text);
   const regex = new RegExp(`(${query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')})`, 'gi');
   return escapeHtml(text).replace(regex, '<span style="color: #60a5fa; font-weight: 700; text-decoration: underline;">$1</span>');
+}
+
+// Shareable URL Generator (Defaults to aviperera.com if embedded)
+function getShareableUrl(params = {}) {
+  const isCustomDomain = window.location.hostname.includes('aviperera.com');
+  const baseUrl = isCustomDomain 
+    ? 'https://aviperera.com/ai-policy-tracker/' 
+    : window.location.origin + window.location.pathname;
+  
+  const url = new URL(baseUrl);
+  Object.keys(params).forEach(k => {
+    if (params[k] && params[k] !== 'all') {
+      url.searchParams.set(k, params[k]);
+    }
+  });
+  return url.toString();
 }
 
 // Initialize App
@@ -337,11 +398,12 @@ function getFilteredRegulations() {
   } else {
     const normRegion = selectedRegion.toLowerCase();
     const aliases = [normRegion];
-    if (normRegion === 'united kingdom' || normRegion === 'uk') aliases.push('united kingdom', 'uk', 'global - uk');
-    if (normRegion === 'united states' || normRegion === 'united states of america' || normRegion === 'us' || normRegion === 'usa') aliases.push('united states', 'usa', 'us', 'u.s.');
+    if (normRegion === 'united kingdom' || normRegion === 'uk') aliases.push('united kingdom', 'uk', 'great britain');
+    if (normRegion === 'united states' || normRegion === 'usa' || normRegion === 'us') aliases.push('united states', 'usa', 'us', 'california', 'new york', 'texas', 'virginia', 'colorado', 'washington');
     if (normRegion === 'united arab emirates' || normRegion === 'uae') aliases.push('united arab emirates', 'uae');
     if (normRegion === 'south korea' || normRegion === 'korea') aliases.push('south korea', 'korea');
     if (normRegion === 'european union' || normRegion === 'eu') aliases.push('european union', 'eu');
+    if (normRegion === 'turkey' || normRegion === 'türkiye') aliases.push('turkey', 'türkiye');
     
     list = regulationsData.filter(r => {
       const c = (r.country || '').toLowerCase();
@@ -393,7 +455,7 @@ function renderRegulationsList() {
 function generateCitation(reg) {
   const jurisdiction = reg.country || 'International';
   const year = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).getFullYear() : '2026';
-  const directUrl = (reg.description && reg.description.match(/https?:\/\/[^\s<)"']+/i)) ? reg.description.match(/https?:\/\/[^\s<)"']+/i)[0] : `https://aviperera.com/ai-policy-tracker/?id=${reg.id}`;
+  const directUrl = reg.sourceUrl || `https://aviperera.com/ai-policy-tracker/?id=${reg.id}`;
   return `${jurisdiction}. (${year}). ${reg.title}. In Global AI Policy Tracker. Avi Perera. Retrieved from ${directUrl}`;
 }
 
@@ -401,121 +463,44 @@ function generateCitation(reg) {
 function formatRegulationCard(reg, isHighlighted = false) {
   const statusClass = getStatusClass(reg.status);
   const dateStr = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).toLocaleDateString() : '';
+  const cleanDesc = reg.description || `Official regulatory policy, legal framework, and governance requirements for ${reg.title} in ${reg.country}.`;
   
-  let rawDesc = reg.description || 'No description provided.';
-  
-  // HTML entity decode
-  rawDesc = rawDesc
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#039;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, '&');
-
-  // Check for sovereign boilerplate tracking text
-  let cleanDesc = rawDesc;
-  const boilerplateIdx = cleanDesc.indexOf('\n\nThis maps the AI regulation tracking');
-  if (boilerplateIdx !== -1) {
-    cleanDesc = cleanDesc.substring(0, boilerplateIdx).trim();
+  // Truncate display URL
+  let displaySource = reg.sourceName || 'Official Source';
+  if (displaySource.length > 38) {
+    displaySource = displaySource.substring(0, 35) + '...';
   }
 
-  // Extract direct URL
-  let directUrl = null;
-  const urlMatch = cleanDesc.match(/https?:\/\/[^\s<)"']+/i);
-  if (urlMatch) {
-    directUrl = urlMatch[0];
-  } else {
-    const domainMatch = cleanDesc.match(/(?:www\.|[a-zA-Z0-9-]+\.(?:europa\.eu|gov|org|edu|com|net|cn|uk|ca|au|int))[^\s<)"']+/i);
-    if (domainMatch && !domainMatch[0].toLowerCase().startsWith('asenion')) {
-      directUrl = 'https://' + domainMatch[0];
-    }
-  }
-
-  // Clean description text
-  cleanDesc = cleanDesc.replace(/Official Source \/ Legislation:\s*/gi, '').trim();
-  if (directUrl) {
-    cleanDesc = cleanDesc.replace(/https?:\/\/[^\s<)"']+/gi, '').trim();
-  }
-  cleanDesc = cleanDesc.replace(/^Source:\s*Asenion Global AI Regulation Tracker Updates/gi, '').trim();
-  
-  if (!cleanDesc) {
-    cleanDesc = `Tracked AI regulatory initiative and official policy documentation for ${reg.country || 'Global'}.`;
-  }
-
-  // Format any embedded links
-  cleanDesc = cleanDesc.replace(/(https?:\/\/[^\s<)"']+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
-
-  // Search query fallback URL
-  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent((reg.country && reg.country !== 'Global' && reg.country !== 'Unknown' ? reg.country + ' ' : '') + reg.title + ' AI legislation official source')}`;
-
-  let sourceHtml = '';
-  if (directUrl) {
-    let displayUrl = directUrl.replace(/^https?:\/\/(www\.)?/, '');
-    if (displayUrl.length > 36) {
-      displayUrl = displayUrl.substring(0, 33) + '...';
-    }
-
-    sourceHtml = `
-      <div class="reg-source-box">
-        <span class="source-label"><i class="fas fa-link"></i> Source:</span>
-        <a href="${directUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="${directUrl}">
-          <span>${displayUrl}</span> <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    `;
-  } else if (reg.sourceType === 'asenion') {
-    sourceHtml = `
-      <div class="reg-source-box">
-        <span class="source-label"><i class="fas fa-database"></i> Source:</span>
-        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="Open verified legislation and official documents">
-          <span>Official Legislation & Documents</span> <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    `;
-  } else if (reg.sourceType === 'aipolicytracker') {
-    sourceHtml = `
-      <div class="reg-source-box">
-        <span class="source-label"><i class="fas fa-globe"></i> Source:</span>
-        <a href="https://aipolicytracker.org" target="_blank" rel="noopener noreferrer" class="source-link" title="AI Policy Tracker">
-          <span>AI Policy Tracker</span> <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link search-btn" title="Search Official Government Legislation">
-          <span>Official Law</span> <i class="fas fa-search"></i>
-        </a>
-      </div>
-    `;
-  } else {
-    sourceHtml = `
-      <div class="reg-source-box">
-        <span class="source-label"><i class="fas fa-book-open"></i> Source:</span>
-        <a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="source-link" title="Open verified official source">
-          <span>Direct Legislation Source</span> <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    `;
-  }
+  const sourceHtml = `
+    <div class="reg-source-box">
+      <span class="source-label"><i class="fas fa-link"></i> Source:</span>
+      <a href="${escapeHtml(reg.sourceUrl)}" target="_blank" rel="noopener noreferrer" class="source-link" title="${escapeHtml(reg.sourceUrl)}">
+        <span>${escapeHtml(displaySource)}</span> <i class="fas fa-external-link-alt"></i>
+      </a>
+    </div>
+  `;
 
   const isLong = cleanDesc.length > 180;
-  const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';
+  const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${escapeHtml(reg.area)}</span>` : '';
 
   return `
     <div class="reg-card" data-reg-id="${escapeHtml(reg.id)}" ${isHighlighted ? 'style="border-color: #3b82f6;"' : ''}>
       <div class="reg-header">
         <div>
-          <span class="reg-status ${statusClass}">${reg.status}</span>
+          <span class="reg-status ${statusClass}">${escapeHtml(reg.status)}</span>
           ${areaBadge}
         </div>
         <span class="reg-date">${dateStr}</span>
       </div>
-      <h3 class="reg-title">${reg.title}</h3>
+      <h3 class="reg-title">${escapeHtml(reg.title)}</h3>
       <div class="reg-desc">
-        <div class="reg-desc-content ${isLong ? 'is-collapsed' : ''}">${cleanDesc}</div>
+        <div class="reg-desc-content ${isLong ? 'is-collapsed' : ''}">${escapeHtml(cleanDesc)}</div>
         ${isLong ? `<button class="expand-desc-btn" type="button">Read full summary <i class="fas fa-chevron-down"></i></button>` : ''}
       </div>
       ${sourceHtml}
       
       <div class="card-actions-bar">
-        <button class="card-action-btn copy-citation-btn" data-id="${escapeHtml(reg.id)}" title="Copy formal citation to clipboard">
+        <button class="card-action-btn copy-citation-btn" data-id="${escapeHtml(reg.id)}" title="Copy academic & legal citation to clipboard">
           <i class="fas fa-quote-right"></i> Copy Citation
         </button>
         <button class="card-action-btn share-card-btn" data-id="${escapeHtml(reg.id)}" title="Share link to this specific law">
@@ -528,7 +513,7 @@ function formatRegulationCard(reg, isHighlighted = false) {
 
 // Delegation for Card Buttons (Expand, Citation, Share)
 if (regulationsListEl) {
-  regulationsListEl.addEventListener('click', (e) => {
+  regulationsListEl.addEventListener('click', async (e) => {
     // 1. Expand / Collapse
     const expandBtn = e.target.closest('.expand-desc-btn');
     if (expandBtn) {
@@ -549,7 +534,8 @@ if (regulationsListEl) {
       const reg = regulationsData.find(r => r.id === regId);
       if (reg) {
         const citation = generateCitation(reg);
-        navigator.clipboard.writeText(citation).then(() => {
+        const success = await copyToClipboard(citation);
+        if (success) {
           citeBtn.classList.add('copied');
           citeBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
           showToast('Citation copied to clipboard!', 'fa-quote-left');
@@ -557,9 +543,9 @@ if (regulationsListEl) {
             citeBtn.classList.remove('copied');
             citeBtn.innerHTML = '<i class="fas fa-quote-right"></i> Copy Citation';
           }, 2000);
-        }).catch(() => {
+        } else {
           showToast('Failed to copy citation.', 'fa-exclamation-triangle');
-        });
+        }
       }
       return;
     }
@@ -569,13 +555,19 @@ if (regulationsListEl) {
     if (shareBtn) {
       e.stopPropagation();
       const regId = shareBtn.dataset.id;
-      const url = new URL(window.location.origin + window.location.pathname);
-      url.searchParams.set('id', regId);
-      navigator.clipboard.writeText(url.toString()).then(() => {
+      const shareUrl = getShareableUrl({ id: regId });
+      const success = await copyToClipboard(shareUrl);
+      if (success) {
+        shareBtn.classList.add('copied');
+        shareBtn.innerHTML = '<i class="fas fa-check"></i> Copied Link!';
         showToast('Direct legislation link copied!', 'fa-share-alt');
-      }).catch(() => {
+        setTimeout(() => {
+          shareBtn.classList.remove('copied');
+          shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Share';
+        }, 2000);
+      } else {
         showToast('Failed to copy link.', 'fa-exclamation-triangle');
-      });
+      }
       return;
     }
   });
@@ -758,7 +750,6 @@ closePanelBtn.addEventListener('click', () => {
 // Mobile Bottom Sheet Drag / Touch Toggle
 if (panelDragHandle) {
   let startY = 0;
-  let currentHeight = 70;
   
   panelDragHandle.addEventListener('click', () => {
     if (infoPanel.style.height === '90vh') {
@@ -782,26 +773,41 @@ if (panelDragHandle) {
   }, { passive: true });
 }
 
-// Data Export Utilities
+// Comprehensive CSV & JSON Export Utilities
 function exportToCSV(data, filename = 'ai-regulations-export.csv') {
   if (!data || !data.length) {
     showToast('No data available to export.', 'fa-exclamation-circle');
     return;
   }
-  const headers = ['ID', 'Title', 'Jurisdiction', 'Status', 'Date', 'Focus Area', 'Source URL'];
-  const rows = data.map(r => {
-    const directUrl = (r.description && r.description.match(/https?:\/\/[^\s<)"']+/i)) ? r.description.match(/https?:\/\/[^\s<)"']+/i)[0] : '';
-    return [
-      `"${(r.id || '').replace(/"/g, '""')}"`,
-      `"${(r.title || '').replace(/"/g, '""')}"`,
-      `"${(r.country || '').replace(/"/g, '""')}"`,
-      `"${(r.status || '').replace(/"/g, '""')}"`,
-      `"${(r.date || '').replace(/"/g, '""')}"`,
-      `"${(r.area || '').replace(/"/g, '""')}"`,
-      `"${(directUrl || '').replace(/"/g, '""')}"`
-    ].join(',');
-  });
-  const csvContent = [headers.join(','), ...rows].join('\r\n');
+  const headers = [
+    'ID',
+    'Title',
+    'Jurisdiction / Country',
+    'Status',
+    'Enactment / Update Date',
+    'Focus Sector',
+    'Source Name',
+    'Source URL',
+    'Description Summary',
+    'Latitude',
+    'Longitude'
+  ];
+
+  const rows = data.map(r => [
+    `"${(r.id || '').replace(/"/g, '""')}"`,
+    `"${(r.title || '').replace(/"/g, '""')}"`,
+    `"${(r.country || '').replace(/"/g, '""')}"`,
+    `"${(r.status || '').replace(/"/g, '""')}"`,
+    `"${(r.date || '').replace(/"/g, '""')}"`,
+    `"${(r.area || '').replace(/"/g, '""')}"`,
+    `"${(r.sourceName || '').replace(/"/g, '""')}"`,
+    `"${(r.sourceUrl || '').replace(/"/g, '""')}"`,
+    `"${(r.description || '').replace(/"/g, '""')}"`,
+    r.lat || '',
+    r.lon || ''
+  ].join(','));
+
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
   downloadBlob(csvContent, filename, 'text/csv;charset=utf-8;');
   showToast(`Exported ${data.length} records to CSV!`, 'fa-file-csv');
 }
@@ -830,18 +836,26 @@ function downloadBlob(content, filename, contentType) {
 
 // Region Action Toolbar Handlers
 if (shareRegionBtn) {
-  shareRegionBtn.addEventListener('click', () => {
-    const url = new URL(window.location.origin + window.location.pathname);
-    if (selectedRegion) url.searchParams.set('country', selectedRegion);
-    if (currentSectorFilter !== 'all') url.searchParams.set('sector', currentSectorFilter);
-    if (currentFilter !== 'all') url.searchParams.set('status', currentFilter);
-    if (currentYearFilter !== 'all') url.searchParams.set('year', currentYearFilter);
-    
-    navigator.clipboard.writeText(url.toString()).then(() => {
-      showToast('Shareable region link copied!', 'fa-share-alt');
-    }).catch(() => {
-      showToast('Failed to copy link.', 'fa-exclamation-triangle');
+  shareRegionBtn.addEventListener('click', async () => {
+    const shareUrl = getShareableUrl({
+      country: selectedRegion,
+      sector: currentSectorFilter,
+      status: currentFilter,
+      year: currentYearFilter
     });
+    
+    const success = await copyToClipboard(shareUrl);
+    if (success) {
+      shareRegionBtn.classList.add('copied');
+      shareRegionBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      showToast('Shareable region link copied!', 'fa-share-alt');
+      setTimeout(() => {
+        shareRegionBtn.classList.remove('copied');
+        shareRegionBtn.innerHTML = '<i class="fas fa-share-alt"></i> Share';
+      }, 2000);
+    } else {
+      showToast('Failed to copy link.', 'fa-exclamation-triangle');
+    }
   });
 }
 
@@ -864,13 +878,13 @@ if (exportRegionJsonBtn) {
 // Global Export Buttons (Stats Modal)
 if (exportAllCsvBtn) {
   exportAllCsvBtn.addEventListener('click', () => {
-    exportToCSV(regulationsData, 'global-ai-regulations-full.csv');
+    exportToCSV(regulationsData, 'global-ai-regulations-full-database.csv');
   });
 }
 
 if (exportAllJsonBtn) {
   exportAllJsonBtn.addEventListener('click', () => {
-    exportToJSON(regulationsData, 'global-ai-regulations-full.json');
+    exportToJSON(regulationsData, 'global-ai-regulations-full-database.json');
   });
 }
 
@@ -972,7 +986,7 @@ function renderStatsModal(renderChart = true) {
     }
     
     const c = r.country || 'Unknown';
-    if (c === 'Global' || c === 'EU' || c.includes('African Union')) {
+    if (c === 'Global' || c === 'European Union' || c.includes('African Union')) {
       globalTreaties++;
       internationalPolicies.push(r);
     }
@@ -981,7 +995,7 @@ function renderStatsModal(renderChart = true) {
       sectorSpotlights.push(r);
     }
     
-    if (c === 'Unknown' || c === 'Global' || c === 'EU') return;
+    if (c === 'Unknown' || c === 'Global') return;
     regionCounts[c] = (regionCounts[c] || 0) + 1;
   });
   
@@ -1022,11 +1036,11 @@ function renderStatsModal(renderChart = true) {
     return `
       <div class="search-item" style="padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); cursor: pointer;" onclick="document.getElementById('stats-modal').classList.remove('active'); window.__showPolicy('${escapeHtml(policy.country || 'Global')}', '${escapeHtml(policy.id)}');">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px;">
-          <strong style="color: #fff; font-size: 0.85rem; line-height: 1.3;">${policy.title}</strong>
+          <strong style="color: #fff; font-size: 0.85rem; line-height: 1.3;">${escapeHtml(policy.title)}</strong>
           <span class="status-indicator ${sClass}" style="flex-shrink: 0; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; text-transform: uppercase; font-weight: 700;">${policy.status}</span>
         </div>
         <div style="color: var(--text-muted); font-size: 0.78rem; display: flex; align-items: center; gap: 6px;">
-          <i class="fas ${policy.area === 'Government and Military' ? 'fa-shield-alt' : policy.area === 'Generative AI' ? 'fa-brain' : 'fa-landmark'}"></i> ${policy.area} &bull; ${policy.country || 'Global'}
+          <i class="fas ${policy.area === 'Government and Military' ? 'fa-shield-alt' : policy.area === 'Generative AI' ? 'fa-brain' : 'fa-landmark'}"></i> ${escapeHtml(policy.area)} &bull; ${escapeHtml(policy.country || 'Global')}
         </div>
       </div>
     `;
