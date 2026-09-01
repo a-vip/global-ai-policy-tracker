@@ -1,4 +1,5 @@
 import './style.css';
+
 // DOM Elements
 const infoPanel = document.getElementById('info-panel');
 const closePanelBtn = document.getElementById('close-panel');
@@ -7,7 +8,18 @@ const overallStatusEl = document.getElementById('overall-status');
 const statTotalEl = document.getElementById('stat-total');
 const regulationsListEl = document.getElementById('regulations-list');
 const searchInput = document.getElementById('search-input');
+const clearSearchBtn = document.getElementById('clear-search-btn');
+const searchDropdown = document.getElementById('search-dropdown');
+const sectorFilterSelect = document.getElementById('sector-filter-select');
 const tabBtns = document.querySelectorAll('.tab-btn');
+const timelineBtns = document.querySelectorAll('.timeline-btn');
+const timelineActiveBadge = document.getElementById('timeline-active-badge');
+const shareRegionBtn = document.getElementById('share-region-btn');
+const exportRegionCsvBtn = document.getElementById('export-region-csv-btn');
+const exportRegionJsonBtn = document.getElementById('export-region-json-btn');
+const exportAllCsvBtn = document.getElementById('export-all-csv-btn');
+const exportAllJsonBtn = document.getElementById('export-all-json-btn');
+const panelDragHandle = document.getElementById('panel-drag-handle');
 
 // Map Initialization
 const map = L.map('map', {
@@ -46,12 +58,15 @@ const colors = {
   Border: '#2a3655'
 };
 
-// Global Data
+// Global App State
 let regulationsData = [];
 let countrySummary = {};
 let geojsonLayer;
+let countryLayersMap = {};
 let markersLayer = L.layerGroup().addTo(map);
-let currentFilter = 'all';
+let currentFilter = 'all';        // Status: all, in-effect, passed, proposed, policy
+let currentSectorFilter = 'all';  // Sector filter
+let currentYearFilter = 'all';    // Timeline year filter
 let selectedRegion = null;
 let currentSpecificReg = null;
 
@@ -61,10 +76,42 @@ let currentSortColumn = 'total';
 let currentSortOrder = -1;
 let statsChartInstance = null;
 
+// Toast Utility
+function showToast(message, icon = 'fa-check-circle', duration = 2800) {
+  const toast = document.getElementById('toast-notification');
+  const toastMsg = document.getElementById('toast-msg');
+  if (!toast || !toastMsg) return;
+  toastMsg.textContent = message;
+  const iconEl = toast.querySelector('.toast-icon');
+  if (iconEl) iconEl.className = `fas ${icon} toast-icon`;
+  toast.classList.remove('hidden');
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => {
+    toast.classList.add('hidden');
+  }, duration);
+}
+
+// Helper: Escape HTML string
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Helper: Highlight matching query in text
+function highlightQuery(text, query) {
+  if (!text || !query) return escapeHtml(text);
+  const regex = new RegExp(`(${query.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')})`, 'gi');
+  return escapeHtml(text).replace(regex, '<span style="color: #60a5fa; font-weight: 700; text-decoration: underline;">$1</span>');
+}
+
 // Initialize App
 async function init() {
   try {
-    // Fetch Data
     const [regRes, sumRes, geoRes] = await Promise.all([
       fetch('./data/unified-regulations.json'),
       fetch('./data/country-summary.json'),
@@ -75,7 +122,7 @@ async function init() {
     countrySummary = await sumRes.json();
     const geoData = await geoRes.json();
 
-    // Add GeoJSON to Map
+    // Index and add GeoJSON to Map
     geojsonLayer = L.geoJSON(geoData, {
       style: getFeatureStyle,
       onEachFeature: onEachFeature
@@ -84,9 +131,12 @@ async function init() {
     // Add Regulation Markers
     renderMarkers();
 
-    // Compute stats and setup modal
+    // Compute stats
     computeAreaStats();
     renderStatsModal(false);
+
+    // Parse URL query parameters if present (deep link)
+    parseUrlParamsOnLoad();
 
   } catch (err) {
     console.error("Failed to load map data:", err);
@@ -116,7 +166,7 @@ function getStatusClass(statusStr) {
 // Styling features based on policy status
 function getFeatureStyle(feature) {
   const countryName = feature.properties.name;
-  const summary = countrySummary[countryName] || countrySummary[feature.id]; // Try name or ISO
+  const summary = countrySummary[countryName] || countrySummary[feature.id];
   
   let fillColor = colors.Default;
   if (summary) {
@@ -132,12 +182,37 @@ function getFeatureStyle(feature) {
   };
 }
 
-// Render pulsing markers for specific coordinates
+// Check if a regulation passes current global filters (Sector & Year)
+function passesGlobalFilters(reg) {
+  // Sector filter
+  if (currentSectorFilter !== 'all') {
+    if ((reg.area || 'General') !== currentSectorFilter) return false;
+  }
+  
+  // Year filter
+  if (currentYearFilter !== 'all') {
+    if (!reg.date || reg.date === 'Unknown Date') return false;
+    const year = new Date(reg.date).getFullYear();
+    if (isNaN(year)) return false;
+    
+    if (currentYearFilter === 'pre-2022') {
+      if (year > 2021) return false;
+    } else {
+      if (year !== parseInt(currentYearFilter, 10)) return false;
+    }
+  }
+
+  return true;
+}
+
+// Render pulsing markers for specific coordinates based on active filters
 function renderMarkers() {
   markersLayer.clearLayers();
   
   regulationsData.forEach(reg => {
     if (reg.lat && reg.lon) {
+      if (!passesGlobalFilters(reg)) return;
+
       const statusClass = getStatusClass(reg.status);
       const icon = L.divIcon({
         className: `pulse-marker ${statusClass}`,
@@ -146,9 +221,9 @@ function renderMarkers() {
         tooltipAnchor: [12, 0]
       });
       
-      const marker = L.marker([reg.lat, reg.lon], { icon }).bindTooltip(reg.title);
+      const marker = L.marker([reg.lat, reg.lon], { icon }).bindTooltip(`${reg.country || 'Global'}: ${reg.title}`);
       marker.on('click', () => {
-        showPanelForRegion(reg.country || 'Unknown', reg);
+        showPanelForRegion(reg.country || 'Unknown', reg, true);
       });
       markersLayer.addLayer(marker);
     }
@@ -157,12 +232,19 @@ function renderMarkers() {
 
 // Interaction Listeners for Polygons
 function onEachFeature(feature, layer) {
+  const countryName = feature.properties.name;
+  if (countryName) {
+    countryLayersMap[countryName.toLowerCase()] = layer;
+  }
+  if (feature.id) {
+    countryLayersMap[String(feature.id).toLowerCase()] = layer;
+  }
+
   layer.on({
     mouseover: highlightFeature,
     mouseout: resetHighlight,
-    click: (e) => {
-      const countryName = feature.properties.name;
-      showPanelForRegion(countryName);
+    click: () => {
+      showPanelForRegion(countryName, null, true);
     }
   });
 }
@@ -181,7 +263,30 @@ function resetHighlight(e) {
   geojsonLayer.resetStyle(e.target);
 }
 
-function showPanelForRegion(regionName, specificReg = null) {
+// Camera Fly-To & Country Centering
+function focusOnRegion(regionName, specificReg = null) {
+  if (specificReg && specificReg.lat && specificReg.lon) {
+    map.flyTo([specificReg.lat, specificReg.lon], 6, { duration: 1.2, easeLinearity: 0.25 });
+    return;
+  }
+  
+  const norm = (regionName || '').toLowerCase();
+  const layer = countryLayersMap[norm];
+  if (layer && layer.getBounds) {
+    try {
+      const bounds = layer.getBounds();
+      if (bounds.isValid()) {
+        map.flyToBounds(bounds, { padding: [60, 60], maxZoom: 6, duration: 1.2 });
+        highlightFeature({ target: layer });
+      }
+    } catch (e) {
+      console.warn('Could not calculate bounds for region:', regionName);
+    }
+  }
+}
+
+// Show Panel for Region or Specific Regulation
+function showPanelForRegion(regionName, specificReg = null, shouldFly = false) {
   selectedRegion = regionName;
   currentSpecificReg = specificReg;
   
@@ -211,15 +316,24 @@ function showPanelForRegion(regionName, specificReg = null) {
   
   // Render list
   renderRegulationsList();
+
+  // Camera Fly-To
+  if (shouldFly) {
+    focusOnRegion(regionName, specificReg);
+  }
+
+  // Sync URL query params
+  updateUrlParams();
 }
 
-function renderRegulationsList() {
-  if (!selectedRegion) return;
+// Get filtered regulations for current active region
+function getFilteredRegulations() {
+  if (!selectedRegion) return [];
   
-  let filtered = [];
+  let list = [];
   
   if (currentSpecificReg) {
-    filtered = [currentSpecificReg];
+    list = [currentSpecificReg];
   } else {
     const normRegion = selectedRegion.toLowerCase();
     const aliases = [normRegion];
@@ -229,27 +343,37 @@ function renderRegulationsList() {
     if (normRegion === 'south korea' || normRegion === 'korea') aliases.push('south korea', 'korea');
     if (normRegion === 'european union' || normRegion === 'eu') aliases.push('european union', 'eu');
     
-    filtered = regulationsData.filter(r => {
+    list = regulationsData.filter(r => {
       const c = (r.country || '').toLowerCase();
       const t = (r.title || '').toLowerCase();
-      // Match by country field directly to an alias, OR check if the title contains the country name/alias
       return aliases.some(a => c === a || c.includes(a) || t.startsWith(a + ' ') || t.includes(' - ' + a));
     });
   }
   
-  // Apply tab filter
+  // Apply Global filters (Sector & Year)
+  list = list.filter(passesGlobalFilters);
+
+  // Apply Status tab filter
   if (currentFilter !== 'all') {
-    filtered = filtered.filter(r => getStatusClass(r.status) === currentFilter);
+    list = list.filter(r => getStatusClass(r.status) === currentFilter);
   }
   
-  // Update stats
+  return list;
+}
+
+function renderRegulationsList() {
+  if (!selectedRegion) return;
+  
+  const filtered = getFilteredRegulations();
+  
+  // Update stats in header
   statTotalEl.textContent = filtered.length;
   
   if (filtered.length === 0) {
     regulationsListEl.innerHTML = `
       <div class="empty-state">
         <i class="fas fa-file-signature"></i>
-        <p>No ${currentFilter !== 'all' ? currentFilter : ''} regulations found for this region.</p>
+        <p>No matching regulations found for this region with the active filters.</p>
       </div>`;
     return;
   }
@@ -265,6 +389,15 @@ function renderRegulationsList() {
   }).join('');
 }
 
+// Generate formatted Citation string
+function generateCitation(reg) {
+  const jurisdiction = reg.country || 'International';
+  const year = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).getFullYear() : '2026';
+  const directUrl = (reg.description && reg.description.match(/https?:\/\/[^\s<)"']+/i)) ? reg.description.match(/https?:\/\/[^\s<)"']+/i)[0] : `https://aviperera.com/ai-policy-tracker/?id=${reg.id}`;
+  return `${jurisdiction}. (${year}). ${reg.title}. In Global AI Policy Tracker. Avi Perera. Retrieved from ${directUrl}`;
+}
+
+// Format Single Regulation Card HTML
 function formatRegulationCard(reg, isHighlighted = false) {
   const statusClass = getStatusClass(reg.status);
   const dateStr = reg.date && reg.date !== 'Unknown Date' ? new Date(reg.date).toLocaleDateString() : '';
@@ -366,7 +499,7 @@ function formatRegulationCard(reg, isHighlighted = false) {
   const areaBadge = reg.area && reg.area !== 'General' ? `<span class="reg-area">${reg.area}</span>` : '';
 
   return `
-    <div class="reg-card" ${isHighlighted ? 'style="border-color: #3b82f6;"' : ''}>
+    <div class="reg-card" data-reg-id="${escapeHtml(reg.id)}" ${isHighlighted ? 'style="border-color: #3b82f6;"' : ''}>
       <div class="reg-header">
         <div>
           <span class="reg-status ${statusClass}">${reg.status}</span>
@@ -380,52 +513,423 @@ function formatRegulationCard(reg, isHighlighted = false) {
         ${isLong ? `<button class="expand-desc-btn" type="button">Read full summary <i class="fas fa-chevron-down"></i></button>` : ''}
       </div>
       ${sourceHtml}
+      
+      <div class="card-actions-bar">
+        <button class="card-action-btn copy-citation-btn" data-id="${escapeHtml(reg.id)}" title="Copy formal citation to clipboard">
+          <i class="fas fa-quote-right"></i> Copy Citation
+        </button>
+        <button class="card-action-btn share-card-btn" data-id="${escapeHtml(reg.id)}" title="Share link to this specific law">
+          <i class="fas fa-share-alt"></i> Share
+        </button>
+      </div>
     </div>
   `;
 }
 
-// Delegation for description expand toggle
+// Delegation for Card Buttons (Expand, Citation, Share)
 if (regulationsListEl) {
   regulationsListEl.addEventListener('click', (e) => {
-    const btn = e.target.closest('.expand-desc-btn');
-    if (btn) {
+    // 1. Expand / Collapse
+    const expandBtn = e.target.closest('.expand-desc-btn');
+    if (expandBtn) {
       e.stopPropagation();
-      const content = btn.previousElementSibling;
+      const content = expandBtn.previousElementSibling;
       if (content && content.classList.contains('reg-desc-content')) {
         const isCollapsed = content.classList.toggle('is-collapsed');
-        btn.innerHTML = isCollapsed ? 'Read full summary <i class="fas fa-chevron-down"></i>' : 'Show less <i class="fas fa-chevron-up"></i>';
+        expandBtn.innerHTML = isCollapsed ? 'Read full summary <i class="fas fa-chevron-down"></i>' : 'Show less <i class="fas fa-chevron-up"></i>';
       }
+      return;
+    }
+
+    // 2. Copy Citation
+    const citeBtn = e.target.closest('.copy-citation-btn');
+    if (citeBtn) {
+      e.stopPropagation();
+      const regId = citeBtn.dataset.id;
+      const reg = regulationsData.find(r => r.id === regId);
+      if (reg) {
+        const citation = generateCitation(reg);
+        navigator.clipboard.writeText(citation).then(() => {
+          citeBtn.classList.add('copied');
+          citeBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          showToast('Citation copied to clipboard!', 'fa-quote-left');
+          setTimeout(() => {
+            citeBtn.classList.remove('copied');
+            citeBtn.innerHTML = '<i class="fas fa-quote-right"></i> Copy Citation';
+          }, 2000);
+        }).catch(() => {
+          showToast('Failed to copy citation.', 'fa-exclamation-triangle');
+        });
+      }
+      return;
+    }
+
+    // 3. Share Specific Card Link
+    const shareBtn = e.target.closest('.share-card-btn');
+    if (shareBtn) {
+      e.stopPropagation();
+      const regId = shareBtn.dataset.id;
+      const url = new URL(window.location.origin + window.location.pathname);
+      url.searchParams.set('id', regId);
+      navigator.clipboard.writeText(url.toString()).then(() => {
+        showToast('Direct legislation link copied!', 'fa-share-alt');
+      }).catch(() => {
+        showToast('Failed to copy link.', 'fa-exclamation-triangle');
+      });
+      return;
     }
   });
 }
 
-// Tab Filter Logic
+// Deep Search Logic
+let searchDebounceTimeout = null;
+
+function performDeepSearch(query) {
+  if (!query || query.trim().length < 2) {
+    searchDropdown.classList.add('hidden');
+    searchDropdown.innerHTML = '';
+    clearSearchBtn.classList.add('hidden');
+    return;
+  }
+
+  clearSearchBtn.classList.remove('hidden');
+  const q = query.trim().toLowerCase();
+  
+  // 1. Match Countries
+  const matchedCountries = Object.keys(countrySummary).filter(c => c.toLowerCase().includes(q));
+
+  // 2. Match Regulations (titles, descriptions, jurisdictions, areas)
+  const matchedRegs = regulationsData.filter(r => {
+    const title = (r.title || '').toLowerCase();
+    const desc = (r.description || '').toLowerCase();
+    const country = (r.country || '').toLowerCase();
+    const area = (r.area || '').toLowerCase();
+    return title.includes(q) || desc.includes(q) || country.includes(q) || area.includes(q);
+  }).slice(0, 10);
+
+  if (matchedCountries.length === 0 && matchedRegs.length === 0) {
+    searchDropdown.innerHTML = `<div class="search-empty"><i class="fas fa-search" style="margin-bottom: 6px; font-size: 1.2rem; display: block; opacity: 0.5;"></i> No matching policies or jurisdictions found for "<strong>${escapeHtml(query)}</strong>"</div>`;
+    searchDropdown.classList.remove('hidden');
+    return;
+  }
+
+  let html = '';
+
+  if (matchedCountries.length > 0) {
+    html += `<div class="search-group-title"><i class="fas fa-flag"></i> Jurisdictions (${matchedCountries.length})</div>`;
+    matchedCountries.slice(0, 4).forEach(c => {
+      const summary = countrySummary[c];
+      const stance = summary ? summary.overallStance : 'Unregulated';
+      const sClass = getStatusClass(stance);
+      html += `
+        <div class="search-item search-country-item" data-country="${escapeHtml(c)}">
+          <div class="search-item-header">
+            <span class="search-item-title">${highlightQuery(c, q)}</span>
+            <span class="search-badge ${sClass}">${stance}</span>
+          </div>
+          <div class="search-item-meta">
+            <span><i class="fas fa-landmark"></i> ${summary ? summary.count : 0} Policies Tracked</span>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedRegs.length > 0) {
+    html += `<div class="search-group-title"><i class="fas fa-gavel"></i> Specific Legislation & Policies (${matchedRegs.length})</div>`;
+    matchedRegs.forEach(r => {
+      const sClass = getStatusClass(r.status);
+      const year = r.date && r.date !== 'Unknown Date' ? new Date(r.date).getFullYear() : '';
+      html += `
+        <div class="search-item search-reg-item" data-id="${escapeHtml(r.id)}" data-country="${escapeHtml(r.country || 'Global')}">
+          <div class="search-item-header">
+            <span class="search-item-title">${highlightQuery(r.title, q)}</span>
+            <span class="search-badge ${sClass}">${r.status}</span>
+          </div>
+          <div class="search-item-meta">
+            <span><i class="fas fa-globe"></i> ${r.country || 'Global'}</span>
+            ${year ? `<span>&bull; ${year}</span>` : ''}
+            <span>&bull; ${r.area || 'General'}</span>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  searchDropdown.innerHTML = html;
+  searchDropdown.classList.remove('hidden');
+}
+
+// Search Input Listener
+searchInput.addEventListener('input', (e) => {
+  clearTimeout(searchDebounceTimeout);
+  const query = e.target.value;
+  searchDebounceTimeout = setTimeout(() => {
+    performDeepSearch(query);
+  }, 180);
+});
+
+// Clear Search Button
+clearSearchBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  searchDropdown.classList.add('hidden');
+  clearSearchBtn.classList.add('hidden');
+  searchInput.focus();
+});
+
+// Search Dropdown Click Handlers
+searchDropdown.addEventListener('click', (e) => {
+  const countryItem = e.target.closest('.search-country-item');
+  if (countryItem) {
+    const country = countryItem.dataset.country;
+    showPanelForRegion(country, null, true);
+    searchDropdown.classList.add('hidden');
+    return;
+  }
+
+  const regItem = e.target.closest('.search-reg-item');
+  if (regItem) {
+    const id = regItem.dataset.id;
+    const country = regItem.dataset.country;
+    const reg = regulationsData.find(r => r.id === id);
+    if (reg) {
+      showPanelForRegion(country, reg, true);
+    }
+    searchDropdown.classList.add('hidden');
+    return;
+  }
+});
+
+// Close dropdown on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-box')) {
+    searchDropdown.classList.add('hidden');
+  }
+});
+
+// Sector Filter Selector
+if (sectorFilterSelect) {
+  sectorFilterSelect.addEventListener('change', (e) => {
+    currentSectorFilter = e.target.value;
+    renderMarkers();
+    if (selectedRegion) renderRegulationsList();
+    updateUrlParams();
+    showToast(currentSectorFilter === 'all' ? 'Showing all sectors' : `Filtered to ${currentSectorFilter}`, 'fa-filter');
+  });
+}
+
+// Timeline Scrubber Buttons
+timelineBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    timelineBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentYearFilter = btn.dataset.year;
+    
+    if (timelineActiveBadge) {
+      timelineActiveBadge.textContent = btn.textContent;
+    }
+    
+    renderMarkers();
+    if (selectedRegion) renderRegulationsList();
+    updateUrlParams();
+    showToast(`Timeline: ${btn.textContent}`, 'fa-calendar-alt');
+  });
+});
+
+// Tab Filter Logic (Status)
 tabBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     tabBtns.forEach(b => b.classList.remove('active'));
     e.target.classList.add('active');
     currentFilter = e.target.dataset.filter;
     renderRegulationsList();
+    updateUrlParams();
   });
-});
-
-// Search Logic
-searchInput.addEventListener('input', (e) => {
-  const query = e.target.value.toLowerCase();
-  if (query.length < 2) return;
-  
-  // Find first matching country
-  const match = Object.keys(countrySummary).find(c => c.toLowerCase().includes(query));
-  if (match) {
-    showPanelForRegion(match);
-  }
 });
 
 // Close Panel Event
 closePanelBtn.addEventListener('click', () => {
   infoPanel.classList.add('hidden');
   selectedRegion = null;
+  currentSpecificReg = null;
+  updateUrlParams();
 });
+
+// Mobile Bottom Sheet Drag / Touch Toggle
+if (panelDragHandle) {
+  let startY = 0;
+  let currentHeight = 70;
+  
+  panelDragHandle.addEventListener('click', () => {
+    if (infoPanel.style.height === '90vh') {
+      infoPanel.style.height = '40vh';
+    } else {
+      infoPanel.style.height = '90vh';
+    }
+  });
+
+  panelDragHandle.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  panelDragHandle.addEventListener('touchmove', (e) => {
+    const deltaY = startY - e.touches[0].clientY;
+    if (deltaY > 50) {
+      infoPanel.style.height = '90vh';
+    } else if (deltaY < -50) {
+      infoPanel.style.height = '40vh';
+    }
+  }, { passive: true });
+}
+
+// Data Export Utilities
+function exportToCSV(data, filename = 'ai-regulations-export.csv') {
+  if (!data || !data.length) {
+    showToast('No data available to export.', 'fa-exclamation-circle');
+    return;
+  }
+  const headers = ['ID', 'Title', 'Jurisdiction', 'Status', 'Date', 'Focus Area', 'Source URL'];
+  const rows = data.map(r => {
+    const directUrl = (r.description && r.description.match(/https?:\/\/[^\s<)"']+/i)) ? r.description.match(/https?:\/\/[^\s<)"']+/i)[0] : '';
+    return [
+      `"${(r.id || '').replace(/"/g, '""')}"`,
+      `"${(r.title || '').replace(/"/g, '""')}"`,
+      `"${(r.country || '').replace(/"/g, '""')}"`,
+      `"${(r.status || '').replace(/"/g, '""')}"`,
+      `"${(r.date || '').replace(/"/g, '""')}"`,
+      `"${(r.area || '').replace(/"/g, '""')}"`,
+      `"${(directUrl || '').replace(/"/g, '""')}"`
+    ].join(',');
+  });
+  const csvContent = [headers.join(','), ...rows].join('\r\n');
+  downloadBlob(csvContent, filename, 'text/csv;charset=utf-8;');
+  showToast(`Exported ${data.length} records to CSV!`, 'fa-file-csv');
+}
+
+function exportToJSON(data, filename = 'ai-regulations-export.json') {
+  if (!data || !data.length) {
+    showToast('No data available to export.', 'fa-exclamation-circle');
+    return;
+  }
+  const jsonStr = JSON.stringify(data, null, 2);
+  downloadBlob(jsonStr, filename, 'application/json');
+  showToast(`Exported ${data.length} records to JSON!`, 'fa-file-code');
+}
+
+function downloadBlob(content, filename, contentType) {
+  const blob = new Blob([content], { type: contentType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Region Action Toolbar Handlers
+if (shareRegionBtn) {
+  shareRegionBtn.addEventListener('click', () => {
+    const url = new URL(window.location.origin + window.location.pathname);
+    if (selectedRegion) url.searchParams.set('country', selectedRegion);
+    if (currentSectorFilter !== 'all') url.searchParams.set('sector', currentSectorFilter);
+    if (currentFilter !== 'all') url.searchParams.set('status', currentFilter);
+    if (currentYearFilter !== 'all') url.searchParams.set('year', currentYearFilter);
+    
+    navigator.clipboard.writeText(url.toString()).then(() => {
+      showToast('Shareable region link copied!', 'fa-share-alt');
+    }).catch(() => {
+      showToast('Failed to copy link.', 'fa-exclamation-triangle');
+    });
+  });
+}
+
+if (exportRegionCsvBtn) {
+  exportRegionCsvBtn.addEventListener('click', () => {
+    const list = getFilteredRegulations();
+    const name = selectedRegion ? selectedRegion.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'region';
+    exportToCSV(list, `ai-policies-${name}.csv`);
+  });
+}
+
+if (exportRegionJsonBtn) {
+  exportRegionJsonBtn.addEventListener('click', () => {
+    const list = getFilteredRegulations();
+    const name = selectedRegion ? selectedRegion.toLowerCase().replace(/[^a-z0-9]/g, '-') : 'region';
+    exportToJSON(list, `ai-policies-${name}.json`);
+  });
+}
+
+// Global Export Buttons (Stats Modal)
+if (exportAllCsvBtn) {
+  exportAllCsvBtn.addEventListener('click', () => {
+    exportToCSV(regulationsData, 'global-ai-regulations-full.csv');
+  });
+}
+
+if (exportAllJsonBtn) {
+  exportAllJsonBtn.addEventListener('click', () => {
+    exportToJSON(regulationsData, 'global-ai-regulations-full.json');
+  });
+}
+
+// URL Parameter Sync
+function updateUrlParams() {
+  const params = new URLSearchParams();
+  if (selectedRegion && !currentSpecificReg) params.set('country', selectedRegion);
+  if (currentSpecificReg) params.set('id', currentSpecificReg.id);
+  if (currentSectorFilter !== 'all') params.set('sector', currentSectorFilter);
+  if (currentFilter !== 'all') params.set('status', currentFilter);
+  if (currentYearFilter !== 'all') params.set('year', currentYearFilter);
+  
+  const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+  window.history.replaceState({}, '', newUrl);
+}
+
+function parseUrlParamsOnLoad() {
+  const params = new URLSearchParams(window.location.search);
+  const countryParam = params.get('country');
+  const idParam = params.get('id');
+  const sectorParam = params.get('sector');
+  const statusParam = params.get('status');
+  const yearParam = params.get('year');
+
+  if (sectorParam) {
+    currentSectorFilter = sectorParam;
+    if (sectorFilterSelect) sectorFilterSelect.value = sectorParam;
+  }
+
+  if (statusParam) {
+    currentFilter = statusParam;
+    tabBtns.forEach(btn => {
+      if (btn.dataset.filter === statusParam) {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  if (yearParam) {
+    currentYearFilter = yearParam;
+    timelineBtns.forEach(btn => {
+      if (btn.dataset.year === yearParam) {
+        timelineBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (timelineActiveBadge) timelineActiveBadge.textContent = btn.textContent;
+      }
+    });
+  }
+
+  if (idParam) {
+    const foundReg = regulationsData.find(r => r.id === idParam);
+    if (foundReg) {
+      showPanelForRegion(foundReg.country || 'Unknown', foundReg, true);
+    }
+  } else if (countryParam) {
+    showPanelForRegion(countryParam, null, true);
+  }
+}
 
 // Stats Modal Logic
 function computeAreaStats() {
@@ -455,16 +959,13 @@ function renderStatsModal(renderChart = true) {
   const globalTotalEl = document.getElementById('global-total-stat');
   if (globalTotalEl) globalTotalEl.textContent = totalRegulations;
   
-  // Calculate totals for Enactment Rate and Treaties
   let totalEnacted = 0;
   let globalTreaties = 0;
-
   const regionCounts = {};
   const internationalPolicies = [];
   const sectorSpotlights = [];
   
   regulationsData.forEach(r => {
-    // Check enactment
     const s = getStatusClass(r.status);
     if (s === 'in-effect' || s === 'enacted' || s === 'passed') {
       totalEnacted++;
@@ -476,14 +977,11 @@ function renderStatsModal(renderChart = true) {
       internationalPolicies.push(r);
     }
     
-    // Check for critical sectors
     if (r.area === 'Government and Military' || r.area === 'Generative AI' || r.area === 'Technology and Infrastructure') {
       sectorSpotlights.push(r);
     }
     
-    // Skip non-sovereign or unknown for Top Regions (still needed for coverage)
     if (c === 'Unknown' || c === 'Global' || c === 'EU') return;
-    
     regionCounts[c] = (regionCounts[c] || 0) + 1;
   });
   
@@ -493,8 +991,7 @@ function renderStatsModal(renderChart = true) {
   if (activeSectorsEl) activeSectorsEl.textContent = activeSectorsCount;
   
   // Coverage
-  const sortedRegions = Object.keys(regionCounts);
-  const coverage = sortedRegions.length;
+  const coverage = Object.keys(regionCounts).length;
   const coverageEl = document.getElementById('global-coverage-stat');
   if (coverageEl) coverageEl.textContent = coverage;
 
@@ -519,17 +1016,17 @@ function renderStatsModal(renderChart = true) {
   const topSectorEl = document.getElementById('global-top-sector');
   if (topSectorEl) topSectorEl.innerHTML = `${topSector} <span style="font-size: 0.8rem; color: var(--text-secondary); margin-left: 8px; font-weight: normal;">(${topSectorCount})</span>`;
 
-  // Helper function to render a mini card
+  // Mini card helper for spotlights
   const renderMiniCard = (policy) => {
     const sClass = getStatusClass(policy.status);
     return `
-      <div style="padding: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; font-size: 0.85rem; line-height: 1.4;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
-          <strong style="color: #fff;">${policy.title}</strong>
-          <span class="status-indicator ${sClass}" style="flex-shrink: 0; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">${policy.status}</span>
+      <div class="search-item" style="padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); cursor: pointer;" onclick="document.getElementById('stats-modal').classList.remove('active'); window.__showPolicy('${escapeHtml(policy.country || 'Global')}', '${escapeHtml(policy.id)}');">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px;">
+          <strong style="color: #fff; font-size: 0.85rem; line-height: 1.3;">${policy.title}</strong>
+          <span class="status-indicator ${sClass}" style="flex-shrink: 0; padding: 2px 6px; border-radius: 4px; font-size: 0.68rem; text-transform: uppercase; font-weight: 700;">${policy.status}</span>
         </div>
-        <div style="color: var(--text-muted); font-size: 0.8rem; display: flex; align-items: center; gap: 6px;">
-          <i class="fas ${policy.area === 'Government and Military' ? 'fa-shield-alt' : policy.area === 'Generative AI' ? 'fa-brain' : 'fa-landmark'}"></i> ${policy.area}
+        <div style="color: var(--text-muted); font-size: 0.78rem; display: flex; align-items: center; gap: 6px;">
+          <i class="fas ${policy.area === 'Government and Military' ? 'fa-shield-alt' : policy.area === 'Generative AI' ? 'fa-brain' : 'fa-landmark'}"></i> ${policy.area} &bull; ${policy.country || 'Global'}
         </div>
       </div>
     `;
@@ -538,7 +1035,6 @@ function renderStatsModal(renderChart = true) {
   // Render International Frameworks
   const intlFrameworksEl = document.getElementById('international-frameworks-list');
   if (intlFrameworksEl) {
-    // Sort so "in-effect" / "passed" are on top, then by title
     internationalPolicies.sort((a, b) => {
       const aVal = (getStatusClass(a.status) === 'in-effect' || getStatusClass(a.status) === 'passed') ? 1 : 0;
       const bVal = (getStatusClass(b.status) === 'in-effect' || getStatusClass(b.status) === 'passed') ? 1 : 0;
@@ -550,7 +1046,6 @@ function renderStatsModal(renderChart = true) {
   // Render Sector Spotlights
   const sectorSpotlightsEl = document.getElementById('sector-spotlights-list');
   if (sectorSpotlightsEl) {
-    // Sort so "in-effect" / "passed" are on top
     sectorSpotlights.sort((a, b) => {
       const aVal = (getStatusClass(a.status) === 'in-effect' || getStatusClass(a.status) === 'passed') ? 1 : 0;
       const bVal = (getStatusClass(b.status) === 'in-effect' || getStatusClass(b.status) === 'passed') ? 1 : 0;
@@ -558,7 +1053,6 @@ function renderStatsModal(renderChart = true) {
     });
     sectorSpotlightsEl.innerHTML = sectorSpotlights.slice(0, 10).map(renderMiniCard).join('');
   }
-  
   
   // Sort
   statsArray.sort((a, b) => {
@@ -627,6 +1121,12 @@ function renderStatsModal(renderChart = true) {
   }
 }
 
+// Global window bridge for mini-cards
+window.__showPolicy = (country, regId) => {
+  const reg = regulationsData.find(r => r.id === regId);
+  showPanelForRegion(country, reg, true);
+};
+
 async function renderStatsChart(statsArray) {
   const ctx = document.getElementById('stats-chart');
   if (!ctx) return;
@@ -672,7 +1172,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (statsBtn && modalOverlay && closeBtn) {
     statsBtn.addEventListener('click', () => {
-      // Re-render and load chart
       renderStatsModal(true);
       modalOverlay.classList.add('active');
     });
@@ -690,7 +1189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSortOrder *= -1;
       } else {
         currentSortColumn = col;
-        currentSortOrder = -1; // Default to descending when switching columns
+        currentSortOrder = -1;
       }
       renderStatsModal(modalOverlay.classList.contains('active'));
     });

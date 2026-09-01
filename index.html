@@ -31,33 +31,89 @@
         <div class="header-controls">
           <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="Search countries, regulations..." autocomplete="off">
+            <input type="text" id="search-input" placeholder="Search countries, bills, topics..." autocomplete="off">
+            <button id="clear-search-btn" class="clear-search-btn hidden" title="Clear search">&times;</button>
+            <div id="search-dropdown" class="search-dropdown hidden"></div>
           </div>
-          <div class="legend" style="align-items: center;">
-            <div class="legend-item"><span class="dot in-effect"></span> In Effect</div>
-            <div class="legend-item"><span class="dot passed"></span> Passed</div>
-            <div class="legend-item"><span class="dot proposed"></span> Proposed</div>
-            <div class="legend-item"><span class="dot policy"></span> Policy</div>
-            <div class="legend-item"><span class="dot banned"></span> Banned</div>
-            <div class="legend-item"><span class="dot unregulated"></span> Unregulated</div>
-            <button id="stats-btn" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-left: 10px; transition: all 0.2s;"><i class="fas fa-chart-bar" style="margin-right: 6px;"></i> Statistics</button>
+          
+          <div class="controls-row">
+            <div class="sector-filter-wrap">
+              <i class="fas fa-layer-group sector-icon"></i>
+              <select id="sector-filter-select" class="sector-select" aria-label="Filter by Sector">
+                <option value="all">All Sectors (Global)</option>
+                <option value="Generative AI">Generative AI & LLMs</option>
+                <option value="Data, Internet, Privacy, and Advertising">Data, Privacy & Cyber</option>
+                <option value="Government and Military">Gov, Defense & Security</option>
+                <option value="Employment">Employment & Labor</option>
+                <option value="Financial and Insurance">Financial & Insurance</option>
+                <option value="Health">Health & Bio</option>
+                <option value="General">General & Governance</option>
+                <option value="Other">Other Key Sectors</option>
+              </select>
+            </div>
+
+            <div class="legend" style="align-items: center;">
+              <div class="legend-item"><span class="dot in-effect"></span> In Effect</div>
+              <div class="legend-item"><span class="dot passed"></span> Passed</div>
+              <div class="legend-item"><span class="dot proposed"></span> Proposed</div>
+              <div class="legend-item"><span class="dot policy"></span> Policy</div>
+              <div class="legend-item"><span class="dot banned"></span> Banned</div>
+              <div class="legend-item"><span class="dot unregulated"></span> Unregulated</div>
+              <button id="stats-btn" class="stats-btn-header" title="Open Global Analytics & Statistics"><i class="fas fa-chart-pie" style="margin-right: 6px;"></i> Statistics</button>
+            </div>
           </div>
         </div>
       </header>
 
       <main>
         <div id="map"></div>
+
+        <!-- Floating Timeline Scrubber -->
+        <div id="timeline-scrubber" class="timeline-bar">
+          <div class="timeline-header">
+            <span class="timeline-label"><i class="fas fa-calendar-alt"></i> Timeline:</span>
+            <span class="timeline-active-badge" id="timeline-active-badge">All Time</span>
+          </div>
+          <div class="timeline-buttons">
+            <button class="timeline-btn active" data-year="all">All Time</button>
+            <button class="timeline-btn" data-year="2026">2026</button>
+            <button class="timeline-btn" data-year="2025">2025</button>
+            <button class="timeline-btn" data-year="2024">2024</button>
+            <button class="timeline-btn" data-year="2023">2023</button>
+            <button class="timeline-btn" data-year="2022">2022</button>
+            <button class="timeline-btn" data-year="pre-2022">&le; 2021</button>
+          </div>
+        </div>
         
         <aside id="info-panel" class="glass-panel hidden">
-          <button id="close-panel" class="close-btn">&times;</button>
+          <!-- Mobile Drag Handle -->
+          <div class="panel-drag-handle" id="panel-drag-handle">
+            <span class="drag-bar"></span>
+          </div>
+
+          <button id="close-panel" class="close-btn" title="Close Panel">&times;</button>
           <div class="panel-header">
             <h2 id="panel-title">Select a Region</h2>
             <div id="overall-status" class="badge">Status</div>
+            
             <div class="stats-row">
               <div class="stat-box">
                 <span class="stat-value" id="stat-total">0</span>
                 <span class="stat-label">Regulations</span>
               </div>
+            </div>
+
+            <!-- Panel Actions Toolbar -->
+            <div class="panel-actions-toolbar">
+              <button id="share-region-btn" class="panel-action-btn" title="Copy shareable link to this region">
+                <i class="fas fa-share-alt"></i> Share
+              </button>
+              <button id="export-region-csv-btn" class="panel-action-btn" title="Export this region's policies to CSV">
+                <i class="fas fa-file-csv"></i> CSV
+              </button>
+              <button id="export-region-json-btn" class="panel-action-btn" title="Export this region's policies to JSON">
+                <i class="fas fa-file-code"></i> JSON
+              </button>
             </div>
           </div>
           <div class="panel-content">
@@ -79,6 +135,12 @@
         </aside>
       </main>
 
+      <!-- Global Toast Alert -->
+      <div id="toast-notification" class="toast-notification hidden">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <span id="toast-msg">Link copied to clipboard!</span>
+      </div>
+
       <footer class="glass-footer">
         <p>Curated by <a href="https://aviperera.com" target="_top">Avi Perera</a> &copy; 2026. Built for transparency in international AI Policy.</p>
       </footer>
@@ -88,8 +150,12 @@
     <div id="stats-modal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>AI Regulations Statistics</h2>
-          <button id="close-modal" class="modal-close">&times;</button>
+          <h2>AI Regulations Statistics & Analytics</h2>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <button id="export-all-csv-btn" class="panel-action-btn" title="Export Entire Global Dataset as CSV"><i class="fas fa-file-csv"></i> Export CSV</button>
+            <button id="export-all-json-btn" class="panel-action-btn" title="Export Entire Global Dataset as JSON"><i class="fas fa-file-code"></i> Export JSON</button>
+            <button id="close-modal" class="modal-close">&times;</button>
+          </div>
         </div>
         <div class="modal-body" style="padding-bottom: 40px;">
           
